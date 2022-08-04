@@ -1,0 +1,133 @@
+.card {
+  border: 1px solid $colorLine;
+  border-radius: 6px;
+  .card-header {
+    border-bottom: 1px solid $colorLine;
+    background: rgba($colorLine, 0.1);
+    font-size: 14px;
+    color: $colorText;
+    font-weight: $medium;
+  }
+  .card-footer {
+    border-top: 1px solid $colorLine;
+    background: rgba($colorLine, 0.1);
+    color: $colorText;
+    font-size: 14px;
+  }
+  .card-title {
+    color: $colorHeading;
+    font-size: 18px;
+    font-weight: $medium;
+    margin-bottom: 16px;
+  }
+  &.bg-primary,
+  &.bg-success,
+  &.bg-danger,
+  &.bg-warning,
+  &.bg-info,
+  &.bg-dark,
+  &.bg-secondary {
+    border: 0;
+    .card-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: transparent;
+      color: #fff;
+    }
+    .card-title {
+      color: #fff;
+    }
+    .card-text {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+.card-overlay {
+  border: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  .card-img-overlay {
+    background: rgba(#1f3053, 0.5);
+    border-radius: 6px;
+    padding: 16px;
+  }
+  .card-img {
+    border-radius: 6px;
+  }
+  .header {
+    font-size: 14px;
+    font-weight: $bold;
+    i.icon {
+      font-size: 16px;
+    }
+  }
+  .content {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    h1 {
+      font-size: 24px;
+      font-weight: $bold;
+      margin: 0 0 16px 0;
+      color: #fff;
+      line-height: 1.4em;
+    }
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      .author {
+        display: flex;
+        align-items: center;
+        img {
+          border: 1px solid #fff;
+          margin-right: 6px;
+          width: 24px;
+          height: 24px;
+          border-radius: 100px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 340px) {
+  .card-overlay{
+    .content{
+      h1{
+        font-size: 18px;
+        line-height: 1.4em;
+      }
+    }
+  }
+}
+
+.cardOverlay {
+  color: #fff;
+  border-radius: 6px;
+  border: 0;
+  .card-img-top {
+    border-radius: 6px;
+  }
+  .card-title {
+    color: #fff;
+  }
+  .card-text {
+    opacity: 0.75;
+  }
+  .card-img-overlay {
+    background: rgba(#1f3053, 0.5);
+    border-radius: 6px;
+    padding: 16px;
+  }
+}
+.listviewCard{
+  .listView{
+    .listItem:last-child{
+      &:after{
+        display: none;
+      }
+    }
+  }
+}

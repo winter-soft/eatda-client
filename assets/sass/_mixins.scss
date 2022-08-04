@@ -1,0 +1,24 @@
+@mixin clearfix() {
+    &::after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+}
+
+
+@mixin scrollStyle {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    margin-right: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.1)
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,.15) 
+  }
+}

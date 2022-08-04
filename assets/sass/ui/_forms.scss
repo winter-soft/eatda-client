@@ -1,0 +1,100 @@
+.form-control{
+    box-shadow: none !important;
+    color: $colorHeading !important;
+    background: $colorLine;
+    height: 50px;
+    font-size: 18px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: 0;
+    &:focus{
+        background: $colorLine;
+    }
+}
+.custom-control {
+    .custom-control-label {
+      padding-left: 10px;
+      padding-top: 2px;
+      &:before {
+        box-shadow: none !important;
+        background: $colorLine;
+        width: 24px;
+        height: 24px;
+        border-color: $colorLine !important;
+        border-radius: 6px;
+        margin-top: -2px;
+      }
+      &:after {
+        margin-top: 1px;
+        margin-left: 3px;
+      }
+      &:active{
+        &:before{
+            background: #FFF !important;
+        }
+    }
+    }
+    .custom-control-input:checked ~ .custom-control-label {
+      &:before {
+        background: $colorPrimary !important;
+        border-color: $colorPrimary !important;
+      }
+      &:after {
+        width: 18px;
+        height: 18px;
+        background-size: 12px 12px;
+      }
+    }
+  }
+  .custom-control .custom-control-input:checked ~ .custom-control-label:before{
+      border-radius: 6px;
+  }
+  .custom-radio{
+    .custom-control-label{
+        &:before{
+            border-radius: 100px;
+        }
+    }
+    .custom-control-input:checked ~ .custom-control-label {
+        &:before{
+            border-radius: 100px;
+        }
+    }
+  }
+
+  .custom-switch {
+    height: 32px;
+    width: 64px;
+    display: inline-flex;
+    .custom-control-label {
+      padding-left: 4px;
+      &:before {
+        height: 32px;
+        width: 64px;
+        background: #FFF;
+        border-radius: 100px !important;
+        border-color: darken($colorLine, 15%) !important;
+        box-shadow: none !important;
+      }
+      &:after {
+        margin-left: 1px;
+        width: 26px !important;
+        margin-top: -1px;
+        height: 26px !important;
+        border-radius: 100px;
+        background: darken($colorLine, 15%);
+      }
+    }
+    .custom-control-input:checked {
+      & ~ .custom-control-label {
+        &:before {
+          border-color: $colorPrimary !important;
+          background: transparent !important;
+        }
+        &:after{
+          background: $colorPrimary;
+          transform: translateX(32px);
+        }
+      }
+    }
+  }

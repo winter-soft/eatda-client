@@ -1,0 +1,89 @@
+.appBottomMenu{
+    min-height: 56px;
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFF;
+    border-top: 1px solid $colorLine;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: env(safe-area-inset-bottom);
+    .item{
+        width: 20%;
+        text-align: center;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > a{
+            width: 100%;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            padding: 0;;
+            justify-content: center;
+            color: $colorHeading !important;
+            position: relative;
+        }
+        p{
+            margin: 0;
+        }
+        i{
+            font-size: 26px;
+            line-height: 0;
+            margin-bottom: 17px;
+            display: block;
+        }
+        span{
+            display: block;
+            font-size: 11px;
+            position: absolute;
+            left: 0;
+            bottom: 2px;
+            right: 0;
+        }
+        &.active{
+            position: relative;
+            &:after{
+                content: '';
+                height: 2px;
+                border-radius:  0 0 10px 10px;
+                display: block;
+                background: $colorPrimary;
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+            }
+            > a{
+                color: $colorPrimary !important;
+            }
+        }
+    }
+    &.iconed{
+        .item{
+            i{
+                margin-bottom: 0;
+            }
+        }
+    }
+    &.color-light{
+        border-top: 0;
+        .item{
+            > a{
+                color: rgba(255,255,255,.7) !important;
+            }
+            &.active{
+                &:after{
+                    background: transparent;
+                }
+                > a{
+                    color: #FFF !important;
+                }
+            }
+        }
+    }
+}

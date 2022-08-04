@@ -1,0 +1,57 @@
+////////////////////////////////////////////////////////////////
+// Bootstrap 4
+////////////////////////////////////////////////////////////////
+@import url('inc/bootstrap/bootstrap.min.css');
+
+////////////////////////////////////////////////////////////////
+// Plugins
+////////////////////////////////////////////////////////////////
+// Owl Carousel
+@import url('inc/owl-carousel/owl.carousel.min.css');
+@import url('inc/owl-carousel/owl.theme.default.css');
+
+////////////////////////////////////////////////////////////////
+// Ion Icons
+////////////////////////////////////////////////////////////////
+@import url('https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css');
+
+////////////////////////////////////////////////////////////////
+// Template
+////////////////////////////////////////////////////////////////
+// Font Settings
+@import 'font';
+// Theme Colors
+@import 'colors';
+// Mixins
+@import 'mixins';
+
+// Body - General Settings
+@import 'body';
+
+// Header
+@import 'layout/header';
+// Bottom Menu
+@import 'layout/bottomMenu';
+// Sidebar Menu
+@import 'layout/sidebar';
+// Content
+@import 'layout/content';
+// Footer
+@import 'layout/footer';
+
+// Grid
+@import 'ui/grid';
+// Others
+@import 'ui/others';
+// Forms
+@import 'ui/forms';
+// Button
+@import 'ui/button';
+// Listview
+@import 'ui/listview';
+// Titles
+@import 'ui/typography';
+// Card
+@import 'ui/card';
+// Blocks
+@import 'ui/blocks';

@@ -1,0 +1,12 @@
+.appFooter{
+    border-top: 1px solid $colorLine;
+    padding: 30px 20px;
+    font-size: 14px;
+    line-height: 1.5em;
+    text-align: center;
+    .heading{
+        font-weight: $medium;
+        color: $colorHeading;
+        margin-bottom: 4px;
+    }
+}

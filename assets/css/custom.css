@@ -1,0 +1,104 @@
+:root {
+    --color-text: #2D3243;
+    --color-white-text: #FFFFFF;
+    --color-yellow-text: #FFB906;
+    --color-dark-yellow-text: #d8b84d;
+    --color-green-text: #08DB5C;
+    --color-kakao-text: #FEE500;
+    --color-naver-text: #1FCB53;
+}
+
+@font-face {
+    font-family: "Yeongdo";
+    src: url("../../assets/font/Yeongdo.woff2") format("woff2");
+}
+
+html {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--color-text);
+}
+
+.login-title h1 {
+    font-family: Yeongdo;
+    font-size: 3rem !important;
+}
+
+.login-icon img {
+    width: 230px;
+}
+
+.kakao-bg {
+    background-color: var(--color-kakao-text);
+}
+
+.naver-bg {
+    background-color: var(--color-naver-text);
+}
+
+.yellow-bg {
+    background-color: var(--color-yellow-text);
+}
+
+.green-bg {
+    background-color: var(--color-green-text);
+}
+
+.em-txt {
+    color: var(--color-dark-yellow-text) !important;
+}
+
+.login-header {
+    position: relative;
+    width: 100% !important;
+    top: 10vh;
+}
+
+@media (max-height: 670px) {
+    .login-header {
+        position: relative;
+        width: 100% !important;
+        top: 2vh;
+    }
+}
+
+.sns-btn-box {
+    position: absolute;
+    bottom: 3vh;
+    width: 90% !important;
+    right: 5%;
+}
+
+.sns-btn {
+
+    color: #262835;
+    font-size: 1rem;
+    border: none;
+    margin-bottom: 5px;
+}
+
+.sns-btn img {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-right: 30px;
+}
+
+.main-banner {
+    background-image: linear-gradient(120deg, #FFFA84 0%, #FFB906 100%);
+    padding: 25px;
+    border-radius: 10px;
+    line-height: 33px;
+}
+
+.main-banner p {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-white-text);
+    margin: 0;
+}
+
+ion-icon {
+    font-size: 25px;
+    line-height: 0;
+    margin-bottom: 17px;
+    display: block;
+}

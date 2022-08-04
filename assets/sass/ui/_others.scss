@@ -1,0 +1,388 @@
+// Badges
+.badge {
+  font-size: 13px;
+  border-radius: 100px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  position: relative;
+  &.iconed {
+    padding-left: 32px;
+  }
+  &.imaged {
+    padding-left: 32px;
+    img {
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      width: 27px;
+      height: 27px;
+      border-radius: 100px;
+    }
+  }
+  i {
+    margin-right: 4px;
+    background: rgba(0, 0, 0, 0.2);
+    font-size: 15px;
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    left: -1px;
+    top: -1px;
+  }
+}
+a.badge{
+  box-shadow: none !important;
+}
+
+.badge-primary,
+a.badge-primary{
+  background: $colorPrimary !important;
+  border-color: $colorPrimary !important;
+}
+.badge-secondary,
+a.badge-secondary {
+  background: $colorSecondary !important;
+  border-color: $colorSecondary !important;
+}
+.badge-success,
+a.badge-success{
+  background: $colorSuccess !important;
+  border-color: $colorSuccess !important;
+}
+.badge-danger,
+a.badge-danger {
+  background: $colorDanger !important;
+  border-color: $colorDanger !important;
+}
+.badge-warning,
+a.badge-warning {
+  background: $colorWarning !important;
+  border-color: $colorWarning !important;
+  color: #FFF !important;
+}
+.badge-info,
+a.badge-info {
+  background: $colorInfo !important;
+  border-color: $colorInfo !important;
+}
+.badge-light,
+a.badge-light {
+  background: #fff !important;
+  border-color: #fff !important;
+}
+.badge-dark,
+a.badge-dark {
+  background: #333 !important;
+  border-color: #333 !important;
+}
+.badge-outline-primary,
+a.badge-outline-primary {
+  background: transparent !important;
+  border-color: $colorPrimary !important;
+  color: $colorPrimary !important;
+}
+.badge-outline-secondary,
+a.badge-outline-secondary {
+  background: transparent !important;
+  border-color: $colorSecondary !important;
+  color: $colorSecondary !important;
+}
+.badge-outline-success,
+a.badge-outline-success {
+  background: transparent !important;
+  border-color: $colorSuccess !important;
+  color: $colorSuccess !important;
+}
+.badge-outline-danger,
+a.badge-outline-danger {
+  background: transparent !important;
+  border-color: $colorDanger !important;
+  color: $colorDanger !important;
+}
+.badge-outline-warning,
+a.badge-outline-warning {
+  background: transparent !important;
+  border-color: $colorWarning !important;
+  color: $colorWarning !important;
+}
+.badge-outline-info,
+a.badge-outline-info {
+  background: transparent !important;
+  border-color: $colorInfo !important;
+  color: $colorInfo !important;
+}
+.badge-outline-light,
+a.badge-outline-light {
+  background: transparent !important;
+  border-color: #fff !important;
+  color: #fff !important;
+}
+.badge-outline-dark,
+a.badge-outline-dark {
+  background: transparent !important;
+  border-color: #333 !important;
+  color: #333 !important;
+}
+
+.bg-primary {
+  background: $colorPrimary !important;
+}
+.bg-secondary {
+  background: $colorSecondary !important;
+}
+.bg-success {
+  background: $colorSuccess !important;
+}
+.bg-danger {
+  background: $colorDanger !important;
+}
+.bg-warning {
+  background: $colorWarning !important;
+}
+.bg-info {
+  background: $colorInfo !important;
+}
+.bg-facebook{
+  background: #39579b !important;
+}
+.bg-twitter{
+  background: #049ff6 !important;
+}
+.bg-instagram{
+  background: #df237b !important;
+}
+.bg-linkedin{
+  background: #0075aa !important;
+}
+.bg-twitch{
+  background: #923cff !important;
+}
+.bg-whatsapp{
+  background: #0ad561 !important;
+}
+
+// Pagination
+.pagination {
+  .page-item {
+    .page-link {
+      padding: 6px 12px;
+      box-shadow: none !important;
+      color: $colorText;
+      position: relative;
+      z-index: 1;
+      font-size: 16px;
+    }
+    &.active {
+      .page-link {
+        color: #fff;
+        background: $colorPrimary;
+        border-color: $colorPrimary;
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
+}
+.pagination-sm{
+    .page-item{
+        .page-link{
+            font-size: 14px;
+        }
+    }
+}
+.pagination-lg{
+    .page-item{
+        .page-link{
+            font-size: 20px;
+            padding: 6px 16px;
+        }
+    }
+}
+// Spacing
+.m-0{
+  margin: 0 !important;
+}
+.m-1{
+  margin: 10px !important;
+}
+.m-2{
+  margin: 20px !important;
+}
+.m-3{
+  margin: 30px !important;
+}
+.m-4{
+  margin: 40px !important;
+}
+.m-5{
+  margin: 50px !important;
+}
+.mt-0{
+  margin-top: 0 !important;
+}
+.mt-1{
+  margin-top: 10px !important;
+}
+.mt-2{
+  margin-top: 20px !important;
+}
+.mt-3{
+  margin-top: 30px !important;
+}
+.mt-4{
+  margin-top: 40px !important;
+}
+.mt-5{
+  margin-top: 50px !important;
+}
+.mb-0{
+  margin-bottom: 0px !important;
+}
+.mb-1{
+  margin-bottom: 10px !important;
+}
+.mb-2{
+  margin-bottom: 20px !important;
+}
+.mb-3{
+  margin-bottom: 30px !important;
+}
+.mb-4{
+  margin-bottom: 40px !important;
+}
+.mb-5{
+  margin-bottom: 50px !important;
+}
+.ml-0{
+  margin-left: 0 !important;
+}
+.ml-1{
+  margin-left: 10px !important;
+}
+.ml-2{
+  margin-left: 20px !important;
+}
+.ml-3{
+  margin-left: 30px !important;
+}
+.ml-4{
+  margin-left: 40px !important;
+}
+.ml-5{
+  margin-left: 50px !important;
+}
+.mr-0{
+  margin-right: 0px !important;
+}
+.mr-1{
+  margin-right: 10px !important;
+}
+.mr-2{
+  margin-right: 20px !important;
+}
+.mr-3{
+  margin-right: 30px !important;
+}
+.mr-4{
+  margin-right: 40px !important;
+}
+.mr-5{
+  margin-right: 50px !important;
+}
+.p-0{
+  padding: 0 !important;
+}
+.p-1{
+  padding: 10px !important;
+}
+.p-2{
+  padding: 20px !important;
+}
+.p-3{
+  padding: 30px !important;
+}
+.p-4{
+  padding: 40px !important;
+}
+.p-5{
+  padding: 50px !important;
+}
+.pt-0{
+  padding-top: 0px !important;
+}
+.pt-1{
+  padding-top: 10px !important;
+}
+.pt-2{
+  padding-top: 20px !important;
+}
+.pt-3{
+  padding-top: 30px !important;
+}
+.pt-4{
+  padding-top: 40px !important;
+}
+.pt-5{
+  padding-top: 50px !important;
+}
+.pb-0{
+  padding-bottom: 0px !important;
+}
+.pb-1{
+  padding-bottom: 10px !important;
+}
+.pb-2{
+  padding-bottom: 20px !important;
+}
+.pb-3{
+  padding-bottom: 30px !important;
+}
+.pb-4{
+  padding-bottom: 40px !important;
+}
+.pb-5{
+  padding-bottom: 50px !important;
+}
+.pl-0{
+  padding-left: 0px !important;
+}
+.pl-1{
+  padding-left: 10px !important;
+}
+.pl-2{
+  padding-left: 20px !important;
+}
+.pl-3{
+  padding-left: 30px !important;
+}
+.pl-4{
+  padding-left: 40px !important;
+}
+.pl-5{
+  padding-left: 50px !important;
+}
+.pr-0{
+  padding-right: 0px !important;
+}
+.pr-1{
+  padding-right: 10px !important;
+}
+.pr-2{
+  padding-right: 20px !important;
+}
+.pr-3{
+  padding-right: 30px !important;
+}
+.pr-4{
+  padding-right: 40px !important;
+}
+.pr-5{
+  padding-right: 50px !important;
+}
+i.icon.mr-1{
+  margin-right: 5px !important;
+}

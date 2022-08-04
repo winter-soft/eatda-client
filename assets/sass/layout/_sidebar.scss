@@ -1,0 +1,126 @@
+// Sidebar width
+$sidebarSize: 250px;
+// Change sidebar width right here and compile the sass
+
+body.sidebarActive {
+  overflow: hidden;
+}
+.sidebarWrapper {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11000;
+  overflow: auto;
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  .overlay {
+    position: fixed;
+    left: $sidebarSize;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+.sidebar {
+  background: #fff;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.15);
+  width: $sidebarSize;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  overflow: auto;
+  left: -90%;
+  transition: 0.2s all;
+  .profilebox {
+    padding: 20px;
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+    .title {
+      font-size: 18px;
+      font-weight: $bold;
+      letter-spacing: 0;
+      color: $colorHeading;
+      margin: 0 0 6px 0;
+    }
+    .lead {
+      font-size: 14px;
+      color: $colorText;
+      font-weight: $regular;
+      margin: 0;
+    }
+    .button {
+      position: absolute;
+      right: 15px;
+      top: 20px;
+      font-size: 22px;
+      a {
+        display: inline-block;
+        padding: 4px 5px;
+        margin-left: 5px;
+        color: $colorHeading;
+      }
+    }
+  }
+  .bottomButton {
+    position: absolute;
+    left: 0;
+  }
+}
+
+.sidebarMenu {
+  padding: 0;
+  margin: 0 0 20px 0;
+  > li {
+    display: block;
+    > a {
+      display: block;
+      color: $colorHeading;
+      padding: 12px 40px 12px 60px;
+      position: relative;
+      .badge {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        padding: 2px 6px;
+      }
+      i.icon {
+        text-align: center;
+        font-size: 26px;
+        position: absolute;
+        left: 20px;
+        top: 10px;
+      }
+      .avatar {
+        width: 26px;
+        height: 26px;
+        position: absolute;
+        left: 20px;
+        top: 11px;
+        border-radius: 100px;
+      }
+      &:active {
+        background: rgba($colorLine, 0.4);
+      }
+    }
+  }
+  li.title {
+    padding-left: 20px;
+    font-size: 14px;
+    color: $colorText;
+    font-weight: $medium;
+    padding-bottom: 10px;
+  }
+}
+
+.sidebar.is-active {
+  left: 0;
+}

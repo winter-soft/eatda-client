@@ -1,0 +1,149 @@
+.appHeader {
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9990;
+  background: #fff;
+  border-bottom: 1px solid $colorLine;
+  color: $colorHeading;
+  .pageTitle {
+    font-size: 18px;
+    font-weight: $medium;
+    color: $colorHeading;
+    text-align: center;
+    line-height: 1em;
+    .text-muted{
+      font-size: 11px;
+      margin: 0;
+      line-height: 1.2em;
+    }
+    .image{
+      height: 20px;
+    }
+  }
+  .left,
+  .right {
+    position: absolute;
+    top: 0;
+    transition: 0.2s all;
+    height: 56px;
+    min-width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .btn {
+      margin-right: 10px;
+    }
+    .icon {
+      width: 56px;
+      height: 56px;
+      color: $colorHeading;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      i {
+        font-size: 26px;
+      }
+    }
+    &:active {
+      opacity: 0.5;
+    }
+  }
+  .left {
+    left: 0;
+    right: auto;
+  }
+  .right {
+    right: 0;
+    left: auto;
+    .link{
+      margin-right: 20px;
+      color: $colorHeading;
+      font-weight: $medium;
+    }
+  }
+  &.color-light {
+    border-bottom: 0;
+    .pageTitle {
+      color: #fff;
+    }
+    .left,
+    .right {
+      .icon {
+        color: #fff;
+      }
+    }
+  }
+}
+.searchBox {
+  position: fixed;
+  display: none;
+  left: 0;
+  top: 0;
+  z-index: 10500;
+  right: 0;
+  height: 56px;
+  background: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  .inputIcon {
+    font-size: 26px;
+    height: 56px;
+    width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: $colorHeading;
+  }
+  .form-control {
+    height: 56px;
+    background: transparent;
+    border-radius: 0;
+    padding-left: 56px;
+    padding-right: 56px;
+    &:focus{
+        background: transparent;
+    }
+  }
+  .closeButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 56px;
+    height: 56px;
+    text-shadow: none;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $colorText;
+    &:hover,
+    &:active{
+        opacity: .7;
+    }
+  }
+}
+
+.searchBlock{
+  position: relative;
+  .inputIcon{
+    position: absolute;
+    z-index: 1;
+    font-size: 26px;
+    width: 56px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .form-control{
+    padding-left: 56px;
+  }
+}

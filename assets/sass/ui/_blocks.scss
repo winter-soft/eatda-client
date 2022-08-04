@@ -1,0 +1,804 @@
+////////////////////////////////////////////////
+// 1. Divider
+// 2. Photo Post
+// 3. Profile Detail
+// 4. Comments
+// 5. Card Overlay Carousel
+// 6. Post Carousel
+// 7. Item List
+// 8. Post Item
+// 9. Iconed Box
+// 10. Post Page
+// 11. Accordion
+// 12. Content Boxes
+// 13. Image Block
+// 14. Tables
+// 15. Basic Carousel
+// 16. Tabs
+// 17. Chat
+// 18. Splash
+// 19. Slider Carousel
+// 20. Countdown
+// 21. Button Carousel
+////////////////////////////////////////////////
+
+////////////////////////////////////////////////
+// 1. Divider
+////////////////////////////////////////////////
+.divider {
+  height: 1px;
+  background: transparent;
+  border-bottom: 1px solid $colorLine;
+  &.dotted {
+    border-bottom: 1px dotted $colorLine;
+  }
+  &.dashed {
+    border-bottom: 1px dashed $colorLine;
+  }
+  &.large {
+    border-bottom-width: 2px;
+  }
+  &.xlarge {
+    border-bottom-width: 4px;
+  }
+  &.xxlarge {
+    border-bottom-width: 6px;
+  }
+}
+////////////////////////////////////////////////
+// 2. Photo Post
+////////////////////////////////////////////////
+.photoPost {
+  header {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 100px;
+      margin-right: 6px;
+    }
+    strong {
+      font-weight: $medium;
+      color: $colorHeading;
+    }
+    .lead {
+      font-size: 14px;
+    }
+  }
+  .image {
+    img {
+      border-radius: 6px;
+    }
+  }
+  footer {
+    padding: 10px 0 5px 0;
+    .btn {
+      height: 30px;
+      line-height: 1.2em;
+      padding: 0;
+      outline: 0 !important;
+      box-shadow: none !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: $colorText;
+      font-size: 14px;
+      font-weight: $medium;
+      i {
+        font-size: 22px;
+        margin-right: 6px;
+        color: $colorHeading;
+      }
+      &:active {
+        i {
+          color: $colorPrimary;
+        }
+      }
+    }
+  }
+}
+////////////////////////////////////////////////
+// 3. Profile Detail
+////////////////////////////////////////////////
+.profileDetail {
+  .profileBox {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    .image {
+      margin-right: 14px;
+      .avatar {
+        width: 54px;
+        height: 54px;
+        border-radius: 100px;
+      }
+    }
+    .info {
+      line-height: 1.6em;
+      strong {
+        color: $colorHeading;
+        font-size: 16px;
+      }
+    }
+  }
+  .bio {
+    font-size: 14px;
+    line-height: 1.6em;
+    color: $colorHeading;
+    padding: 16px 0;
+  }
+  .stats {
+    text-align: center;
+    border-top: 1px solid $colorLine;
+    border-bottom: 1px solid $colorLine;
+    padding: 10px 0;
+    font-size: 14px;
+    strong {
+      display: block;
+      font-size: 18px;
+      font-weight: $bold;
+      color: $colorHeading;
+    }
+  }
+}
+.profilePost {
+  .image {
+    border-radius: 6px;
+    transition: 0.3s all;
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+  .item {
+    margin-bottom: 20px;
+  }
+}
+////////////////////////////////////////////////
+// 4. Comments
+////////////////////////////////////////////////
+.comments {
+  .item {
+    margin: 20px 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    .item {
+      margin-bottom: 0;
+    }
+    .image {
+      margin-right: 14px;
+      .avatar {
+        border-radius: 100px;
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .content {
+      line-height: 1.45em;
+      strong {
+        color: $colorHeading;
+        font-weight: $medium;
+        display: block;
+        padding-top: 4px;
+        margin-bottom: 6px;
+      }
+      footer {
+        margin-top: 6px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+////////////////////////////////////////////////
+// 5. Card Overlay Carousel
+////////////////////////////////////////////////
+.cardOverlayCarousel {
+  width: calc(100% + 40px);
+  margin-left: -20px;
+}
+////////////////////////////////////////////////
+// 6. Post Carousel
+////////////////////////////////////////////////
+.postCarousel {
+  width: calc(100% + 60px);
+  margin-left: -41px;
+  .owl-item {
+    &:first-child {
+    }
+  }
+  .item {
+    .image {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 14px;
+    }
+    .title {
+      font-size: 18px;
+      line-height: 1.5em;
+      font-weight: $medium;
+      color: $colorHeading;
+      margin: 0;
+    }
+  }
+}
+////////////////////////////////////////////////
+// 7. Item List
+////////////////////////////////////////////////
+.itemList {
+  .item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    .image {
+      margin-right: 20px;
+      img {
+        width: 100px;
+        height: auto;
+        border-radius: 6px;
+      }
+    }
+    .text {
+      font-size: 14px;
+      line-height: 1.6em;
+      .title {
+        margin: 4px 0 7px 0;
+        font-size: 18px;
+        font-weight: $medium;
+        color: $colorHeading;
+      }
+    }
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
+////////////////////////////////////////////////
+// 8. Post Item
+////////////////////////////////////////////////
+.postItem {
+  margin-bottom: 20px;
+  display: block;
+  .imageWrapper {
+    position: relative;
+    margin-bottom: 12px;
+    .badge {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+    }
+    .image {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+  }
+  .title {
+    font-size: 18px;
+    font-weight: $medium;
+    color: $colorHeading;
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+  }
+  footer {
+    display: flex;
+    font-size: 14px;
+    align-content: center;
+    color: $colorText;
+    .avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 100px;
+      margin-right: 8px;
+    }
+  }
+}
+////////////////////////////////////////////////
+// 9. Iconed Box
+////////////////////////////////////////////////
+.iconedBox {
+  font-size: 14px;
+  color: $colorText;
+  margin-bottom: 20px;
+  .iconWrap {
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    i {
+      font-size: 26px;
+    }
+  }
+  .title {
+    font-size: 18px;
+    color: $colorHeading;
+    font-weight: $medium;
+    margin: 0 0 10px 0;
+  }
+}
+////////////////////////////////////////////////
+// 10. Post Page
+////////////////////////////////////////////////
+.postHeader {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid $colorLine;
+  border-bottom: 1px solid $colorLine;
+  padding: 16px 0;
+  > div:first-child {
+    padding-right: 20px;
+  }
+  .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    margin-right: 6px;
+  }
+}
+.postBody {
+  font-size: 18px;
+  line-height: 1.6em;
+}
+figure {
+  margin: 20px 0;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+  figcaption {
+    font-size: 14px;
+    line-height: 1.5em;
+    color: $colorText;
+    background: $colorLine;
+    border-radius: 0 0 6px 6px;
+    margin-top: -8px;
+    position: relative;
+    padding: 8px 16px;
+    z-index: 2;
+  }
+}
+.postAuthor {
+  border-top: 1px solid $colorLine;
+  border-bottom: 1px solid $colorLine;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 200px;
+    margin-right: 16px;
+  }
+  strong {
+    font-size: 18px;
+    font-weight: $medium;
+    color: $colorHeading;
+  }
+}
+
+////////////////////////////////////////////////
+// 11. Accordion
+////////////////////////////////////////////////
+.accordion {
+  margin: 0 -20px;
+  border-radius: 0;
+  .card {
+    border-radius: 0 !important;
+    border-left: 0;
+    border-right: 0;
+  }
+  &.styled {
+    .card {
+      border: 0;
+    }
+  }
+  .card-header {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    position: relative;
+    .arrow {
+      font-size: 18px;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      margin-top: -12px;
+      margin-right: 0;
+    }
+    .btn {
+      height: auto !important;
+      border-radius: 0 !important;
+      padding: 16px 40px 16px 20px;
+      display: block;
+      width: 100%;
+      display: block !important;
+      text-align: left;
+      &:active {
+        transform: none;
+      }
+    }
+  }
+}
+////////////////////////////////////////////////
+// 12. Content Boxes
+////////////////////////////////////////////////
+.contentBox {
+  .title {
+    margin-bottom: 10px;
+  }
+  .img-fluid {
+    border-radius: 6px;
+  }
+  &.long {
+    .contentBox-body {
+      background: #fff;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding: 20px;
+      border-top: 1px solid $colorLine;
+      border-bottom: 1px solid $colorLine;
+      .listView {
+        margin: -20px;
+        .listItem:last-child {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+.iconBlock {
+  font-size: 32px;
+  color: $colorHeading;
+  > div {
+    padding: 10px;
+  }
+}
+////////////////////////////////////////////////
+// 13. Image Block
+////////////////////////////////////////////////
+.imageBlock {
+  width: 48px;
+  height: auto;
+  &.small {
+    width: 32px;
+  }
+  &.large {
+    width: 64px;
+  }
+  &.xlarge {
+    width: 128px;
+  }
+  &.rounded {
+    border-radius: 6px;
+  }
+  &.circle{
+    border-radius: 100%;
+  }
+  &.img-fluid {
+    width: 100% !important;
+    height: auto;
+  }
+}
+.img-fluid {
+  width: 100% !important;
+  height: auto;
+}
+////////////////////////////////////////////////
+// 14. Tables
+////////////////////////////////////////////////
+.table {
+  color: $colorText;
+  thead {
+    th {
+      border-top: 1px solid $colorLine;
+      border-bottom: 0;
+      color: $colorHeading;
+    }
+  }
+  td,
+  th {
+    border-top: 1px solid $colorLine;
+  }
+}
+.table-dark {
+  border-radius: 6px;
+  thead {
+    th {
+      color: #fff;
+      border-top: 0;
+    }
+  }
+  td,
+  th {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background: rgba($colorLine, 0.4);
+}
+.table-bordered {
+  border-radius: 6px;
+  td,
+  th {
+    border-color: $colorLine;
+  }
+}
+
+////////////////////////////////////////////////
+// 15. Basic Carousel
+////////////////////////////////////////////////
+.basicCarousel {
+  width: calc(100% + 40px);
+  margin-left: -20px;
+}
+
+////////////////////////////////////////////////
+// 16. Tabs
+////////////////////////////////////////////////
+.nav-tabs {
+  background: $colorLine;
+  border-radius: 6px;
+  border: 0;
+  padding: 3px 3px 4px 3px;
+  .nav-item {
+    text-align: center;
+    i {
+      font-size: 20px;
+      margin-bottom: -2px;
+    }
+  }
+  &.iconed {
+    .nav-item i {
+      margin-right: 8px;
+    }
+  }
+  .nav-link {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: $colorText;
+    border: 0 !important;
+    padding: 0 16px;
+    border-radius: 6px;
+    margin: 0 !important;
+    font-weight: $medium;
+    &.active {
+      font-weight: $medium;
+      color: $colorHeading;
+      background: #fff;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.04), 0 2px 1px -1px rgba(0, 0, 0, 0.04), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+  &.size1,
+  &.size2,
+  &.size3,
+  &.size4,
+  &.size5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.size1 {
+    .nav-item {
+      width: 100%;
+    }
+  }
+  &.size2 {
+    .nav-item {
+      width: 50%;
+    }
+  }
+  &.size3 {
+    .nav-item {
+      width: 33.333333333333%;
+    }
+  }
+  &.size4 {
+    .nav-item {
+      width: 25%;
+    }
+  }
+  &.size5 {
+    .nav-item {
+      width: 20%;
+    }
+  }
+}
+////////////////////////////////////////////////
+// 17. Chat
+////////////////////////////////////////////////
+.chatItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
+    margin-right: 12px;
+  }
+  .bubble {
+    background: $colorLine;
+    padding: 10px;
+    border-radius: 0 12px 12px 12px;
+    color: $colorHeading;
+  }
+  footer {
+    text-align: right;
+    padding: 0px 10px;
+    font-size: 11px;
+  }
+  &.user {
+    justify-content: flex-end;
+    .bubble {
+      background: $colorPrimary;
+      color: #fff;
+      border-radius: 12px 12px 0px 12px;
+    }
+  }
+}
+.chatFooter {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0px 20px;
+  height: 56px;
+  padding-bottom: env(safe-area-inset-bottom);
+  .leftButton {
+    width: 36px;
+    margin-right: 12px;
+  }
+  .formArea {
+    width: calc(100% - 36px);
+    display: flex;
+    align-items: center;
+    .form-control {
+      height: 36px;
+      font-size: 16px;
+      width: calc(100% - 36px);
+      border-radius: 6px 0 0 6px;
+    }
+    .btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 0 6px 6px 0;
+    }
+  }
+}
+////////////////////////////////////////////////
+// 18. Splash
+////////////////////////////////////////////////
+.splashBlock {
+  text-align: center;
+  .splashIcon {
+    font-size: 100px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+  .splashTitle {
+    font-size: 100px;
+    line-height: 1em;
+    margin: 20px 0 30px 0;
+    font-weight: $black;
+  }
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 100;
+    padding: 20px;
+    margin-bottom: 20px;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+////////////////////////////////////////////////
+// 19. Slider Carousel
+////////////////////////////////////////////////
+.sliderCarousel {
+  padding-bottom: 40px;
+  .owl-dots {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 84px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: #fff;
+    padding: 20px;
+    .owl-dot {
+      margin: 0 6px;
+      background: $colorLine !important;
+      border-radius: 100px;
+      width: 10px;
+      height: 10px;
+      display: block;
+      &.active {
+        background: $colorPrimary !important;
+      }
+    }
+  }
+}
+
+////////////////////////////////////////////////
+// 20. Countdown
+////////////////////////////////////////////////
+#countDown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 460px;
+  margin: auto;
+  > div {
+    font-size: 24px;
+    line-height: 1em;
+    font-weight: $black;
+    color: $colorPrimary;
+    background: $colorLine;
+    padding: 16px 5px 10px 5px;
+    border-radius: 6px;
+    width: 25%;
+    margin: 0 5px;
+    span {
+      font-size: 14px;
+      display: block;
+      font-weight: $regular;
+      color: $colorText;
+    }
+  }
+}
+////////////////////////////////////////////////
+// 21. Button Carousel
+////////////////////////////////////////////////
+.buttonCarousel {
+  width: calc(100% + 60px);
+  margin-left: -41px;
+  .item {
+    text-align: center;
+    padding-top: 4px;
+    .imgWrapper {
+      padding: 0 6px;
+    }
+    img {
+      border-radius: 100%;
+    }
+    strong {
+      display: block;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: $medium;
+      color: $colorHeading;
+      margin-top: 10px;
+      letter-spacing: -0.01em;
+    }
+    &.active {
+      img {
+        box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $colorDanger;
+      }
+    }
+  }
+}

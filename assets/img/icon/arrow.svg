@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="6px" height="10px" viewBox="0 0 6 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>_ionicons_svg_ios-arrow-back</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.400000006">
+        <g id="iPhone-8" transform="translate(-350.000000, -102.000000)" fill="#1F3053" fill-rule="nonzero">
+            <g id="_ionicons_svg_ios-arrow-back" transform="translate(352.882353, 107.000000) scale(-1, 1) translate(-352.882353, -107.000000) translate(349.882353, 102.000000)">
+                <path d="M1.72321429,5 L5.50595238,1.2202381 C5.78571429,0.94047619 5.78571429,0.488095238 5.50595238,0.211309524 C5.22619048,-0.068452381 4.77380952,-0.0654761905 4.49404762,0.211309524 L0.208333333,4.49404762 C-0.0625,4.76488095 -0.068452381,5.19940476 0.1875,5.47916667 L4.49107143,9.79166667 C4.63095238,9.93154762 4.81547619,10 4.99702381,10 C5.17857143,10 5.36309524,9.93154762 5.50297619,9.79166667 C5.7827381,9.51190476 5.7827381,9.05952381 5.50297619,8.7827381 L1.72321429,5 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

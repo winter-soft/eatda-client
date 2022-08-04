@@ -1,0 +1,100 @@
+.lead{
+    font-weight: $regular;
+    color: $colorText;
+    line-height: 1.6em;
+}
+.text-muted{
+    color: $colorText;
+    font-size: 14px;
+    font-weight: $regular;
+}
+h1,h2,h3,h4,h5,h6{
+    color: $colorHeading;
+    font-weight: $bold;
+}
+.sectionTitle{
+    .text-muted{
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: block;
+        margin-bottom: 10px;
+        font-weight: $regular;
+        line-height: 1em;
+    }
+    &.text-center{
+        .title{
+            justify-content: center;
+            h1{
+                padding-right: 0;
+                margin: 0;
+            }
+        }
+    }
+    .title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: $colorPrimary;
+        font-weight: $medium;
+        font-size: 14px;
+        h1{
+            font-size: 28px;
+            font-weight: $black;
+            color: $colorHeading;
+            margin:0;
+            padding-right: 20px;
+            small{
+                color: $colorText;
+            }
+        }
+        a{
+            color: $colorPrimary;
+        }
+    }
+    .lead{
+        color: $colorHeading;
+        line-height: 1.6em;
+        margin-top: 10px;
+    }
+}
+
+.title-lg{
+    font-size: 30px;
+    color: $colorHeading;
+    font-weight: $black;
+    line-height: 40px;
+}
+
+.text-primary{
+    color: $colorPrimary !important;
+}
+.text-secondary{
+    color: $colorSecondary !important;
+}
+.text-success{
+    color: $colorSuccess !important;
+}
+.text-danger{
+    color: $colorDanger !important;
+}
+.text-warning{
+    color: $colorWarning !important;
+}
+.text-info{
+    color: $colorInfo !important;
+}
+.text-light{
+    color: #f2f2f2 !important;
+}
+.text-dark{
+    color: #333 !important;
+}
+.list-unstyled{
+    li{
+        margin-bottom: 10px;
+        ul{
+            margin-top: 10px;
+        }
+    }
+}
