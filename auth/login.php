@@ -11,14 +11,14 @@
         </div>
     </div>
 
-    <div class="mt-3 sns-btn-box">
-        <button class="btn btn-lg btn-block kakao-bg sns-btn" type="submit">
+    <div class="mt-3 btn-box">
+        <button class="btn btn-lg btn-block kakao-bg sns-btn" type="button" onclick="redirectToKakaoLogin()">
             <img src="../assets/img/login/kakao_logo.png">
             카카오로 로그인
         </button>
-        <button class="btn btn-lg btn-block naver-bg sns-btn" type="submit">
+        <button class="btn btn-lg btn-block naver-bg sns-btn" type="button">
             <img src="../assets/img/login/naver_logo.png">
             네이버로 로그인
         </button>
     </div>
-<?php include "../template/login_footer.php" ?>
+<?php include "../template/login_footer.php"; ?>

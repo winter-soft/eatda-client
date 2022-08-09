@@ -12,8 +12,8 @@
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
           rel="stylesheet">
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link href="../assets/css/custom.css" rel="stylesheet">
+    <link href="../assets/css/style.css?<?php echo time() ?>" rel="stylesheet">
+    <link href="../assets/css/custom.css?<?php echo time() ?>" rel="stylesheet">
 </head>
 
 <body>

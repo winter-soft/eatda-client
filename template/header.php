@@ -27,15 +27,21 @@
 <!-- App Header -->
 <div class="appHeader">
     <div class="left">
-        <img alt="잇다" class="image" src="assets/img/logo.png">
+		<?php
+		echo !empty($isLogo) ? '<img alt="잇다" class="image" src="../assets/img/logo.png">' : "";
+		?>
     </div>
-    <!--    <div class="pageTitle">-->
-    <!--        <img alt="잇다" class="image" src="assets/img/logo.png">-->
-    <!--    </div>-->
+    <div class="pageTitle">
+		<?php
+		echo !empty($headerTitle) ? $headerTitle : "";
+		?>
+    </div>
     <div class="right">
-        <label class="mb-0 icon toggleSearchbox" for="searchInput">
+		<?php
+		echo !empty($isSearchBox) ? '<label class="mb-0 icon toggleSearchbox" for="searchInput">
             <i class="icon ion-ios-search"></i>
-        </label>
+        </label>' : "";
+		?>
     </div>
 </div>
 <!-- searchBox -->

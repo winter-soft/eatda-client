@@ -58,7 +58,14 @@
 <script src="../assets/js/plugins/owl.carousel.min.js"></script>
 <!-- Main Js File -->
 <script src="../assets/js/app.js"></script>
-
+<script src="../assets/js/common.js"></script>
+<?php
+if (!empty($_GET["jsFile"])) {
+	?>
+    <script src="../assets/js/<?php echo $_GET["jsFile"] ?>.js"></script>
+	<?php
+}
+?>
 
 </body>
 

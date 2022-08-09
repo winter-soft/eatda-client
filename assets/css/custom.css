@@ -61,7 +61,7 @@ html {
     }
 }
 
-.sns-btn-box {
+.btn-box {
     position: absolute;
     bottom: 3vh;
     width: 90% !important;
@@ -69,7 +69,6 @@ html {
 }
 
 .sns-btn {
-
     color: #262835;
     font-size: 1rem;
     border: none;
@@ -101,4 +100,21 @@ ion-icon {
     line-height: 0;
     margin-bottom: 17px;
     display: block;
+}
+
+.profile-img-box {
+    text-align: center;
+}
+
+.profile-img-box img {
+    border-radius: 50%;
+    width: 150px !important;
+    height: 150px;
+    object-fit: cover;
+}
+
+.register-box h1 {
+    font-size: 1.4rem !important;
+    line-height: 2.2rem;
+    font-weight: 700 !important;
 }

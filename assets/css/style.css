@@ -981,7 +981,7 @@ i.icon.mr-1 {
     box-shadow: none !important;
     color: #1B2C42 !important;
     background: #E5E9F2;
-    height: 50px;
+    height: 55px;
     font-size: 18px;
     padding: 10px 16px;
     border-radius: 6px;
@@ -1078,7 +1078,7 @@ i.icon.mr-1 {
 }
 
 .btn {
-    height: 44px;
+    height: 55px !important;
     padding: 0 24px;
     font-size: 16px;
     line-height: 1.2em;
