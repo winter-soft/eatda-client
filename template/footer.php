@@ -62,7 +62,7 @@
 <?php
 if (!empty($_GET["jsFile"])) {
 	?>
-    <script src="../assets/js/<?php echo $_GET["jsFile"] ?>.js"></script>
+    <script src="../assets/js/<?php echo $_GET["jsFile"] ?>.js?<?php echo time() ?>"></script>
 	<?php
 }
 ?>
