@@ -257,3 +257,30 @@ ion-icon {
     top: 12px;
     left: 12px;
 }
+
+.history-card img {
+    height: 15vh !important;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+
+.card-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.history-status {
+    position: relative;
+}
+
+.history-status p {
+    margin: 0;
+    position: absolute;
+    font-weight: 600;
+    top: 5.5vh;
+    left: 20vh;
+    font-size: 1.2rem;
+}
+
+.history-order p {
+    margin: 5px 0;
+}

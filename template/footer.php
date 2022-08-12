@@ -21,7 +21,7 @@ function isActivePage($needle): string
         </a>
     </div>
     <div class="item <?php echo isActivePage("search"); ?>">
-        <a href="#">
+        <a href="../search/index.php">
             <p>
                 <i class="icon ion-ios-search"></i>
                 <span>검색</span>
@@ -36,8 +36,8 @@ function isActivePage($needle): string
             </p>
         </a>
     </div>
-    <div class="item <?php echo isActivePage("order"); ?>">
-        <a href="#">
+    <div class="item <?php echo isActivePage("history"); ?>">
+        <a href="../history/index.php">
             <p>
                 <i class="icon ion-ios-list"></i>
                 <span>주문내역</span>
