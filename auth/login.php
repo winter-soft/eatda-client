@@ -12,11 +12,11 @@
     </div>
 
     <div class="mt-3 btn-box">
-        <button class="btn btn-lg btn-block kakao-bg sns-btn" type="button" onclick="redirectToKakaoLogin()">
+        <button class="btn btn-lg btn-block bg-kakao sns-btn" type="button" onclick="redirectToKakaoLogin()">
             <img src="../assets/img/login/kakao_logo.png">
             카카오로 로그인
         </button>
-        <button class="btn btn-lg btn-block naver-bg sns-btn" type="button">
+        <button class="btn btn-lg btn-block bg-naver sns-btn" type="button">
             <img src="../assets/img/login/naver_logo.png">
             네이버로 로그인
         </button>

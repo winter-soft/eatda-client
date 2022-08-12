@@ -80,11 +80,12 @@ include "template/header.php"
 <div class="divider mt-2 mb-4"></div>
 
 <div class="sectionTitle mb-2">
-    <div class="text-muted em-txt">배달비 · 최소주문금액 Free</div>
+    <div class="text-muted em-txt font-weight-bold">배달비 · 최소주문금액 Free</div>
     <div class="title">
         <h1>골라먹는 맛집</h1>
         <a href="">모두보기</a>
     </div>
+    <div id="storeGaugeList"></div>
 </div>
 
 <?php

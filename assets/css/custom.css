@@ -1,11 +1,15 @@
 :root {
     --color-text: #2D3243;
+    --color-black-text: #000000;
     --color-white-text: #FFFFFF;
     --color-yellow-text: #FFB906;
     --color-dark-yellow-text: #d8b84d;
     --color-green-text: #08DB5C;
     --color-kakao-text: #FEE500;
     --color-naver-text: #1FCB53;
+    --color-gray-text: #D9D9D9;
+    --color-red-text: #DB1508;
+    --color-pink-text: #ff3489;
 }
 
 @font-face {
@@ -27,20 +31,36 @@ html {
     width: 230px;
 }
 
-.kakao-bg {
+.bg-kakao {
     background-color: var(--color-kakao-text);
 }
 
-.naver-bg {
+.bg-naver {
     background-color: var(--color-naver-text);
 }
 
-.yellow-bg {
+.bg-yellow {
     background-color: var(--color-yellow-text);
 }
 
-.green-bg {
+.txt-yellow {
+    color: var(--color-yellow-text);;
+}
+
+.txt-red {
+    color: var(--color-red-text);;
+}
+
+.txt-pink {
+    color: var(--color-pink-text);;
+}
+
+.bg-green {
     background-color: var(--color-green-text);
+}
+
+.bg-red {
+    background-color: var(--color-red-text);
 }
 
 .em-txt {
@@ -97,10 +117,13 @@ html {
 }
 
 ion-icon {
-    font-size: 25px;
     line-height: 0;
+}
+
+.appBottomMenu ion-icon {
+    font-size: 25px;
     margin-bottom: 17px;
-    display: block;
+    display: block !important;
 }
 
 .profile-img-box {
@@ -118,6 +141,10 @@ ion-icon {
     font-size: 1.4rem !important;
     line-height: 2.2rem;
     font-weight: 700 !important;
+}
+
+.lg-txt {
+    font-size: 1.2rem;
 }
 
 .sm-txt {
@@ -180,6 +207,53 @@ ion-icon {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-#storeList .card img {
+.card img {
     border-radius: 6px 6px 0 0;
+}
+
+#storeGaugeList ion-icon {
+    margin-right: 3px;
+    display: inline-block;
+    font-size: 1.1rem;
+    top: 2px;
+    position: relative;
+}
+
+.gauge {
+    width: 100%;
+    background-color: var(--color-gray-text);
+    border-radius: 20px;
+    color: var(--color-white-text);
+    font-weight: 600;
+}
+
+.gauge div {
+    padding: 5px 20px;
+}
+
+.gauge .green {
+    display: inline-block;
+    background-color: var(--color-green-text);
+    border-radius: 20px;
+}
+
+.card-tag-box {
+    position: relative;
+}
+
+.card-tag-box img {
+    height: 23vh;
+    object-fit: cover;
+}
+
+.card-tag {
+    background-color: var(--color-black-text);
+    width: auto;
+    padding: 7px 10px;
+    font-size: 0.9rem;
+    color: var(--color-white-text);
+    border-radius: 7px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
 }
