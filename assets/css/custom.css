@@ -86,6 +86,7 @@ html {
     padding: 25px;
     border-radius: 10px;
     line-height: 33px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .main-banner p {
@@ -117,4 +118,68 @@ ion-icon {
     font-size: 1.4rem !important;
     line-height: 2.2rem;
     font-weight: 700 !important;
+}
+
+.sm-txt {
+    font-size: 0.9rem;
+}
+
+.m-txt {
+    font-size: 0.9rem;
+}
+
+.percent-box {
+    position: relative;
+    height: 10px;
+}
+
+.percent {
+    position: absolute;
+    width: 13vw;
+    height: 13vw;
+    display: inline-block;
+    border-radius: 50%;
+    bottom: -17px;
+    right: 11px;
+    text-align: center;
+}
+
+.percent span {
+    position: relative;
+    top: 3.4vw;
+    font-weight: 600;
+}
+
+.mt-03 {
+    margin-top: 3px;
+}
+
+.ml-40 {
+    margin-left: 40px;
+}
+
+#storeList {
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+#storeList .card {
+    width: 60% !important;
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+#storeList .card h2 {
+    font-size: 1.2rem;
+}
+
+.card {
+    border: none !important;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#storeList .card img {
+    border-radius: 6px 6px 0 0;
 }

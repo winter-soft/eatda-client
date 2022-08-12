@@ -13,41 +13,12 @@ include "template/header.php"
     <div class="text-muted">DEAL</div>
     <div class="title">
         <h1>배달 딜에 참여해보세요!</h1>
-        <a href="blog-category.html">모두보기</a>
+        <a href="">모두보기</a>
     </div>
 </div>
 
-<div class="postCarousel owl-carousel">
-    <div class="item">
-        <a href="blog-post.html">
-            <img alt="image" class="image" src="assets/img/sample/photo13.jpg">
-            <h2 class="title">가게 이름</h2>
-        </a>
-    </div>
-    <div class="item">
-        <a href="blog-post.html">
-            <img alt="image" class="image" src="assets/img/sample/photo2.jpg">
-            <h2 class="title">가게 이름</h2>
-        </a>
-    </div>
-    <div class="item">
-        <a href="blog-post.html">
-            <img alt="image" class="image" src="assets/img/sample/photo3.jpg">
-            <h2 class="title">가게 이름</h2>
-        </a>
-    </div>
-    <div class="item">
-        <a href="blog-post.html">
-            <img alt="image" class="image" src="assets/img/sample/photo4.jpg">
-            <h2 class="title">가게 이름</h2>
-        </a>
-    </div>
-    <div class="item">
-        <a href="blog-post.html">
-            <img alt="image" class="image" src="assets/img/sample/photo12.jpg">
-            <h2 class="title">가게 이름</h2>
-        </a>
-    </div>
+
+<div id="storeList">
 </div>
 <!-- * Post Carousel -->
 
@@ -59,7 +30,7 @@ include "template/header.php"
     <div class="text-muted">CATEGORY</div>
     <div class="title">
         <h1>어떤게 드시고 싶으세요?</h1>
-        <a href="blog-category.html">모두보기</a>
+        <a href="">모두보기</a>
     </div>
 </div>
 <div class="buttonCarousel owl-carousel">
@@ -112,7 +83,7 @@ include "template/header.php"
     <div class="text-muted em-txt">배달비 · 최소주문금액 Free</div>
     <div class="title">
         <h1>골라먹는 맛집</h1>
-        <a href="blog-category.html">모두보기</a>
+        <a href="">모두보기</a>
     </div>
 </div>
 

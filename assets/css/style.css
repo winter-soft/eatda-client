@@ -2060,9 +2060,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .postCarousel .item .image {
     width: 100%;
-    height: auto;
-    border-radius: 6px;
-    margin-bottom: 14px;
+    height: 18vh;
+    border-radius: 6px 6px 0 0;
+    margin-bottom: 10px;
+    object-fit: cover;
 }
 
 .postCarousel .item .title {

@@ -4,17 +4,18 @@ const METHOD_POST = "POST";
 const METHOD_GET = "GET";
 const TYPE_JSON = "json";
 
-function callApi(url, method, data) {
-    return callCommonApi(`${API_BASE_URL}${url}.php`, method, data);
+function callApi(url, header, method, data) {
+    return callCommonApi(`${API_BASE_URL}${url}`, method, data);
 }
 
-function callExternalApi(url, method, data) {
-    return callCommonApi(url, method, data);
+function callExternalApi(url, header, method, data) {
+    return callCommonApi(url, header, method, data);
 }
 
-function callCommonApi(url, method, data) {
+function callCommonApi(url, header, method, data) {
     let result = "";
     $.ajax(url, {
+        headers: {'Authorization': `Bearer ${header}`},
         data: data,
         dataType: TYPE_JSON,
         method: method,
@@ -41,4 +42,27 @@ function setCookie(name, value) {
     expiredDate.setDate(expiredDate.getDate() + expiredDays);
 
     document.cookie = name + "=" + value + "; expires=" + expiredDate.toUTCString();
+}
+
+function numberFormat(number, decimals, dec_point, thousands_sep) {
+    number = (number + '').replace(',', '').replace(' ', '');
+    var n = !isFinite(+number) ? 0 : +number,
+        prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+        sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+        dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+        s = '',
+        toFixedFix = function (n, prec) {
+            var k = Math.pow(10, prec);
+            return '' + Math.round(n * k) / k;
+        };
+    // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+    s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+    if (s[0].length > 3) {
+        s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+    }
+    if ((s[1] || '').length < prec) {
+        s[1] = s[1] || '';
+        s[1] += new Array(prec - s[1].length + 1).join('0');
+    }
+    return s.join(dec);
 }
