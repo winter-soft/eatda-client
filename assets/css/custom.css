@@ -185,6 +185,37 @@ ion-icon {
     margin-left: 40px;
 }
 
+#categoryList img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+#indexCategoryList {
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+#indexCategoryList .item {
+    width: 20% !important;
+    display: inline-block !important;
+    margin-right: 20px;
+    text-align: center;
+}
+
+#indexCategoryList .item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+#indexCategoryList .item p {
+    color: var(--color-black-text) !important;
+    margin: 15px 0 0 0;
+}
+
+
 #storeList {
     width: 100%;
     overflow: auto;

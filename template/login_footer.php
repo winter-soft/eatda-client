@@ -14,6 +14,7 @@
 <script src="../assets/js/app.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="../assets/js/common.js"></script>
+<script src="../assets/js/api.js"></script>
 <script src="../assets/js/login.js?<?php echo time() ?>"></script>
 <?php
 if (!empty($_GET["jsFile"])) {

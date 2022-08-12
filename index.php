@@ -33,47 +33,7 @@ include "template/header.php"
         <a href="">모두보기</a>
     </div>
 </div>
-<div class="buttonCarousel owl-carousel">
-    <div class="item">
-        <a href="#">
-            <div class="imgWrapper">
-                <img alt="image" src="assets/img/category/c1.png">
-            </div>
-            <strong>한식</strong>
-        </a>
-    </div>
-    <div class="item">
-        <a href="#">
-            <div class="imgWrapper">
-                <img alt="image" src="assets/img/category/c2.png">
-            </div>
-            <strong>햄버거</strong>
-        </a>
-    </div>
-    <div class="item">
-        <a href="#">
-            <div class="imgWrapper">
-                <img alt="image" src="assets/img/category/c3.png">
-            </div>
-            <strong>치킨</strong>
-        </a>
-    </div>
-    <div class="item">
-        <a href="#">
-            <div class="imgWrapper">
-                <img alt="image" src="assets/img/category/c4.png">
-            </div>
-            <strong>디저트</strong>
-        </a>
-    </div>
-    <div class="item">
-        <a href="#">
-            <div class="imgWrapper">
-                <img alt="image" src="assets/img/category/c5.png">
-            </div>
-            <strong>커피/차</strong>
-        </a>
-    </div>
+<div id="indexCategoryList" class="mt-2">
 </div>
 <!-- Button Carousel -->
 
@@ -89,6 +49,6 @@ include "template/header.php"
 </div>
 
 <?php
-$_GET['jsFile'] = "store";
+$_GET['jsFile'] = "index";
 include "template/footer.php";
 ?>

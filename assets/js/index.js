@@ -5,6 +5,7 @@ $(document).ready(function () {
     storeList = callStoreApi();
     setStoreList();
     setStoreGaugeList();
+    setIndexCategoryList();
 });
 
 function callStoreApi() {
@@ -73,4 +74,18 @@ function setStoreGaugeList() {
     });
 
     $('#storeGaugeList').html(storeHtml);
+}
+
+function setIndexCategoryList() {
+    const categoryList = callCategoryListApi();
+    let categoryHtml = "";
+    $.each(categoryList.data, function (index, category) {
+        categoryHtml += `<div class="item">
+            <a href="#">
+                <img alt="image" src="assets/img/category/${category.category}.png">
+                <p>${category.category_ko}</p>
+            </a>
+        </div>`;
+    });
+    $('#indexCategoryList').html(categoryHtml);
 }

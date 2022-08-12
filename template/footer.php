@@ -67,9 +67,11 @@ function isActivePage($needle): string
 <!-- Main Js File -->
 <script src="../assets/js/app.js"></script>
 <script src="../assets/js/common.js"></script>
+<script src="../assets/js/api.js"></script>
 <?php
 if (!empty($_GET["jsFile"])) {
 	?>
+
     <script src="../assets/js/<?php echo $_GET["jsFile"] ?>.js?<?php echo time() ?>"></script>
 	<?php
 }
