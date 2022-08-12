@@ -1,18 +1,26 @@
+<?php
+function isActivePage($needle): string
+{
+	$currentPage = str_replace(basename($_SERVER["PHP_SELF"]), "", $_SERVER["REQUEST_URI"]);
+	return ($currentPage == "/" && $needle == "/") || strpos($currentPage, $needle) ? "active" : "";
+}
+
+?>
 </div>
 </div>
 <!-- appCapsule -->
 
 <!-- App Bottom Menu -->
 <div class="appBottomMenu">
-    <div class="item active">
-        <a href="index.php">
+    <div class="item <?php echo isActivePage("/"); ?>">
+        <a href="../index.php">
             <p>
                 <i class="icon ion-ios-home"></i>
                 <span>홈</span>
             </p>
         </a>
     </div>
-    <div class="item">
+    <div class="item <?php echo isActivePage("search"); ?>">
         <a href="#">
             <p>
                 <i class="icon ion-ios-search"></i>
@@ -20,15 +28,15 @@
             </p>
         </a>
     </div>
-    <div class="item">
-        <a href="#">
+    <div class="item <?php echo isActivePage("like"); ?>">
+        <a href="../like/index.php">
             <p>
-                <ion-icon name="heart-outline"></ion-icon>
+				<?php echo isActivePage("like") ? '<i class="icon ion-ios-heart txt-yellow"></i>' : '<ion-icon name="heart-outline"></ion-icon>' ?>
                 <span>즐겨찾기</span>
             </p>
         </a>
     </div>
-    <div class="item">
+    <div class="item <?php echo isActivePage("order"); ?>">
         <a href="#">
             <p>
                 <i class="icon ion-ios-list"></i>
@@ -36,7 +44,7 @@
             </p>
         </a>
     </div>
-    <div class="item">
+    <div class="item <?php echo isActivePage("login"); ?>">
         <a href="../auth/login.php">
             <p>
                 <ion-icon name="person-outline"></ion-icon>
