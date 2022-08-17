@@ -230,7 +230,7 @@ ion-icon {
 }
 
 #storeList .card h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .card {
@@ -256,6 +256,7 @@ ion-icon {
     border-radius: 20px;
     color: var(--color-white-text);
     font-weight: 600;
+    height: 5vh;
 }
 
 .gauge div {
@@ -314,4 +315,14 @@ ion-icon {
 
 .history-order p {
     margin: 5px 0;
+}
+
+.card-img {
+    width: 100% !important;
+    height: 15vh;
+    object-fit: cover;
+}
+
+a {
+    color: var(--color-text);
 }

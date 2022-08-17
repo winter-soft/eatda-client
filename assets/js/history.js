@@ -13,7 +13,7 @@ function callOrderHistoryApi() {
         "pageSize": 10
     }
 
-    return callApi(orderHistoryApiUrl, header, "json", "get", data);
+    return callFormTypeApi(orderHistoryApiUrl, header, "GET", data);
 }
 
 function setOrderHistoryList() {

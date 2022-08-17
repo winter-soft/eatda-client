@@ -13,7 +13,7 @@ function callStoreLikeApi() {
         "pageSize": 10
     }
 
-    return callApi(storeLikeListApiUrl, header, "json", "get", data);
+    return callFormTypeApi(storeLikeListApiUrl, header, "GET", data);
 }
 
 function setStoreLikeList() {

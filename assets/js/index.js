@@ -15,7 +15,7 @@ function callStoreApi() {
         "pageSize": 10
     }
 
-    return callApi(storeListApiUrl, header, "json", "get", data);
+    return callFormTypeApi(storeListApiUrl, header, "GET", data);
 }
 
 function setStoreList() {
@@ -23,15 +23,15 @@ function setStoreList() {
     $.each(storeList.data.content, function (index, store) {
         storeHtml += `
         <div class="card" style="">
-        <a href="">
-            <img alt="image" class="image" src="${store.backgroundImageUrl}" style="max-width: 100% !important;">
+        <a href="../../store/index.php">
+            <img alt="image" class="image card-img" src="${store.backgroundImageUrl}">
             <div class="percent-box">
                 <div class="bg-green text-white percent"><span>${store.id}%</span></div>
             </div>
 
             <div class="p-2">
                 <h2 class="title font-weight-bold">${store.name}</h2>
-                <p class="text-black-50 m-txt m-0 font-weight-bold">${numberFormat(store.minOrderPrice)}원만 모이면 배달 시작</p>
+                <p class="text-black-50 sm-txt m-0 font-weight-bold">${numberFormat(store.minOrderPrice)}원만 모이면 배달 시작</p>
             </div>
         </a>
     </div>`;
@@ -43,8 +43,26 @@ function setStoreList() {
 function setStoreGaugeList() {
     let storeHtml = "";
     $.each(storeList.data.content, function (index, store) {
+        let gaugeHtml = ` <div class="gauge mb-1">
+                        <div class="float-right">${numberFormat(store.minOrderPrice)}원</div>
+                    </div>`;
+        if (store.recentlyOrder && store.recentlyOrder.currentAmount > 0) {
+            let percent = store.recentlyOrder.currentAmount / store.minOrderPrice * 100;
+            let grayGaugeHtml = `<div class="float-right">${numberFormat(store.minOrderPrice - store.recentlyOrder.currentAmount)}원</div>`;
+
+            if (store.minOrderPrice < store.recentlyOrder.currentAmount) {
+                percent = 100;
+            }
+
+            gaugeHtml = ` <div class="gauge mb-1">
+                        <div class="green" style="width: ${percent}%">${numberFormat(store.recentlyOrder.currentAmount)}원</div>
+                        ${percent === 100 ? "" : grayGaugeHtml}
+                    </div>`;
+        }
+
         storeHtml += `
-       <div class="card mt-2">
+        <a href="../../store/index.php">
+        <div class="card mt-2">
             <div class="card-tag-box">
                 <img src="${store.backgroundImageUrl}" alt="" class="w-100">
                 <div class="card-tag"><span class="font-weight-bold">12,000원</span>만 모이면 배달 가능</div>
@@ -63,14 +81,12 @@ function setStoreGaugeList() {
                 </div>
 
                 <div class="mt-1">
-                    <div class="gauge mb-1">
-                        <div class="green" style="width: 60%">30,000원</div>
-                        <div class="float-right">12,000원</div>
-                    </div>
+                    ${gaugeHtml}
                     <p class="float-right text-black-50 font-weight-bold m-0 m-txt">${numberFormat(store.minOrderPrice)}원부터 공동배달</p>
                 </div>
             </div>
-        </div>`;
+        </div>
+        </a>`;
     });
 
     $('#storeGaugeList').html(storeHtml);

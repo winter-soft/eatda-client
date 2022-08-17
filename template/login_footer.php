@@ -26,7 +26,7 @@ if (!empty($_GET["jsFile"])) {
 <script>
     const currentUrl = document.location.href;
     if (currentUrl.includes("loading")) {
-        getKakaoToken("<?php echo $_GET["code"] ?>");
+        getKakaoToken("<?php echo empty($_GET["code"]) ? "" : $_GET["code"] ?>");
     }
 </script>
 </body>

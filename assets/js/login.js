@@ -39,7 +39,7 @@ function getKakaoToken(code) {
         "code": code,
     };
 
-    const response = callExternalApi(KAKAO_TOKEN_API_URL, METHOD_POST, data);
+    const response = callFormTypeExternalApi(KAKAO_TOKEN_API_URL, '', METHOD_POST, data);
     if (response.access_token) {
         getKakaoUserInfo(response.access_token);
     } else {
@@ -56,12 +56,14 @@ function getKakaoUserInfo(token) {
             if (isUser(PLATFORM_TYPE_KAKAO, response.id)) {
                 redirectToIndex();
             } else {
+                document.cookie = `test_id=${kakaoResponse.id};`;
+                console.log("!!!!!!!!!!");
                 kakaoResponse.id = response.id;
                 kakaoResponse.name = response.kakao_account.profile.nickname;
                 kakaoResponse.imageUrl = response.kakao_account.profile.thumbnail_image_url;
                 kakaoResponse.email = response.kakao_account.email;
-
-                setCookie("_kid", kakaoResponse.id);
+                console.log(kakaoResponse.id);
+                setCookie("test_id", kakaoResponse.id);
                 console.log(kakaoResponse);
             }
         },
@@ -81,7 +83,7 @@ function isUser(platformType, platformId) {
         "platformType": platformType
     };
 
-    let response = callApi("/auth/signin", "json", "post", data);
+    let response = callApi("/auth/signin", '', "POST", data);
 
     return response.status === 200;
 }

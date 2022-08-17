@@ -2,22 +2,53 @@ const API_BASE_URL = "http://api-eatda.wintersoft.kr/api";
 const INDEX = "http://eatda.wintersoft.kr";
 const METHOD_POST = "POST";
 const METHOD_GET = "GET";
-const TYPE_JSON = "json";
+const TYPE_JSON = "application/json; charset=utf-8";
+const TYPE_FORM = "application/x-www-form-urlencoded; charset=utf-8";
 
 function callApi(url, header, method, data) {
-    return callCommonApi(`${API_BASE_URL}${url}`, method, data);
+    return callCommonApi(`${API_BASE_URL}${url}`, header, method, data);
+}
+
+function callFormTypeApi(url, header, method, data) {
+    return callFormTypeCommonApi(`${API_BASE_URL}${url}`, header, method, data);
 }
 
 function callExternalApi(url, header, method, data) {
     return callCommonApi(url, header, method, data);
 }
 
+function callFormTypeExternalApi(url, header, method, data) {
+    return callFormTypeCommonApi(url, header, method, data);
+}
+
 function callCommonApi(url, header, method, data) {
     let result = "";
+    let authHeader = header === '' ? '' : {'Authorization': `Bearer ${header}`};
+
     $.ajax(url, {
-        headers: {'Authorization': `Bearer ${header}`},
+        headers: '',
+        dataType: "json",
+        contentType: TYPE_JSON,
+        data: JSON.stringify(data),
+        method: method,
+        async: false,
+        success: function (resultData) {
+            result = resultData;
+        }
+    });
+
+    return result;
+}
+
+function callFormTypeCommonApi(url, header, method, data) {
+    let result = "";
+    let authHeader = header === '' ? '' : {'Authorization': `Bearer ${header}`};
+
+    $.ajax(url, {
+        headers: '',
+        dataType: "json",
+        contentType: TYPE_FORM,
         data: data,
-        dataType: TYPE_JSON,
         method: method,
         async: false,
         success: function (resultData) {
@@ -41,6 +72,7 @@ function setCookie(name, value) {
     let expiredDate = new Date();
     expiredDate.setDate(expiredDate.getDate() + expiredDays);
 
+    console.log(`document.cookie = ${name} + "=" + ${value} + "; expires=" + ${expiredDate.toUTCString()}`);
     document.cookie = name + "=" + value + "; expires=" + expiredDate.toUTCString();
 }
 
