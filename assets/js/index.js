@@ -23,7 +23,7 @@ function setStoreList() {
     $.each(storeList.data.content, function (index, store) {
         storeHtml += `
         <div class="card" style="">
-        <a href="../../store/index.php">
+        <a href="../../store/index.php?id=${store.id}">
             <img alt="image" class="image card-img" src="${store.backgroundImageUrl}">
             <div class="percent-box">
                 <div class="bg-green text-white percent"><span>${store.id}%</span></div>
@@ -61,7 +61,7 @@ function setStoreGaugeList() {
         }
 
         storeHtml += `
-        <a href="../../store/index.php">
+        <a href="../../store/index.php?id=${store.id}">
         <div class="card mt-2">
             <div class="card-tag-box">
                 <img src="${store.backgroundImageUrl}" alt="" class="w-100">

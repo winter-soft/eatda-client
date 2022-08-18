@@ -8,6 +8,7 @@
     --color-kakao-text: #FEE500;
     --color-naver-text: #1FCB53;
     --color-gray-text: #D9D9D9;
+    --color-light-gray-text: #f5f5f5;
     --color-red-text: #DB1508;
     --color-pink-text: #ff3489;
 }
@@ -43,8 +44,16 @@ html {
     background-color: var(--color-yellow-text);
 }
 
+.bg-light-gray {
+    background-color: var(--color-light-gray-text);
+}
+
 .txt-yellow {
     color: var(--color-yellow-text);;
+}
+
+.txt-black {
+    color: var(--color-black-text);;
 }
 
 .txt-red {
@@ -333,4 +342,71 @@ ion-icon {
 
 a {
     color: var(--color-text);
+}
+
+.store-friend-menu-list {
+    width: 100%;
+}
+
+.store-friend-menu-list .menu-box {
+    width: 30vw;
+}
+
+.store-friend-menu-list .menu-box img {
+    width: 50%;
+    border-radius: 50%;
+}
+
+.store-friend-menu-list .title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-black-text);
+}
+
+.store-img-box {
+    width: 100%;
+    height: 20vh;
+    position: relative;
+    text-align: center;
+}
+
+.store-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+.bt-70 {
+    position: relative;
+    bottom: 70px;
+}
+
+.bt-50 {
+    position: relative;
+    bottom: 50px;
+}
+
+.store-menu-list .menu-box {
+    padding: 0 10px;
+}
+
+.store-menu-list .menu-box .menu {
+    margin-bottom: 10px;
+}
+
+.store-menu-list .menu-box .menu img {
+    width: 15vh;
+    height: 15vh;
+    border-radius: 10px;
+}
+
+.store-menu-list .menu-box .menu .content {
+    width: 70%;
+    color: var(--color-black-text);
+    padding: 10px 0 0 25px;
+}
+
+.store-menu-list .menu-box .menu .content p {
+    margin: 0 0 5px 0;
 }
