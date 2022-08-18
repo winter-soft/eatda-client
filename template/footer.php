@@ -44,8 +44,8 @@ function isActivePage($needle): string
             </p>
         </a>
     </div>
-    <div class="item <?php echo isActivePage("login"); ?>">
-        <a href="../auth/login.php">
+    <div class="item <?php echo isActivePage("mypage"); ?>">
+        <a href="../mypage/index.php">
             <p>
                 <ion-icon name="person-outline"></ion-icon>
                 <span>MY</span>

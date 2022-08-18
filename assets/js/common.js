@@ -1,9 +1,23 @@
 const API_BASE_URL = "http://api-eatda.wintersoft.kr/api";
 const INDEX = "http://eatda.wintersoft.kr";
+const DOMAIN = location.protocol + '//' + location.host;
+
+const REST_API_KEY = "3aa8f27ae8e8482840c63a9643a5ae8d";
+const JAVASCRIPT_KEY = "c5959c11ea803f40dda051715365ab72";
+
+const LOGOUT_REDIRECT_URL = `${DOMAIN}/auth/login.php`;
+const LOGIN_URL = `${DOMAIN}/auth/login.php`;
+
 const METHOD_POST = "POST";
 const METHOD_GET = "GET";
 const TYPE_JSON = "application/json; charset=utf-8";
 const TYPE_FORM = "application/x-www-form-urlencoded; charset=utf-8";
+
+const TOKEN_NAME = "eid";
+
+$(document).ready(function () {
+    checkLogin();
+});
 
 function callApi(url, header, method, data) {
     return callCommonApi(`${API_BASE_URL}${url}`, header, method, data);
@@ -26,7 +40,7 @@ function callCommonApi(url, header, method, data) {
     let authHeader = header === '' ? '' : {'Authorization': `Bearer ${header}`};
 
     $.ajax(url, {
-        headers: '',
+        headers: authHeader,
         dataType: "json",
         contentType: TYPE_JSON,
         data: JSON.stringify(data),
@@ -45,7 +59,7 @@ function callFormTypeCommonApi(url, header, method, data) {
     let authHeader = header === '' ? '' : {'Authorization': `Bearer ${header}`};
 
     $.ajax(url, {
-        headers: '',
+        headers: authHeader,
         dataType: "json",
         contentType: TYPE_FORM,
         data: data,
@@ -97,4 +111,40 @@ function numberFormat(number, decimals, dec_point, thousands_sep) {
         s[1] += new Array(prec - s[1].length + 1).join('0');
     }
     return s.join(dec);
+}
+
+function getFormData($form) {
+    let originalArray = $form.serializeArray();
+    let indexedArray = {};
+
+    $.map(originalArray, function (n, i) {
+        indexedArray[n['name']] = n['value'];
+    });
+
+    return indexedArray;
+}
+
+function checkLogin() {
+    const currentPath = window.location.pathname;
+    const isLoginPage = currentPath.includes("login") || currentPath.includes("loading");
+    if (!isLoginPage && !getEatdaToken()) {
+        location.href = LOGIN_URL;
+    }
+}
+
+function setEatdaToken(token) {
+    window.localStorage.setItem(TOKEN_NAME, token);
+}
+
+function getEatdaToken() {
+    return window.localStorage.getItem(TOKEN_NAME);
+}
+
+function removeEatdaToken() {
+    window.localStorage.removeItem(TOKEN_NAME);
+}
+
+function logoutWithKakao() {
+    removeEatdaToken();
+    location.href = `https://kauth.kakao.com/oauth/logout?client_id=${REST_API_KEY}&logout_redirect_uri=${LOGOUT_REDIRECT_URL}`;
 }

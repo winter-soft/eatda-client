@@ -88,6 +88,13 @@ html {
     right: 5%;
 }
 
+.register-btn-box {
+    position: absolute;
+    bottom: 12vh;
+    width: 90% !important;
+    right: 5%;
+}
+
 .sns-btn {
     color: #262835;
     font-size: 1rem;
@@ -267,6 +274,7 @@ ion-icon {
     display: inline-block;
     background-color: var(--color-green-text);
     border-radius: 20px;
+    height: 5vh;
 }
 
 .card-tag-box {

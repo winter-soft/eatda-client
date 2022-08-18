@@ -1,14 +1,6 @@
-const REST_API_KEY = "3aa8f27ae8e8482840c63a9643a5ae8d";
-const JAVASCRIPT_KEY = "c5959c11ea803f40dda051715365ab72";
-
 const KAKAO_TOKEN_API_URL = "https://kauth.kakao.com/oauth/token";
 
-const DOMAIN = location.protocol + '//' + location.host;
 const REDIRECT_URL = `${DOMAIN}/auth/loading.php`;
-const LOGOUT_REDIRECT_URL = `${DOMAIN}/auth/loading.php`;
-
-const LOGIN_URL = `${DOMAIN}/auth/login.php`;
-const REGISTER_URL = `${DOMAIN}/auth/register.php`;
 
 const kakaoResponse = {};
 const PLATFORM_TYPE_KAKAO = "KAKAO";
@@ -54,17 +46,50 @@ function getKakaoUserInfo(token) {
         url: "/v2/user/me",
         success: function (response) {
             if (isUser(PLATFORM_TYPE_KAKAO, response.id)) {
-                redirectToIndex();
+                if (getEatdaToken()) {
+                    redirectToIndex();
+                }
             } else {
-                document.cookie = `test_id=${kakaoResponse.id};`;
-                console.log("!!!!!!!!!!");
                 kakaoResponse.id = response.id;
                 kakaoResponse.name = response.kakao_account.profile.nickname;
                 kakaoResponse.imageUrl = response.kakao_account.profile.thumbnail_image_url;
                 kakaoResponse.email = response.kakao_account.email;
-                console.log(kakaoResponse.id);
-                setCookie("test_id", kakaoResponse.id);
-                console.log(kakaoResponse);
+
+                // 화면 체인지
+                let registerHtml = `    
+                    <div class="sectionTitle text-center register-box mt-3">
+                        <div class="title">
+                            <h1>
+                                기숙사생들을 위한 <span class="text-primary">공동 배달</span><br>
+                                <span class="text-primary">잇다</span>에 오신 것을 환영합니다
+                            </h1>
+                        </div>
+                    </div>
+                
+                    <div class="profile-img-box mb-2">
+                        <img alt="img" class="mt-3 mb-3" src="${kakaoResponse.imageUrl}">
+                    </div>
+                
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <input type="hidden" name="role" value="USER">
+                            <input type="hidden" name="platformType" value="KAKAO">
+                            <input type="hidden" name="profileImageUrl" value="${kakaoResponse.imageUrl}">
+                            <input type="hidden" name="platformId" value="${kakaoResponse.id}">
+                            <input class="form-control" name="username" placeholder="이름을 입력해주세요" type="text" value="${kakaoResponse.name}">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" name="email" placeholder="이메일을 입력해주세요" type="email" value="${kakaoResponse.email}">
+                        </div>
+                        <div class="btn-box">
+                            <button class="btn btn-primary btn-lg btn-block" type="button" onclick="register()">
+                                회원가입
+                            </button>
+                        </div>
+                    </form>`;
+
+                $("#loading").remove();
+                $("#register").html(registerHtml);
             }
         },
     });
@@ -84,10 +109,19 @@ function isUser(platformType, platformId) {
     };
 
     let response = callApi("/auth/signin", '', "POST", data);
+    let isRegistered = response.status === 200;
+    if (isRegistered) {
+        setEatdaToken(response.data.token);
+    }
 
-    return response.status === 200;
+    return isRegistered;
 }
 
-function logoutWithKakao() {
-    location.href = `https://kauth.kakao.com/oauth/logout?client_id=${REST_API_KEY}&logout_redirect_uri=${LOGOUT_REDIRECT_URL}`;
+function register() {
+    let data = getFormData($("#registerForm"));
+    let response = callApi("/auth/signup", '', "POST", data);
+    if (response.status === 200) {
+        setEatdaToken(response.data.token);
+        location.href = INDEX;
+    }
 }
