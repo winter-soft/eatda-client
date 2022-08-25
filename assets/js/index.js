@@ -9,13 +9,12 @@ $(document).ready(function () {
 });
 
 function callStoreApi() {
-    const header = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyYzk2ODA4MjgyN2RhNWI0MDE4MjdkYTZmOGQ5MDAwMCIsImlzcyI6ImRlbW8gYXBwIiwiaWF0IjoxNjYwMjk5NDAzLCJleHAiOjE2NjAzODU4MDN9.0IJVfvciBZebTpGo7NAuIZYEYxkH-rFwoF1kFt8btUk";
     const data = {
         "pageNumber": 1,
-        "pageSize": 10
+        "pageSize": 15
     }
 
-    return callFormTypeApi(storeListApiUrl, header, "GET", data);
+    return callFormTypeApi(storeListApiUrl, getEatdaToken(), METHOD_GET, data);
 }
 
 function setStoreList() {

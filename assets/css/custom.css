@@ -286,6 +286,13 @@ ion-icon {
     height: 5vh;
 }
 
+.gauge .yellow {
+    display: inline-block;
+    background-color: var(--color-yellow-text);
+    border-radius: 20px;
+    height: 5vh;
+}
+
 .card-tag-box {
     position: relative;
 }
@@ -399,14 +406,63 @@ a {
     width: 15vh;
     height: 15vh;
     border-radius: 10px;
+    object-fit: cover;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .store-menu-list .menu-box .menu .content {
-    width: 70%;
     color: var(--color-black-text);
     padding: 10px 0 0 25px;
 }
 
 .store-menu-list .menu-box .menu .content p {
     margin: 0 0 5px 0;
+}
+
+.menu-img-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 31vh;
+}
+
+.menu-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-content {
+    margin-top: 27vh;
+}
+
+.quantity-box {
+    background-color: var(--color-light-gray-text);
+    padding: 7px 16px;
+    border-radius: 5px;
+}
+
+.quantity-box .quantity {
+    margin: 0 10px;
+}
+
+.quantity-box .quantity-btn {
+}
+
+
+.bottom-btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    border: none;
+    background-color: var(--color-yellow-text);
+    color: var(--color-white-text);
+    font-weight: bold;
+}
+
+.place-select {
+    height: 60px;
 }
