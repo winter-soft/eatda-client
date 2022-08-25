@@ -26,6 +26,7 @@ function getStoreOrderApiJson() {
 function setStore(store) {
     let response = {};
     let storeDetail = {};
+    let orderId = 0;
     // 최근 주문이 있는지 확인
     if (!store.recentlyOrder) {
         $.ajax(`${API_BASE_URL}${addStoreOrderApiUrl}/${store.id}`, {
@@ -36,12 +37,14 @@ function setStore(store) {
             method: METHOD_POST,
             async: false,
             success: function (resultData) {
-                response = callStoreDetailApi(resultData.data.id);
+                orderId = resultData.data.id;
+                response = callStoreDetailApi(orderId);
                 storeDetail = response.data;
             }
         });
     } else {
-        response = callStoreDetailApi(store.recentlyOrder.id);
+        orderId = store.recentlyOrder.id;
+        response = callStoreDetailApi(orderId);
         storeDetail = response.data;
     }
 
@@ -52,14 +55,17 @@ function setStore(store) {
 
     $.each(storeDetail.store.menus, function (index, menu) {
         menuHtml += `
-            <div class="menu row">
-                <img src="${menu.imageUrl}"
-                     alt="">
-                <div class="content">
-                    <p class="name font-weight-bold">${menu.name}</p>
-                    <p class="price">${numberFormat(menu.price)}원</p>
+            <a href="../menu/index.php?id=${menu.id}&orderId=${orderId}">
+                <div class="menu row">
+                    <img src="${menu.imageUrl}"
+                         alt="">
+                    <div class="content">
+                        <p class="name font-weight-bold">${menu.name}</p>
+                        <p class="price">${numberFormat(menu.price)}원</p>
+                    </div>
                 </div>
-            </div>`;
+            </a>
+            `;
     });
 
     gaugeHtml = ` <div class="gauge mb-1">
@@ -104,4 +110,6 @@ function setStore(store) {
 
     $('#storeInfo').html(storeHtml);
     $('#menuList').html(menuHtml);
+
+    window.localStorage.setItem("sid", store.id);
 }

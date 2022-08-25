@@ -9,9 +9,7 @@ include "../template/header.php"
         <p class="title font-weight-bold txt-black lg-txt mt-1">추천 메뉴</p>
         <div class="menu-box" id="menuList"></div>
     </div>
-
 </div>
-
 <?php
 $_GET['jsFile'] = "store";
 include "../template/footer.php";
