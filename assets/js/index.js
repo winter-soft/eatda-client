@@ -3,7 +3,6 @@ let storeListApiUrl = "/store/?pageNumber=0&pageSize=10";
 let storeList;
 $(document).ready(function () {
     storeList = callStoreApi();
-    setStoreList();
     setStoreGaugeList();
     setIndexCategoryList();
 });
@@ -17,45 +16,23 @@ function callStoreApi() {
     return callFormTypeApi(storeListApiUrl, getEatdaToken(), METHOD_GET, data);
 }
 
-function setStoreList() {
-    let storeHtml = "";
-    $.each(storeList.data.content, function (index, store) {
-        storeHtml += `
-        <div class="card" style="">
-        <a href="../../store/index.php?id=${store.id}">
-            <img alt="image" class="image card-img" src="${store.backgroundImageUrl}">
-            <div class="percent-box">
-                <div class="bg-green text-white percent"><span>${store.id}%</span></div>
-            </div>
-
-            <div class="p-2">
-                <h2 class="title font-weight-bold">${store.name}</h2>
-                <p class="text-black-50 sm-txt m-0 font-weight-bold">${numberFormat(store.minOrderPrice)}원만 모이면 배달 시작</p>
-            </div>
-        </a>
-    </div>`;
-    });
-
-    $('#storeList').html(storeHtml);
-}
-
 function setStoreGaugeList() {
     let storeHtml = "";
     $.each(storeList.data.content, function (index, store) {
+        let currentMinOrderPrice = store.minOrderPrice - store.recentlyOrder.currentAmount;
+        currentMinOrderPrice = currentMinOrderPrice < 0 ? "금액 달성 완료" : `${numberFormat(currentMinOrderPrice)}원만 모이면 배달 가능`;
+
         let gaugeHtml = ` <div class="gauge mb-1">
                         <div class="float-right">${numberFormat(store.minOrderPrice)}원</div>
                     </div>`;
         if (store.recentlyOrder && store.recentlyOrder.currentAmount > 0) {
             let percent = store.recentlyOrder.currentAmount / store.minOrderPrice * 100;
-            let grayGaugeHtml = `<div class="float-right">${numberFormat(store.minOrderPrice - store.recentlyOrder.currentAmount)}원</div>`;
-
             if (store.minOrderPrice < store.recentlyOrder.currentAmount) {
                 percent = 100;
             }
 
             gaugeHtml = ` <div class="gauge mb-1">
-                        <div class="green" style="width: ${percent}%">${numberFormat(store.recentlyOrder.currentAmount)}원</div>
-                        ${percent === 100 ? "" : grayGaugeHtml}
+                        <div class="green" style="width: ${percent}%">${numberFormat(store.recentlyOrder.currentAmount)}원</div>        
                     </div>`;
         }
 
@@ -64,21 +41,13 @@ function setStoreGaugeList() {
         <div class="card mt-2">
             <div class="card-tag-box">
                 <img src="${store.backgroundImageUrl}" alt="" class="w-100">
-                <div class="card-tag"><span class="font-weight-bold">12,000원</span>만 모이면 배달 가능</div>
+                <div class="card-tag"><span class="font-weight-bold">${currentMinOrderPrice}</span></div>
             </div>
 
             <div class="p-2">
                 <div class="lg-txt">
                     <span class="font-weight-bold text-dark">${store.name}</span>
-                    <span class="float-right">0.9km</span>
                 </div>
-
-                <div class="mt-1">
-                    <i class="icon ion-ios-heart txt-pink mr-1"></i><span>${store.likes}</span>
-                    <ion-icon name="people-circle-outline" class="ml-1 m-txt"></ion-icon>
-                    <span>65</span>
-                </div>
-
                 <div class="mt-1">
                     ${gaugeHtml}
                     <p class="float-right text-black-50 font-weight-bold m-0 m-txt">${numberFormat(store.minOrderPrice)}원부터 공동배달</p>

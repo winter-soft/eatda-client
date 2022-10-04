@@ -11,6 +11,8 @@
     --color-light-gray-text: #f5f5f5;
     --color-red-text: #DB1508;
     --color-pink-text: #ff3489;
+    --color-purple-text: #C040F7;
+    --color-mint-text: #2FE0C1;
 }
 
 @font-face {
@@ -44,24 +46,36 @@ html {
     background-color: var(--color-yellow-text);
 }
 
+.bg-dark-yellow {
+    background-color: var(--color-dark-yellow-text);
+}
+
+.bg-purple {
+    background-color: var(--color-purple-text);
+}
+
+.bg-mint {
+    background-color: var(--color-mint-text);
+}
+
 .bg-light-gray {
     background-color: var(--color-light-gray-text);
 }
 
 .txt-yellow {
-    color: var(--color-yellow-text);;
+    color: var(--color-yellow-text);
 }
 
 .txt-black {
-    color: var(--color-black-text);;
+    color: var(--color-black-text) !important;
 }
 
 .txt-red {
-    color: var(--color-red-text);;
+    color: var(--color-red-text);
 }
 
 .txt-pink {
-    color: var(--color-pink-text);;
+    color: var(--color-pink-text);
 }
 
 .bg-green {
@@ -80,6 +94,10 @@ html {
     position: relative;
     width: 100% !important;
     top: 10vh;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 @media (max-height: 670px) {
@@ -118,8 +136,9 @@ html {
 }
 
 .main-banner {
-    background-image: linear-gradient(120deg, #FFFA84 0%, #FFB906 100%);
-    padding: 25px;
+    /*background-image: url("../../assets/img/main-banner.png");*/
+    background-color: var(--color-black-text);
+    padding: 15px 20px;
     border-radius: 10px;
     line-height: 33px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -201,6 +220,13 @@ ion-icon {
     margin-left: 40px;
 }
 
+.hambuger-icon {
+    width: 100px;
+    position: absolute;
+    top: 160px;
+    right: 30px;
+}
+
 #categoryList img {
     width: 80px;
     height: 80px;
@@ -272,7 +298,7 @@ ion-icon {
     border-radius: 20px;
     color: var(--color-white-text);
     font-weight: 600;
-    height: 5vh;
+    height: 35px;
 }
 
 .gauge div {
@@ -283,14 +309,14 @@ ion-icon {
     display: inline-block;
     background-color: var(--color-green-text);
     border-radius: 20px;
-    height: 5vh;
+    height: 35px;
 }
 
 .gauge .yellow {
     display: inline-block;
     background-color: var(--color-yellow-text);
     border-radius: 20px;
-    height: 5vh;
+    height: 35px;
 }
 
 .card-tag-box {
@@ -298,7 +324,7 @@ ion-icon {
 }
 
 .card-tag-box img {
-    height: 23vh;
+    height: 100px;
     object-fit: cover;
 }
 
@@ -465,4 +491,39 @@ a {
 
 .place-select {
     height: 60px;
+}
+
+.filter, .time-tab {
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+
+.time-tab {
+    margin-top: 20px;
+    border-bottom: 1px solid var(--color-gray-text);
+}
+
+.filter div {
+    display: inline-block;
+    padding: 5px 13px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    color: var(--color-white-text);
+}
+
+.time-tab div {
+    display: inline-block;
+    padding: 5px 10px 15px 10px;
+    margin-right: 5px;
+    font-weight: 700;
+    color: var(--color-gray-text);
+    font-size: 1.2rem;
+}
+
+.hl-bd {
+    border-bottom: 3px solid var(--color-black-text);
+    padding-bottom: 10px;
 }
