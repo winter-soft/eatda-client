@@ -20,11 +20,11 @@ function isActivePage($needle): string
             </p>
         </a>
     </div>
-    <div class="item <?php echo isActivePage("search"); ?>">
-        <a href="../search/index.php">
+    <div class="item <?php echo isActivePage("cart"); ?>">
+        <a href="../cart/history.php">
             <p>
-                <i class="icon ion-ios-search"></i>
-                <span>검색</span>
+                <ion-icon name="cart-outline"></ion-icon>
+                <span>장바구니</span>
             </p>
         </a>
     </div>
