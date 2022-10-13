@@ -66,14 +66,19 @@ function isActivePage($needle): string
 <script src="../assets/js/plugins/owl.carousel.min.js"></script>
 <!-- Main Js File -->
 <script src="../assets/js/app.js"></script>
-<script src="../assets/js/common.js"></script>
+<script src="../assets/js/common.js?<?php echo time(); ?>"></script>
 <script src="../assets/js/api.js"></script>
 <?php
-if (!empty($_GET["jsFile"])) {
-	?>
-
-    <script src="../assets/js/<?php echo $_GET["jsFile"] ?>.js?<?php echo time() ?>"></script>
-	<?php
+$jsFileName = $_GET["jsFile"];
+if (!empty($jsFileName)) {
+	$currentTime = time();
+	if (sizeof($jsFileName) > 1) {
+		foreach ($jsFileName as $fileName) {
+			echo "<script src='../assets/js/{$fileName}.js?{$currentTime}'></script>";
+		}
+	} else {
+		echo "<script src='../assets/js/{$jsFileName}.js?{$currentTime}'></script>";
+	}
 }
 ?>
 
