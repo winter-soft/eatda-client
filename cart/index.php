@@ -41,7 +41,7 @@ include "../template/order_footer.php";
 ?>
 <script>
     $(document).ready(function () {
-        const response = callCartApi(<?php echo $_GET["id"]?>);
+        const response = callCartApi();
         setStoreInfo();
         setCartList(response.data);
         addOrderButton(<?php echo $_GET["id"]?>);

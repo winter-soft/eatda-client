@@ -15,6 +15,8 @@ const TYPE_FORM = "application/x-www-form-urlencoded; charset=utf-8";
 
 const TOKEN_NAME = "eid";
 
+let storeApiUrl = "/store";
+
 $(document).ready(function () {
     checkLogin();
 });
@@ -89,6 +91,21 @@ function setCookie(name, value) {
     console.log(`document.cookie = ${name} + "=" + ${value} + "; expires=" + ${expiredDate.toUTCString()}`);
     document.cookie = name + "=" + value + "; expires=" + expiredDate.toUTCString();
 }
+
+function getCookie(name) {
+    let x, y;
+    let val = document.cookie.split(';');
+    for (let i = 0; i < val.length; i++) {
+        x = val[i].substr(0, val[i].indexOf('='));
+        y = val[i].substr(val[i].indexOf('=') + 1);
+        x = x.replace(/^\s+|\s+$/g, '');
+
+        if (x == name) {
+            return unescape(y);
+        }
+    }
+}
+
 
 function numberFormat(number, decimals, dec_point, thousands_sep) {
     number = (number + '').replace(',', '').replace(' ', '');
