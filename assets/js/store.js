@@ -124,7 +124,7 @@ function showCartInfoButton() {
         const response = callCartApi();
         // 장바구니에 있는 orderId와 같은지 체크
         if (response.data) {
-            if (response.data[0].order.id === orderId) {
+            if (response.data[0].order.id == orderId) {
                 let menuQuantity = response.data.length;
                 if (menuQuantity > 0) {
                     // 장바구니 총 가격 계산
