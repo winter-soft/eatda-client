@@ -559,14 +559,15 @@ a {
     border-radius: 50%;
     height: 30px;
     padding-top: 3px;
+    margin: 2% 10px;
 }
 
 .cart-txt {
-    margin-top: 3px;
+    margin: 3% 5px;
 }
 
 .cart-price {
-    margin-top: 3px;
+    margin: 3% 15px;
 }
 
 button:focus {

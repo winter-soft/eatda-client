@@ -1,5 +1,5 @@
 let menuApiUrl = "/menu";
-let cardAddApiUrl = "/orderDetail";
+let cartAddApiUrl = "/orderDetail";
 
 function callMenuApi(menuId) {
     return callFormTypeApi(`${menuApiUrl}/${menuId}`, getEatdaToken(), METHOD_GET, {});
@@ -47,8 +47,18 @@ function minusQuantity() {
 }
 
 function addCart(menuId, orderId) {
+    // 장바구니에 담기전, 동일한 딜에 담는지 체크
+    const result = checkSameOrderWhenPutInCart(orderId);
+    if (result) {
+        // 장바구니에 메뉴 추가
+        addMenuToCart(menuId, orderId);
+    }
+}
+
+function addMenuToCart(menuId, orderId) {
     const storeId = window.localStorage.getItem("sid");
     const quantity = parseInt($("#quantity").text());
+
     const response = callAddCartApi(menuId, orderId, quantity);
 
     if (response.status === 200) {
@@ -56,9 +66,27 @@ function addCart(menuId, orderId) {
     }
 }
 
+// 담으려고 하는 메뉴가 같은 가게인지 체크하는 함수
+function checkSameOrderWhenPutInCart(orderId) {
+    const response = callCartApi();
+    let result = true;
+    if (response.data) {
+        if (response.data[0].order.id != orderId) {
+            let answer = confirm("같은 딜에 해당하는 메뉴만 담을 수 있습니다.\n" +
+                "주문할 딜을 변경하실 경우 \n" +
+                "이전에 담은 메뉴가 삭제됩니다.");
+            if (!answer) {
+                result = false;
+            }
+        }
+    }
+
+    return result;
+}
+
 function callAddCartApi(menuId, orderId, quantity) {
     const data = {
         "quantity": quantity
     };
-    return callApi(`${cardAddApiUrl}/${orderId}/${menuId}`, getEatdaToken(), METHOD_POST, data);
+    return callApi(`${cartAddApiUrl}/${orderId}/${menuId}`, getEatdaToken(), METHOD_POST, data);
 }

@@ -72,7 +72,7 @@ function isActivePage($needle): string
 $jsFileName = $_GET["jsFile"];
 if (!empty($jsFileName)) {
 	$currentTime = time();
-	if (sizeof($jsFileName) > 1) {
+	if (is_array($jsFileName) && sizeof($jsFileName) > 1) {
 		foreach ($jsFileName as $fileName) {
 			echo "<script src='../assets/js/{$fileName}.js?{$currentTime}'></script>";
 		}

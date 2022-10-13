@@ -1,9 +1,9 @@
-let cartApiUrl = "/orderDetail";
+let cartApiUrl = "/orderDetail/";
 let orderApiUrl = "/order";
 let userOrderApiUrl = "/orderDetail/userOrder";
 
-function callCartApi(orderId) {
-    return callFormTypeApi(`${cartApiUrl}/${orderId}`, getEatdaToken(), METHOD_GET, {});
+function callCartApi() {
+    return callFormTypeApi(`${cartApiUrl}`, getEatdaToken(), METHOD_GET, {});
 }
 
 function callOrderApi(orderId) {

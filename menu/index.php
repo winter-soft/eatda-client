@@ -7,7 +7,7 @@ include "../template/header.php"
 <div id="addCartBtn"></div>
 
 <?php
-$_GET['jsFile'] = "menu";
+$_GET['jsFile'] = ["cart", "menu"];
 include "../template/order_footer.php";
 ?>
 <script>

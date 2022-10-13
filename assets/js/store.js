@@ -121,17 +121,22 @@ function setStore(store) {
 function showCartInfoButton() {
     const orderId = window.localStorage.getItem("oid");
     if (orderId) {
-        const response = callCartApi(orderId);
-        let menuQuantity = response.data.length;
-        if (menuQuantity > 0) {
-            // 장바구니 총 가격 계산
-            let cartTotalPrice = 0;
-            $.each(response.data, function (index, menu) {
-                cartTotalPrice += menu.totalPrice;
-            });
+        const response = callCartApi();
+        // 장바구니에 있는 orderId와 같은지 체크
+        if (response.data) {
+            if (response.data[0].order.id === orderId) {
+                let menuQuantity = response.data.length;
+                if (menuQuantity > 0) {
+                    // 장바구니 총 가격 계산
+                    let cartTotalPrice = 0;
+                    $.each(response.data, function (index, menu) {
+                        cartTotalPrice += menu.totalPrice;
+                    });
 
-            // 하단에 장바구니 정보 버튼 추가
-            seCartInfoButton(menuQuantity, cartTotalPrice);
+                    // 하단에 장바구니 정보 버튼 추가
+                    seCartInfoButton(menuQuantity, cartTotalPrice);
+                }
+            }
         }
     }
 }
@@ -140,7 +145,7 @@ function seCartInfoButton(quantity, price) {
     const orderId = window.localStorage.getItem("oid");
     $(".appBottomMenu").remove();
     const cartInfoBtnHtml = `
-    <button class="bottom-btn p-3 lg-txt" onclick="">
+    <button class="bottom-btn lg-txt" onclick="">
         <span class="float-left mr-2 cart-num">${quantity}</span>
         <span class="float-left cart-txt" onclick="redirectToUrl('../cart/index.php?id=${orderId}')">카트보기</span>
         <span class="float-right cart-price">${numberFormat(price)}원</span>
