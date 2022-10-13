@@ -550,3 +550,25 @@ a {
     border-bottom: 3px solid var(--color-black-text);
     padding-bottom: 13px;
 }
+
+.cart-num {
+    display: inline-block;
+    width: 30px;
+    color: var(--color-yellow-text);
+    background-color: var(--color-white-text);
+    border-radius: 50%;
+    height: 30px;
+    padding-top: 3px;
+}
+
+.cart-txt {
+    margin-top: 3px;
+}
+
+.cart-price {
+    margin-top: 3px;
+}
+
+button:focus {
+    outline: none;
+}

@@ -1,4 +1,3 @@
-let storeApiUrl = "/store";
 let storeDetailApiUrl = "/store/storeDetail";
 let addStoreOrderApiUrl = "/order";
 
@@ -27,6 +26,7 @@ function setStore(store) {
     let response = {};
     let storeDetail = {};
     let orderId = 0;
+
     // 최근 주문이 있는지 확인
     if (!store.recentlyOrder) {
         $.ajax(`${API_BASE_URL}${addStoreOrderApiUrl}/${store.id}`, {
@@ -47,6 +47,9 @@ function setStore(store) {
         response = callStoreDetailApi(orderId);
         storeDetail = response.data;
     }
+
+    window.localStorage.setItem("oid", orderId);
+    showCartInfoButton();
 
     // 있다면 api 호출해서 정보 내려주기
     // 없다면 새로 주문 생성한 후 api 재 호출하기
@@ -112,4 +115,36 @@ function setStore(store) {
     $('#menuList').html(menuHtml);
 
     window.localStorage.setItem("sid", store.id);
+}
+
+// 장바구니에 담긴 상품이 있을경우 하단에 정보를 노출하는 함수
+function showCartInfoButton() {
+    const orderId = window.localStorage.getItem("oid");
+    if (orderId) {
+        const response = callCartApi(orderId);
+        let menuQuantity = response.data.length;
+        if (menuQuantity > 0) {
+            // 장바구니 총 가격 계산
+            let cartTotalPrice = 0;
+            $.each(response.data, function (index, menu) {
+                cartTotalPrice += menu.totalPrice;
+            });
+
+            // 하단에 장바구니 정보 버튼 추가
+            seCartInfoButton(menuQuantity, cartTotalPrice);
+        }
+    }
+}
+
+function seCartInfoButton(quantity, price) {
+    const orderId = window.localStorage.getItem("oid");
+    $(".appBottomMenu").remove();
+    const cartInfoBtnHtml = `
+    <button class="bottom-btn p-3 lg-txt" onclick="">
+        <span class="float-left mr-2 cart-num">${quantity}</span>
+        <span class="float-left cart-txt" onclick="redirectToUrl('../cart/index.php?id=${orderId}')">카트보기</span>
+        <span class="float-right cart-price">${numberFormat(price)}원</span>
+    </button>
+    `;
+    $('#cartInfoBtn').html(cartInfoBtnHtml);
 }

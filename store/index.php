@@ -10,8 +10,9 @@ include "../template/header.php"
         <div class="menu-box" id="menuList"></div>
     </div>
 </div>
+<div id="cartInfoBtn"></div>
 <?php
-$_GET['jsFile'] = "store";
+$_GET['jsFile'] = ["cart", "store"];
 include "../template/footer.php";
 ?>
 <script>

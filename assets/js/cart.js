@@ -1,4 +1,3 @@
-let storeApiUrl = "/store";
 let cartApiUrl = "/orderDetail";
 let orderApiUrl = "/order";
 let userOrderApiUrl = "/orderDetail/userOrder";

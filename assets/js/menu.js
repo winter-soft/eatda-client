@@ -47,10 +47,12 @@ function minusQuantity() {
 }
 
 function addCart(menuId, orderId) {
+    const storeId = window.localStorage.getItem("sid");
     const quantity = parseInt($("#quantity").text());
     const response = callAddCartApi(menuId, orderId, quantity);
+
     if (response.status === 200) {
-        location.href = `../cart/index.php?id=${orderId}`;
+        location.href = `../store/index.php?id=${storeId}`;
     }
 }
 
