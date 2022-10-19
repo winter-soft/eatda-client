@@ -17,8 +17,11 @@ function setOrderHistoryList() {
         orderHistoryHtml = "<p class='text-center'>주문내역이 없습니다.</p>"
     }
 
-    $.each(orderHistoryList.data, function (index, order) {
-        console.log(order);
+    let orderHistory = orderHistoryList.data.reverse();
+    let timeStr = "2022/10/20(목)";
+    $.each(orderHistory, function (index, order) {
+        // TEST 용 임시 변수
+        timeStr = index > 1 ? "2022/10/18(화)" : index > 2 ? "2022/10/19(수)" : timeStr;
         orderHistoryHtml += `
        <div class="card mt-2 history-card">
             <div class="history-status">
@@ -27,13 +30,17 @@ function setOrderHistoryList() {
             </div>   
             
             <div class="p-2">
-                <div class="mb-1">2022-08-19(금) 오후 1시</div>
+                <div class="mb-2">
+                    <span class="history-tag bg-black mr-3p">${timeStr}</span>
+                    <span class="history-tag bg-yellow">오후 1시 점심</span>
+                </div>
                 <div class="lg-txt">
                     <span class="font-weight-bold text-dark">${order.store.name}</span>
-<!--                    <span class="float-right">배달완료</span>-->
+                    <span class="font-weight-bold float-right txt-dark-gray">웅비홀</span>
                 </div>`;
-        let menuList = `<div class="mt-1 history-order">`;
+        let menuList = `<div class="mt-3 history-order">`;
         let menuTotalPrice = 0;
+
         $.each(order.orderDetails, function (index, orderDetail) {
             menuList += `
             <div class="mt-1 history-order">
@@ -46,7 +53,7 @@ function setOrderHistoryList() {
             menuTotalPrice += orderDetail.totalPrice;
         });
 
-        menuList += `  <p class="font-weight-bold mt-2">
+        menuList += `<hr>  <p class="font-weight-bold mt-2">
                     <span>합계</span>
                     <span class="float-right">${numberFormat(menuTotalPrice)}원</span>
                 </p></div>`;
