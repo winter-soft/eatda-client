@@ -70,7 +70,7 @@ function addMenuToCart(menuId, orderId) {
 function checkSameOrderWhenPutInCart(orderId) {
     const response = callCartApi();
     let result = true;
-    if (response.data) {
+    if (response.data && response.data.length > 0) {
         if (response.data[0].order.id != orderId) {
             let answer = confirm("같은 딜에 해당하는 메뉴만 담을 수 있습니다.\n" +
                 "주문할 딜을 변경하실 경우 \n" +

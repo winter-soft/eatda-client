@@ -5,6 +5,8 @@ $(document).ready(function () {
     storeList = callStoreApi();
     setStoreGaugeList();
     setIndexCategoryList();
+    callOrderListApi();
+    callOrderListApi2();
 });
 
 function callStoreApi() {
@@ -19,20 +21,21 @@ function callStoreApi() {
 function setStoreGaugeList() {
     let storeHtml = "";
     $.each(storeList.data.content, function (index, store) {
-        let currentMinOrderPrice = store.minOrderPrice - store.recentlyOrder.currentAmount;
+        let currentAmount = store.recentlyOrder && store.recentlyOrder.currentAmount ? store.recentlyOrder.currentAmount : 0;
+        let currentMinOrderPrice = store.minOrderPrice - currentAmount;
         currentMinOrderPrice = currentMinOrderPrice < 0 ? "금액 달성 완료" : `${numberFormat(currentMinOrderPrice)}원만 모이면 배달 가능`;
 
         let gaugeHtml = ` <div class="gauge mb-1">
                         <div class="float-right">${numberFormat(store.minOrderPrice)}원</div>
                     </div>`;
-        if (store.recentlyOrder && store.recentlyOrder.currentAmount > 0) {
-            let percent = store.recentlyOrder.currentAmount / store.minOrderPrice * 100;
-            if (store.minOrderPrice < store.recentlyOrder.currentAmount) {
+        if (store.recentlyOrder && currentAmount > 0) {
+            let percent = currentAmount / store.minOrderPrice * 100;
+            if (store.minOrderPrice < currentAmount) {
                 percent = 100;
             }
 
             gaugeHtml = ` <div class="gauge mb-1">
-                        <div class="green" style="width: ${percent}%">${numberFormat(store.recentlyOrder.currentAmount)}원</div>        
+                        <div class="green" style="width: ${percent}%">${numberFormat(currentAmount)}원</div>        
                     </div>`;
         }
 

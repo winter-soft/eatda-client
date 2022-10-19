@@ -34,6 +34,10 @@ html {
     width: 230px;
 }
 
+.bg-black {
+    background-color: var(--color-black-text) !important;
+}
+
 .bg-black-gradient {
     background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
 }
@@ -422,8 +426,10 @@ a {
 }
 
 .store-img-box img {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    width: 120%;
+    height: 20vh;
+    left: -10%;
     object-fit: cover;
     margin: 0 auto;
 }
@@ -446,15 +452,24 @@ a {
     margin-bottom: 10px;
 }
 
-.store-menu-list .menu-box .menu img {
-    width: 15vh;
-    height: 15vh;
-    border-radius: 10px;
-    object-fit: cover;
+.store-menu-list .menu-box .menu .menu-img {
+    position: relative;
+    width: 25%;
+    padding-bottom: 25%;
+    border-radius: 6px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.store-menu-list .menu-box .menu .menu-img img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
 .store-menu-list .menu-box .menu .content {
+    width: 75%;
     color: var(--color-black-text);
     padding: 10px 0 0 25px;
 }
