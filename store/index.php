@@ -6,7 +6,22 @@ include "../template/header.php"
     <div id="storeInfo"></div>
     <div id="storeMenu"></div>
     <div class="store-menu-list bt-50">
-        <p class="title font-weight-bold txt-black lg-txt mt-1">추천 메뉴</p>
+        <ul class="nav time-tab" role="tablist">
+            <li class="nav-item">
+                <a class="active" data-toggle="tab" href="#tab1" role="tab" aria-selected="true">
+                    추천 메뉴
+                </a>
+            </li>
+            <li class="nav-item">
+                <a data-toggle="tab" href="#tab2" role="tab" aria-selected="false">세트 메뉴</a>
+            </li>
+            <li class="nav-item">
+                <a data-toggle="tab" href="#tab3" role="tab" aria-selected="false">식사류</a>
+            </li>
+            <li class="nav-item">
+                <a data-toggle="tab" href="#tab4" role="tab" aria-selected="false">디저트</a>
+            </li>
+        </ul>
         <div class="menu-box" id="menuList"></div>
     </div>
 </div>

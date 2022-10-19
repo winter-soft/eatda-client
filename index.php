@@ -23,7 +23,7 @@ include "template/header.php"
 
 <div class="tab-content mt-3">
     <div class="tab-pane fade active show" id="today-lunch" role="tabpanel">
-        <div class="main-banner mt-2 mb-3 bg-red-gradient">
+        <div class="main-banner mt-2 mb-3 bg-black">
             <p>
                 11시까지 주문하고<br>
                 12시에 받아보세요
@@ -106,6 +106,6 @@ include "template/header.php"
 
 
 <?php
-$_GET['jsFile'] = "index";
+$_GET['jsFile'] = ["order", "index"];
 include "template/footer.php";
 ?>

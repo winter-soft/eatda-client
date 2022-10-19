@@ -60,13 +60,15 @@ function setStore(store) {
         menuHtml += `
             <a href="../menu/index.php?id=${menu.id}&orderId=${orderId}">
                 <div class="menu row">
-                    <img src="${menu.imageUrl}"
-                         alt="">
+                    <div class="menu-img">
+                        <img src="${menu.imageUrl}" alt="">
+                    </div>
                     <div class="content">
                         <p class="name font-weight-bold">${menu.name}</p>
                         <p class="price">${numberFormat(menu.price)}원</p>
                     </div>
                 </div>
+                <hr>
             </a>
             `;
     });
@@ -92,22 +94,26 @@ function setStore(store) {
         <div class="store-img-box">
             <img src="${storeDetail.store.backgroundImageUrl}" alt="">
         </div>
-        <div class="card p-2 bt-70">
-        <p class="font-weight-bold bl lg-txt text-center txt-black">${storeDetail.store.name}</p>
-        <div class="mt-0 text-center">
-            <i class="icon ion-ios-heart txt-pink mr-1"></i><span>${storeDetail.store.likes}</span>
-            <ion-icon name="people-circle-outline" class="ml-1 m-txt"></ion-icon>
-            <span>65</span>
+        <div class="card bt-70">
+        <div class="p-2">
+            <p class="font-weight-bold bl lg-txt text-center txt-black">${storeDetail.store.name}</p>
+            <div class="mt-1">
+                ${gaugeHtml}
+                <p class="float-right text-black-50 font-weight-bold m-0 m-txt">${numberFormat(storeDetail.store.minOrderPrice)}원부터 공동배달</p>
+            </div>
         </div>
-
-        <div class="mt-2">
-            ${gaugeHtml}
-            <p class="float-right text-black-50 font-weight-bold m-0 m-txt">${numberFormat(storeDetail.store.minOrderPrice)}원부터 공동배달</p>
+       
+        <hr class="p-0 m-0">
+        <div class="row">
+            <div class="col-6 border-right text-center txt-black p-2">
+                <span class="font-weight-bold mr-1">주문마감</span>
+                <span class="font-weight-light">11:00</span>
+            </div>
+            <div class="col-6 text-center txt-black p-2">
+                <span class="font-weight-bold mr-1">배달시작</span>
+                <span class="font-weight-light">12:00</span>
+            </div>
         </div>
-    </div>
-    <div class="card p-2 mt-2 bg-light-gray bt-70">
-        ${numberFormat(storeDetail.store.minOrderPrice)}원만 모이면 배달이 시작돼요!<br>
-        당연히 배달비는 무료! 최소주문금액도 없어요
     </div>
     `;
 
@@ -123,7 +129,7 @@ function showCartInfoButton() {
     if (orderId) {
         const response = callCartApi();
         // 장바구니에 있는 orderId와 같은지 체크
-        if (response.data) {
+        if (response.data && response.data.length > 0) {
             if (response.data[0].order.id == orderId) {
                 let menuQuantity = response.data.length;
                 if (menuQuantity > 0) {

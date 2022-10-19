@@ -1,5 +1,5 @@
-let storeApiUrl = "/store";
 let userOrderApiUrl = "/orderDetail/userOrderDetail";
+let orderListApiUrl = "/order/time";
 
 function callStoreApi() {
     const storeId = window.localStorage.getItem("sid");
@@ -27,4 +27,12 @@ function setOrderInfo(order) {
 
 function callUserOrderApi(orderId) {
     return callFormTypeApi(`${userOrderApiUrl}/${orderId}`, getEatdaToken(), METHOD_GET, {});
+}
+
+function callOrderListApi() {
+    return callFormTypeApi(`${orderListApiUrl}/1/0`, getEatdaToken(), METHOD_GET, {});
+}
+
+function callOrderListApi2() {
+    return callFormTypeApi(`${orderListApiUrl}/0`, getEatdaToken(), METHOD_GET, {});
 }
