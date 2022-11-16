@@ -78,6 +78,7 @@ function setStore(store) {
                     </div>`;
     if (store.recentlyOrder && store.recentlyOrder.currentAmount > 0) {
         let percent = store.recentlyOrder.currentAmount / store.minOrderPrice * 100;
+        percent = percent > 0 && percent < 35 ? 35 : percent;
         let grayGaugeHtml = `<div class="float-right">${numberFormat(store.minOrderPrice - store.recentlyOrder.currentAmount)}원</div>`;
 
         if (store.minOrderPrice < store.recentlyOrder.currentAmount) {
@@ -107,11 +108,11 @@ function setStore(store) {
         <div class="row">
             <div class="col-6 border-right text-center txt-black p-2">
                 <span class="font-weight-bold mr-1">주문마감</span>
-                <span class="font-weight-light">11:00</span>
+                <span class="font-weight-light">16:30</span>
             </div>
             <div class="col-6 text-center txt-black p-2">
                 <span class="font-weight-bold mr-1">배달시작</span>
-                <span class="font-weight-light">12:00</span>
+                <span class="font-weight-light">17:30</span>
             </div>
         </div>
     </div>

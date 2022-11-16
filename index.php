@@ -5,30 +5,39 @@ include "template/header.php"
 ?>
 
 <ul class="nav time-tab" role="tablist">
+    <!--    <li class="nav-item">-->
+    <!--        <a class="active" data-toggle="tab" href="#today-lunch" role="tab" aria-selected="true">-->
+    <!--            오늘 점심-->
+    <!--        </a>-->
+    <!--    </li>-->
     <li class="nav-item">
-        <a class="active" data-toggle="tab" href="#today-lunch" role="tab" aria-selected="true">
-            오늘 점심
-        </a>
+        <a class="active" data-toggle="tab" href="#today-dinner" role="tab" aria-selected="true">오늘 저녁</a>
     </li>
-    <li class="nav-item">
-        <a data-toggle="tab" href="#today-dinner" role="tab" aria-selected="false">오늘 저녁</a>
-    </li>
-    <li class="nav-item">
-        <a data-toggle="tab" href="#tomorrow-lunch" role="tab" aria-selected="false">내일 점심</a>
-    </li>
+    <!--    <li class="nav-item">-->
+    <!--        <a data-toggle="tab" href="#tomorrow-lunch" role="tab" aria-selected="false">내일 점심</a>-->
+    <!--    </li>-->
     <li class="nav-item">
         <a data-toggle="tab" href="#tomorrow-dinner" role="tab" aria-selected="false">내일 저녁</a>
     </li>
 </ul>
 
 <div class="tab-content mt-3">
-    <div class="tab-pane fade active show" id="today-lunch" role="tabpanel">
+    <div class="tab-pane fade" id="today-lunch" role="tabpanel">
         <div class="main-banner mt-2 mb-3 bg-black">
             <p>
                 11시까지 주문하고<br>
                 12시에 받아보세요
             </p>
             <img src="assets/img/icon/hambuger_3d.png" alt="" class="hambuger-icon">
+        </div>
+    </div>
+    <div class="tab-pane fade active show" id="today-dinner" role="tabpanel">
+        <div class="main-banner mt-2 mb-3 bg-black">
+            <p>
+                오후 4시 반까지 주문하고<br>
+                오후 6시에 받아보세요
+            </p>
+            <!--            <img src="assets/img/icon/hambuger_3d.png" alt="" class="hambuger-icon">-->
         </div>
         <ul class="nav nav-tabs size4" role="tablist">
             <li class="nav-item">
@@ -74,15 +83,7 @@ include "template/header.php"
                 집현재
             </div>
         </div>
-    </div>
-    <div class="tab-pane fade" id="today-dinner" role="tabpanel">
-        <div class="main-banner mt-2 mb-3 bg-yellow-gradient">
-            <p>
-                4시까지 주문하고<br>
-                6시에 받아보세요
-            </p>
-            <!--            <img src="assets/img/icon/hambuger_3d.png" alt="" class="hambuger-icon">-->
-        </div>
+
     </div>
     <div class="tab-pane fade" id="tomorrow-lunch" role="tabpanel">
         <div class="main-banner mt-2 mb-3 bg-blue-gradient">
@@ -94,7 +95,7 @@ include "template/header.php"
         </div>
     </div>
     <div class="tab-pane fade" id="tomorrow-dinner" role="tabpanel">
-        <div class="main-banner mt-2 mb-3 bg-green-gradient">
+        <div class="main-banner mt-2 mb-3 bg-black">
             <p>
                 내일 저녁을<br>
                 미리 예약해보세요

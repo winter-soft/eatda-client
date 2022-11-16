@@ -30,6 +30,7 @@ function setStoreGaugeList() {
                     </div>`;
         if (store.recentlyOrder && currentAmount > 0) {
             let percent = currentAmount / store.minOrderPrice * 100;
+            percent = percent > 0 && percent < 35 ? 35 : percent;
             if (store.minOrderPrice < currentAmount) {
                 percent = 100;
             }
