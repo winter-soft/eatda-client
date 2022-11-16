@@ -8,6 +8,7 @@
     --color-kakao-text: #FEE500;
     --color-naver-text: #1FCB53;
     --color-gray-text: #D9D9D9;
+    --color-dark-gray-text: #8f8f8f;
     --color-light-gray-text: #f5f5f5;
     --color-red-text: #DB1508;
     --color-pink-text: #ff3489;
@@ -74,8 +75,20 @@ html {
     background-color: var(--color-light-gray-text) !important;
 }
 
+.txt-gray {
+    color: var(--color-gray-text) !important;
+}
+
+.txt-dark-gray {
+    color: var(--color-dark-gray-text) !important;
+}
+
 .txt-yellow {
     color: var(--color-yellow-text) !important;
+}
+
+.txt-dark-yellow {
+    color: var(--color-dark-yellow-text) !important;
 }
 
 .txt-black {
@@ -132,8 +145,12 @@ html {
     }
 }
 
+#appCapsule {
+    overflow-x: hidden;
+}
+
 .btn-box {
-    position: absolute;
+    position: fixed;
     bottom: 3vh;
     width: 90% !important;
     right: 5%;
@@ -380,8 +397,9 @@ ion-icon {
     margin: 0;
     position: absolute;
     font-weight: 600;
-    top: 5.5vh;
-    left: 20vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 1.2rem;
 }
 
@@ -587,4 +605,19 @@ a {
 
 button:focus {
     outline: none;
+}
+
+.history-tag {
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.mr-3p {
+    margin-right: 3px;
+}
+
+.display-none {
+    display: none;
 }

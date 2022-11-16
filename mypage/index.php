@@ -13,6 +13,9 @@ include "../template/header.php"
             <input class="form-control" name="name" type="text" readonly>
         </div>
         <div class="form-group">
+            <input class="form-control" name="phoneNumber" type="text" readonly>
+        </div>
+        <div class="form-group">
             <input class="form-control" name="email" type="email" readonly>
         </div>
         <div class="register-btn-box">

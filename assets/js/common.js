@@ -1,5 +1,5 @@
-const API_BASE_URL = "http://api-eatda.wintersoft.kr/api";
-const INDEX = "http://eatda.wintersoft.kr";
+const API_BASE_URL = "http://api.eat-da.com/api";
+const INDEX = "http://eat-da.com";
 const DOMAIN = location.protocol + '//' + location.host;
 
 const REST_API_KEY = "3aa8f27ae8e8482840c63a9643a5ae8d";
