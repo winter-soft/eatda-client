@@ -16,7 +16,9 @@
             <img src="../assets/img/login/kakao_logo.png">
             카카오로 로그인
         </button>
-        <button class="btn btn-lg btn-block bg-naver sns-btn" type="button">
+        <div id="naver_id_login" style="display: none"></div>
+        <button class="btn btn-lg btn-block bg-naver sns-btn" type="button" id="naverLoginBtn"
+                onclick="loginWithNaver()">
             <img src="../assets/img/login/naver_logo.png">
             네이버로 로그인
         </button>
