@@ -19,18 +19,18 @@ include "../template/header.php"
         <p class="txt-red"><span>배달비</span><span class="float-right">0원</span></p>
         <p class="font-weight-bold"><span>총 결제금액</span><span class="float-right total-price"></span></p>
     </div>
-    <div class="divider mt-4 mb-2"></div>
-    <p class="txt-black"><span>결제수단</span><span class="float-right">카카오페이</span></p>
-    <div class="mt-1">
-        <div class="gauge mb-1">
-            <div class="yellow total-price" style="width: 100%"></div>
-
-        </div>
-    </div>
-    <div class="card p-2 mt-2 bg-light-gray mb-4">
-        공동 배달이 가능합니다!<br>
-        배달이 시작되면 알림을 보내드릴께요
-    </div>
+    <!--    <div class="divider mt-4 mb-2"></div>-->
+    <!--    <p class="txt-black"><span>결제수단</span><span class="float-right">카카오페이</span></p>-->
+    <!--    <div class="mt-1">-->
+    <!--        <div class="gauge mb-1">-->
+    <!--            <div class="yellow total-price" style="width: 100%"></div>-->
+    <!---->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--    <div class="card p-2 mt-2 bg-light-gray mb-4">-->
+    <!--        공동 배달이 가능합니다!<br>-->
+    <!--        배달이 시작되면 알림을 보내드릴께요-->
+    <!--    </div>-->
 </div>
 <div id="orderBtnBox"></div>
 

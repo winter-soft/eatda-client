@@ -565,9 +565,18 @@ a {
     color: var(--color-white-text);
 }
 
-.time-tab li {
+.store-menu-list .time-tab li {
     width: 25%;
+}
+
+.time-tab li {
+    width: 50%;
     text-align: center;
+}
+
+.time-tab .nav-item a {
+    display: inline-block;
+    width: 100%;
 }
 
 .time-tab li a {

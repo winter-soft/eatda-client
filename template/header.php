@@ -21,6 +21,7 @@
           rel="stylesheet">
     <link href="../assets/css/style.css?<?php echo time() ?>" rel="stylesheet">
     <link href="../assets/css/custom.css?<?php echo time() ?>" rel="stylesheet">
+    <script src="https://js.tosspayments.com/v1/payment"></script>
 </head>
 
 <body>
@@ -61,7 +62,7 @@
             <span class="inputIcon">
                 <i class="icon ion-ios-search"></i>
             </span>
-        <input class="form-control" id="searchInput" placeholder="치킨, 피자 ..." type="text">
+        <input class="form-control" id="searchInput" placeholder="저녁으로 마라탕 어떠세요?" type="text">
         <a class="toggleSearchbox closeButton" href="javascript:">
             <i class="icon ion-ios-close-circle"></i>
         </a>
