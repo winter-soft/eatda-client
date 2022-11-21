@@ -13,9 +13,13 @@ const METHOD_GET = "GET";
 const TYPE_JSON = "application/json; charset=utf-8";
 const TYPE_FORM = "application/x-www-form-urlencoded; charset=utf-8";
 
+let USER_INFO_API_URL = "/auth/infor";
+let REFRESH_TOKEN_API_URL = "/auth/refresh";
+
 const TOKEN_NAME = "eid";
 
 let storeApiUrl = "/store";
+let userInfo = {};
 
 $(document).ready(function () {
     checkLogin();
@@ -146,7 +150,31 @@ function checkLogin() {
     const isLoginPage = currentPath.includes("login") || currentPath.includes("loading");
     if (!isLoginPage && !getEatdaToken()) {
         location.href = LOGIN_URL;
+    } else {
+        userInfo = callUserInfoApi();
     }
+}
+
+function callUserInfoApi() {
+    let response = callFormTypeApi(USER_INFO_API_URL, getEatdaToken(), METHOD_GET, {});
+    if (!response) { // 토큰 만료
+        const refreshToken = callRefreshTokenApi();
+        if (refreshToken) {
+            setEatdaToken(refreshToken);
+        }
+    }
+
+    response = callFormTypeApi(USER_INFO_API_URL, getEatdaToken(), METHOD_GET, {})
+    return response.data;
+}
+
+function callRefreshTokenApi() {
+    const data = {
+        "token": getEatdaToken()
+    }
+
+    const response = callApi(REFRESH_TOKEN_API_URL, '', METHOD_POST, data);
+    return response.data.token;
 }
 
 function setEatdaToken(token) {
