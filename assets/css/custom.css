@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans:400');
+@import url('https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean');
+
 :root {
     --color-text: #2D3243;
+    --color-black: #1D1D1D;
+    --color-yellow: #FFE114;
     --color-black-text: #000000;
     --color-white-text: #FFFFFF;
     --color-yellow-text: #FFB906;
@@ -26,6 +31,44 @@ html {
     color: var(--color-text);
 }
 
+#intro-section {
+    background-color: var(--color-black);
+    padding: 30px 0;
+}
+
+#intro-section .content p {
+    font-size: 2.4rem;
+    font-family: 'Black Han Sans', sans-serif;
+    margin: 0 0 20px 0;
+    line-height: 80%;
+}
+
+#intro-section .sub-title {
+    margin: 10px 0;
+}
+
+#intro-section .title {
+    font-size: 2.1rem;
+    font-family: 'Black Han Sans', sans-serif;
+    display: inline-block;
+    border-radius: 30px;
+    background-color: var(--color-white-text);
+    color: var(--color-black);
+    padding: 20px 25px 15px 25px;
+    margin: 0 0 10px 0;
+}
+
+.sticker-text {
+    margin-bottom: 12px !important;
+}
+
+.new-sticker {
+    width: 2.5rem;
+    position: relative;
+    bottom: 21px;
+    left: -20px;
+}
+
 .login-title h1 {
     font-family: Yeongdo;
     font-size: 3rem !important;
@@ -37,6 +80,10 @@ html {
 
 .bg-black {
     background-color: var(--color-black-text) !important;
+}
+
+.bg-dark {
+    background-color: var(--color-black) !important;
 }
 
 .bg-black-gradient {
@@ -101,6 +148,10 @@ html {
 
 .txt-pink {
     color: var(--color-pink-text) !important;
+}
+
+.text-yellow {
+    color: var(--color-yellow);
 }
 
 .bg-green {
@@ -363,7 +414,7 @@ ion-icon {
 }
 
 .card-tag-box img {
-    height: 100px;
+    height: 150px;
     object-fit: cover;
 }
 
@@ -446,7 +497,7 @@ a {
 .store-img-box img {
     position: absolute;
     width: 120%;
-    height: 20vh;
+    height: 30vh;
     left: -10%;
     object-fit: cover;
     margin: 0 auto;
@@ -454,28 +505,34 @@ a {
 
 .bt-70 {
     position: relative;
-    bottom: 70px;
+    bottom: -20px;
 }
 
 .bt-50 {
     position: relative;
-    bottom: 50px;
+    bottom: -50px;
 }
 
 .store-menu-list .menu-box {
     padding: 0 10px;
 }
 
+.store-menu-list .menu-box a {
+    position: relative;
+}
+
 .store-menu-list .menu-box .menu {
     margin-bottom: 10px;
+    height: 110px;
 }
 
 .store-menu-list .menu-box .menu .menu-img {
-    position: relative;
-    width: 25%;
-    padding-bottom: 25%;
+    position: absolute;
+    width: 30%;
+    height: 90%;
     border-radius: 6px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+    right: 0;
 }
 
 .store-menu-list .menu-box .menu .menu-img img {
@@ -487,9 +544,9 @@ a {
 }
 
 .store-menu-list .menu-box .menu .content {
-    width: 75%;
+    width: 70%;
     color: var(--color-black-text);
-    padding: 10px 0 0 25px;
+    padding-right: 10px;
 }
 
 .store-menu-list .menu-box .menu .content p {
@@ -629,4 +686,36 @@ button:focus {
 
 .display-none {
     display: none;
+}
+
+footer {
+    background-color: var(--color-light-gray-text);
+    padding: 20px 15px 70px 15px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 5px 0;
+    color: var(--color-dark-gray-text);
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+
+footer p .title {
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+}
+
+.boss-title {
+    line-height: 160%;
+    font-weight: normal;
+}
+
+.card-banner {
+    font-weight: 500;
+    text-align: center;
+    color: #a8a8a8;
+    background-color: #e5e9f2;
+    border-radius: 0 0 6px 6px;
 }

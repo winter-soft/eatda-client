@@ -58,14 +58,14 @@ function setStore(store) {
 
     $.each(storeDetail.store.menus, function (index, menu) {
         menuHtml += `
-            <a href="../menu/index.php?id=${menu.id}&orderId=${orderId}">
+            <a href="../menu/index.php?id=${menu.id}&orderId=${orderId}" class="mt-2">
                 <div class="menu row">
-                    <div class="menu-img">
-                        <img src="${menu.imageUrl}" alt="">
-                    </div>
                     <div class="content">
                         <p class="name font-weight-bold">${menu.name}</p>
                         <p class="price">${numberFormat(menu.price)}원</p>
+                    </div>
+                     <div class="menu-img">
+                        <img src="${menu.imageUrl}" alt="">
                     </div>
                 </div>
                 <hr>
@@ -108,11 +108,11 @@ function setStore(store) {
         <div class="row">
             <div class="col-6 border-right text-center txt-black p-2">
                 <span class="font-weight-bold mr-1">주문마감</span>
-                <span class="font-weight-light">16:30</span>
+                <span class="font-weight-light">18:00</span>
             </div>
             <div class="col-6 text-center txt-black p-2">
                 <span class="font-weight-bold mr-1">배달시작</span>
-                <span class="font-weight-light">17:30</span>
+                <span class="font-weight-light">18:30</span>
             </div>
         </div>
     </div>

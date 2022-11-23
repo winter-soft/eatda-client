@@ -4,9 +4,9 @@ include "../template/header.php"
 ?>
 
 <select class="custom-select mt-2 place-select">
-    <option value="1">단국대학교 기숙사 진리관 로비</option>
+    <!--    <option value="1">단국대학교 기숙사 진리관 로비</option>-->
     <option value="2">단국대학교 기숙사 웅비홀 로비</option>
-    <option value="3">단국대학교 기숙사 집현재 로비</option>
+    <!--    <option value="3">단국대학교 기숙사 집현재 로비</option>-->
 </select>
 
 <div class="mt-2">

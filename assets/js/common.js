@@ -73,6 +73,9 @@ function callFormTypeCommonApi(url, header, method, data) {
         async: false,
         success: function (resultData) {
             result = resultData;
+        },
+        fail: function (resultData) {
+            result = resultData;
         }
     });
 
@@ -92,7 +95,7 @@ function setCookie(name, value) {
     let expiredDate = new Date();
     expiredDate.setDate(expiredDate.getDate() + expiredDays);
 
-    console.log(`document.cookie = ${name} + "=" + ${value} + "; expires=" + ${expiredDate.toUTCString()}`);
+    // console.log(`document.cookie = ${name} + "=" + ${value} + "; expires=" + ${expiredDate.toUTCString()}`);
     document.cookie = name + "=" + value + "; expires=" + expiredDate.toUTCString();
 }
 
@@ -146,26 +149,51 @@ function getFormData($form) {
 }
 
 function checkLogin() {
-    const currentPath = window.location.pathname;
-    const isLoginPage = currentPath.includes("login") || currentPath.includes("loading");
-    if (!isLoginPage && !getEatdaToken()) {
+    if (!isLoginPage() && !getEatdaToken()) {
         location.href = LOGIN_URL;
     } else {
-        userInfo = callUserInfoApi();
+        if (!isLoginPage()) {
+            userInfo = callUserInfoApi();
+            if (userInfo.role) {
+                if (!getCookie("erole")) {
+                    setCookie("erole", userInfo.role);
+                }
+                setStoreUrl();
+            }
+        }
     }
 }
 
 function callUserInfoApi() {
     let response = callFormTypeApi(USER_INFO_API_URL, getEatdaToken(), METHOD_GET, {});
-    if (!response) { // 토큰 만료
+
+    if (response.status != 200) { // 토큰 만료
         const refreshToken = callRefreshTokenApi();
         if (refreshToken) {
             setEatdaToken(refreshToken);
+        } else {
+            logout();
         }
     }
 
     response = callFormTypeApi(USER_INFO_API_URL, getEatdaToken(), METHOD_GET, {})
     return response.data;
+}
+
+function logout() {
+    removeEatdaToken();
+    if (!isLoginPage()) {
+        location.href = LOGIN_URL;
+    }
+}
+
+function isLoginPage() {
+    const currentPath = window.location.pathname;
+    return currentPath.includes("login") || currentPath.includes("loading");
+}
+
+function getCurrentUrl() {
+    return window.location.href;
 }
 
 function callRefreshTokenApi() {
@@ -192,4 +220,8 @@ function removeEatdaToken() {
 function logoutWithKakao() {
     removeEatdaToken();
     location.href = `https://kauth.kakao.com/oauth/logout?client_id=${REST_API_KEY}&logout_redirect_uri=${LOGOUT_REDIRECT_URL}`;
+}
+
+function setStoreUrl() {
+    $("#storeUrl").attr("href", `http://eat-da.com/store/index.php?id=${userInfo.storeId}`);
 }

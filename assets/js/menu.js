@@ -59,7 +59,7 @@ function addMenuToCart(menuId, orderId) {
     const storeId = window.localStorage.getItem("sid");
     const quantity = parseInt($("#quantity").text());
 
-    const response = callAddCartApi(menuId, orderId, quantity);
+    const response = callAddCartApi(menuId, orderId, quantity, 0);
 
     if (response.status === 200) {
         location.href = `../store/index.php?id=${storeId}`;
@@ -84,9 +84,15 @@ function checkSameOrderWhenPutInCart(orderId) {
     return result;
 }
 
-function callAddCartApi(menuId, orderId, quantity) {
+function callAddCartApi(menuId, orderId, quantity, option_id) {
     const data = {
+        "menuOptions": [
+            {
+                "menuOption_id": option_id
+            }
+        ],
         "quantity": quantity
     };
+
     return callApi(`${cartAddApiUrl}/${orderId}/${menuId}`, getEatdaToken(), METHOD_POST, data);
 }

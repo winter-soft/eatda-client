@@ -1,3 +1,17 @@
+<?php
+function isActivePage($needle): string
+{
+	$currentPage = str_replace(basename($_SERVER["PHP_SELF"]), "", $_SERVER["REQUEST_URI"]);
+	return ($currentPage == "/" && $needle == "/") || strpos($currentPage, $needle) ? "active" : "";
+}
+
+function isActiveCurrentPage($needle): string
+{
+	$currentPage = $_SERVER["PHP_SELF"];
+	return strpos($currentPage, $needle) ? "active" : "";
+}
+
+?>
 <!doctype html>
 <html lang="ko">
 
