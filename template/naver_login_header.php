@@ -1,19 +1,3 @@
-<?php
-function isActivePage($needle): string
-{
-	$currentPage = str_replace(basename($_SERVER["PHP_SELF"]), "", $_SERVER["REQUEST_URI"]);
-	return ($currentPage == "/" && $needle == "/") || strpos($currentPage, $needle) ? "active" : "";
-}
-
-function isActiveCurrentPage($needle): string
-{
-	$currentPage = $_SERVER["PHP_SELF"];
-	return strpos($currentPage, $needle) ? "active" : "";
-}
-
-$bgColor = isActiveCurrentPage("auth/login") ? "bg-dark" : "";
-
-?>
 <!doctype html>
 <html lang="ko">
 
@@ -29,15 +13,16 @@ $bgColor = isActiveCurrentPage("auth/login") ? "bg-dark" : "";
     <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <link rel="shortcut icon" href="../assets/img/icon/favicon.png" type="image/x-icon">
     <link rel="icon" href="../assets/img/icon/favicon.png" type="image/x-icon">
-    <link rel="apple-touch-icon" href="http://eat-da.com/assets/img/app_logo.png"/>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
           rel="stylesheet">
     <link href="../assets/css/style.css?<?php echo time() ?>" rel="stylesheet">
     <link href="../assets/css/custom.css?<?php echo time() ?>" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+            charset="utf-8"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 
-<body class="<?php echo $bgColor; ?>">
+<body>
 
 <!-- Page loading -->
 <div class="loading">
@@ -48,4 +33,4 @@ $bgColor = isActiveCurrentPage("auth/login") ? "bg-dark" : "";
 <!-- App Capsule -->
 <div id="appCapsule">
 
-    <div class="appContent <?php echo $bgColor; ?>">
+    <div class="appContent">

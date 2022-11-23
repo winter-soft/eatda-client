@@ -16,8 +16,8 @@
 <script src="../assets/js/common.js"></script>
 <script src="../assets/js/api.js"></script>
 <script src="../assets/js/login.js?<?php echo time() ?>"></script>
-<!--<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"-->
-<!--        charset="utf-8"></script>-->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+        charset="utf-8"></script>
 <?php
 if (!empty($_GET["jsFile"])) {
 	?>
@@ -25,29 +25,11 @@ if (!empty($_GET["jsFile"])) {
 	<?php
 }
 ?>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init();
-
     const currentUrl = document.location.href;
     if (currentUrl.includes("loading")) {
         getKakaoToken("<?php echo empty($_GET["code"]) ? "" : $_GET["code"] ?>");
     }
-
-    // var naver_id_login = new naver_id_login("wdS5u9Z7EcvhwSzO5j9x", "http://eat-da.com/auth/n_loading.php");
-    // var state = naver_id_login.getUniqState();
-    // naver_id_login.setButton("white", 2, 40);
-    // naver_id_login.setDomain("eat-da.com");
-    // naver_id_login.setState(state);
-    // naver_id_login.setPopup();
-    // naver_id_login.init_naver_id_login();
-    //
-    // function loginWithNaver() {
-    //     var naverLoginBtn = document.getElementById("naver_id_login").firstChild;
-    //     naverLoginBtn.click();
-    // }
-
-
 </script>
 </body>
 

@@ -1,59 +1,41 @@
 <?php
-function isActivePage($needle): string
-{
-	$currentPage = str_replace(basename($_SERVER["PHP_SELF"]), "", $_SERVER["REQUEST_URI"]);
-	return ($currentPage == "/" && $needle == "/") || strpos($currentPage, $needle) ? "active" : "";
+$fileName = "user_footer.php";
+if (!empty($_COOKIE['erole']) && $_COOKIE['erole'] == "BOSS") {
+	$fileName = "boss_footer.php";
 }
-
 ?>
+
 </div>
 </div>
 <!-- appCapsule -->
 
 <!-- App Bottom Menu -->
-<div class="appBottomMenu">
-    <div class="item <?php echo isActivePage("/"); ?>">
-        <a href="../index.php">
-            <p>
-                <i class="icon ion-ios-home"></i>
-                <span>홈</span>
-            </p>
-        </a>
-    </div>
-    <div class="item <?php echo isActivePage("cart"); ?>">
-        <a href="../cart/history.php">
-            <p>
-                <ion-icon name="cart-outline"></ion-icon>
-                <span>장바구니</span>
-            </p>
-        </a>
-    </div>
-    <div class="item <?php echo isActivePage("like"); ?>">
-        <a href="../like/index.php">
-            <p>
-				<?php echo isActivePage("like") ? '<i class="icon ion-ios-heart txt-yellow"></i>' : '<ion-icon name="heart-outline"></ion-icon>' ?>
-                <span>즐겨찾기</span>
-            </p>
-        </a>
-    </div>
-    <div class="item <?php echo isActivePage("history"); ?>">
-        <a href="../history/index.php">
-            <p>
-                <i class="icon ion-ios-list"></i>
-                <span>주문내역</span>
-            </p>
-        </a>
-    </div>
-    <div class="item <?php echo isActivePage("mypage"); ?>">
-        <a href="../mypage/index.php">
-            <p>
-                <ion-icon name="person-outline"></ion-icon>
-                <span>MY</span>
-            </p>
-        </a>
-    </div>
-</div>
+<?php
+include_once $fileName;
+?>
 <!-- * App Bottom Menu -->
+<footer>
+    <p>
+        <span class="title">상호명</span>
+        <span>주식회사 가화</span>
+    </p>
+    <p>
+        <span class="title">대표자명</span>
+        <span>홍은석</span>
+    </p>
+    <p>
+        <span class="title">사업자등록번호</span>
+        <span>413-81-08319</span>
+    </p>
+    <p>
+        <span class="title">사업장 주소</span>
+        <span>경기도 김포시 태장로 751 테라비즈타워 512호</span>
+    </p>
+    <p>
+        <span class="title">유선번호</span>
+        <span>010-8225-0640</span>
+    </p>
+</footer>
 
 <!-- ///////////// Js Files ////////////////////  -->
 <!-- Jquery -->

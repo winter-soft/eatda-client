@@ -4,7 +4,6 @@ let storeList;
 $(document).ready(function () {
     storeList = callStoreApi();
     setStoreGaugeList();
-    setIndexCategoryList();
     callOrderListApi();
     callOrderListApi2();
 });
@@ -21,6 +20,8 @@ function callStoreApi() {
 function setStoreGaugeList() {
     let storeHtml = "";
     $.each(storeList.data.content, function (index, store) {
+        if (store.id != 4)
+            return true
         let currentAmount = store.recentlyOrder && store.recentlyOrder.currentAmount ? store.recentlyOrder.currentAmount : 0;
         let currentMinOrderPrice = store.minOrderPrice - currentAmount;
         currentMinOrderPrice = currentMinOrderPrice < 0 ? "금액 달성 완료" : `${numberFormat(currentMinOrderPrice)}원만 모이면 배달 가능`;
@@ -57,23 +58,13 @@ function setStoreGaugeList() {
                     <p class="float-right text-black-50 font-weight-bold m-0 m-txt">${numberFormat(store.minOrderPrice)}원부터 공동배달</p>
                 </div>
             </div>
+            <div class="p-1 card-banner">
+                2022-11-23 오후 4시 30분 마감
+            </div>
         </div>
         </a>`;
     });
 
     $('#storeGaugeList').html(storeHtml);
-}
-
-function setIndexCategoryList() {
-    const categoryList = callCategoryListApi();
-    let categoryHtml = "";
-    $.each(categoryList.data, function (index, category) {
-        categoryHtml += `<div class="item">
-            <a href="#">
-                <img alt="image" src="assets/img/category/${category.category}.png">
-                <p>${category.category_ko}</p>
-            </a>
-        </div>`;
-    });
-    $('#indexCategoryList').html(categoryHtml);
+    $('#dormitory2').html(storeHtml);
 }

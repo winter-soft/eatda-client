@@ -9,7 +9,7 @@ include "../template/header.php"
     </p>
     <p class="txt-black mt-1">단국대학교 기숙사 진리관 로비</p>
     <div id="orderInfo"></div>
-    
+
     <div class="txt-black">
         <p class="lg-txt txt-black font-weight-bold mt-3" id="storeName"></p>
         <div class="divider mt-2 mb-2"></div>
@@ -26,6 +26,11 @@ include "../template/header.php"
     <!---->
     <!--        </div>-->
     <!--    </div>-->
+    <div class="mt-2">
+        <a href="../history/index.php">
+            <button class="btn btn-outline-primary w-100">주문내역 보러가기</button>
+        </a>
+    </div>
 </div>
 
 <?php

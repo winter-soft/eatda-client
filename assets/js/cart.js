@@ -1,6 +1,7 @@
 let cartApiUrl = "/orderDetail/";
 let orderApiUrl = "/order";
 let userOrderApiUrl = "/orderDetail/userOrder";
+let validApiUrl = "/valid";
 
 function callCartApi() {
     return callFormTypeApi(`${cartApiUrl}`, getEatdaToken(), METHOD_GET, {});
@@ -72,20 +73,34 @@ function callUserOrderApi(orderId) {
     return callFormTypeApi(`${userOrderApiUrl}/${orderId}`, getEatdaToken(), METHOD_GET, {});
 }
 
+function callValidApi(orderId, orderName, amount) {
+    const data = {
+        "order_id": orderId,
+        "amount": amount,
+        "order_name": orderName
+    };
+    return callApi(`${validApiUrl}`, getEatdaToken(), METHOD_POST, data);
+}
+
 var clientKey = 'test_ck_O6BYq7GWPVvN9lbXLbnVNE5vbo1d'
 var tossPayments = TossPayments(clientKey)
 
 var button = document.getElementById('payment-button') // 결제하기 버튼
 
 function payWithToss(orderId) {
-    if (callUserOrderApi(orderId).status === 200) {
-        tossPayments.requestPayment('카드', {
-            amount: payInfo.price,
-            orderId: 'Bd3V0mVTtXlrSJqlyIRQ4',
-            orderName: payInfo.title,
-            customerName: '구지뽕',
-            successUrl: `http://eat-da.com/order/index.php?id=${orderId}`,
-            failUrl: 'http://eat-da.com',
-        })
+    const response = callValidApi(orderId, payInfo.title, payInfo.price);
+
+    if (response.status === 200) {
+        tossPayments.requestPayment('카드', response.data);
     }
+    // if (callUserOrderApi(orderId).status === 200) {
+    //     tossPayments.requestPayment('카드', {
+    //         amount: payInfo.price,
+    //         orderId: 'Bd3V0mVTtXlrSJqlyIRQ4',
+    //         orderName: payInfo.title,
+    //         customerName: '구지뽕',
+    //         successUrl: `http://eat-da.com/order/index.php?id=${orderId}`,
+    //         failUrl: 'http://eat-da.com',
+    //     })
+    // }
 }
