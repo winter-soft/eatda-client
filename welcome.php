@@ -77,7 +77,7 @@
             기숙사별로 선택해<br>
             로비에서 바로 받아보세요
         </p>
-        <img src="assets/img/welcome/card-2x.png" alt="" data-aos="fade-up">
+        <img src="assets/img/welcome/section4.png" alt="" data-aos="fade-up">
     </div>
 </section>
 <footer>
