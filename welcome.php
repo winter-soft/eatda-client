@@ -80,28 +80,7 @@
         <img src="assets/img/welcome/section4.png" alt="" data-aos="fade-up">
     </div>
 </section>
-<footer>
-    <div>
-        <p class="title">서비스</p>
-        <p class="content">
-            <span>문의하기</span>
-        </p>
-    </div>
-    <div>
-        <p class="title">회사</p>
-        <p class="content">
-            <span>제휴문의</span><br>
-        </p>
-    </div>
-    <div>
-        <p class="title mt-2">단국대학교 창업동아리 pro-seed</p>
-        <p class="content">
-            <span>서비스 이용약관 | 개인정보 처리방침</span><br>
-            <span>2022 © pro-seed all rights reserved</span>
-        </p>
-    </div>
-</footer>
-
+<?php include_once "template/company_info.php"; ?>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();

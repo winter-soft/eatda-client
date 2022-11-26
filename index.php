@@ -39,7 +39,7 @@ include "template/header.php"
         <div class="main-banner mt-2 mb-3 bg-black">
             <p>
                 베타 테스트 기간입니다<br>
-                (11/23 고씨네)
+                (11/26 고씨네)
             </p>
             <!--            <img src="assets/img/icon/hambuger_3d.png" alt="" class="hambuger-icon">-->
         </div>
@@ -63,6 +63,9 @@ include "template/header.php"
                 <div class="sectionTitle mb-2">
                     <div class="title">
                         <h1>새로 들어왔어요!</h1>
+                    </div>
+                    <div>
+                        <p class="text-dark mt-1">건별 주문이 이뤄지며, 게이지가 다 차지 않아도<br>주문이 시작됩니다.</p>
                     </div>
                     <div id="storeGaugeList"></div>
                 </div>
@@ -88,13 +91,16 @@ include "template/header.php"
         </div>
     </div>
     <div class="tab-pane fade" id="tomorrow-dinner" role="tabpanel">
-        <div class="main-banner mt-2 mb-3 bg-black">
-            <p>
-                내일 저녁을<br>
-                미리 예약해보세요
-            </p>
-            <!--            <img src="assets/img/icon/hambuger_3d.png" alt="" class="hambuger-icon">-->
-        </div>
+        <!--        <div class="main-banner mt-2 mb-3 bg-black">-->
+        <!--            <p>-->
+        <!--                내일 저녁을<br>-->
+        <!--                미리 예약해보세요-->
+        <!--            </p>-->
+        <!--        </div>-->
+        <p class="text-center">
+            베타 테스트 기간동안에는 <br>
+            "내일 저녁 공동배달 딜"이 열리지 않습니다.
+        </p>
     </div>
 </div>
 

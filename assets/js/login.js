@@ -19,6 +19,14 @@ function loginWithKakao() {
     })
 }
 
+function loginWithTest() {
+    if (isUser(PLATFORM_TYPE_KAKAO, 999)) {
+        if (getEatdaToken()) {
+            redirectToIndex();
+        }
+    }
+}
+
 function redirectToKakaoLogin() {
     let kakaoAuthUrl = "https://kauth.kakao.com/oauth/authorize";
     location.href = `${kakaoAuthUrl}?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code`;

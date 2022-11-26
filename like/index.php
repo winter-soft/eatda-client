@@ -3,9 +3,9 @@ $headerTitle = "즐겨찾기";
 include "../template/header.php"
 ?>
 
-<div class="sectionTitle mb-2 mt-2">
-    <div id="storeLikeList"></div>
-</div>
+<p class="text-center pt-5 pb-5">
+    즐겨찾기를 등록한 가게가 없습니다.
+</p>
 
 <?php
 $_GET['jsFile'] = "like";

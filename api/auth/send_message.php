@@ -5,9 +5,9 @@ include_once '../../libs/toast_sms/ToastSMS.php';
 $phoneNumber = $_POST["phoneNumber"];
 
 // 2. api 정보
-$api_key = "apikey";
-$sendNo = "sendno";
-$rejectionNumber = "rejectNumber";
+$api_key = "ycYDOLE58UEQasek";
+$sendNo = "01082250640";
+$rejectionNumber = "0808880389";
 
 // 3. 수신인
 $phoneNumList = array($phoneNumber);
