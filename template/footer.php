@@ -14,28 +14,7 @@ if (!empty($_COOKIE['erole']) && $_COOKIE['erole'] == "BOSS") {
 include_once $fileName;
 ?>
 <!-- * App Bottom Menu -->
-<footer>
-    <p>
-        <span class="title">상호명</span>
-        <span>주식회사 가화</span>
-    </p>
-    <p>
-        <span class="title">대표자명</span>
-        <span>홍은석</span>
-    </p>
-    <p>
-        <span class="title">사업자등록번호</span>
-        <span>413-81-08319</span>
-    </p>
-    <p>
-        <span class="title">사업장 주소</span>
-        <span>경기도 김포시 태장로 751 테라비즈타워 512호</span>
-    </p>
-    <p>
-        <span class="title">유선번호</span>
-        <span>010-8225-0640</span>
-    </p>
-</footer>
+<?php include_once "company_info.php"; ?>
 
 <!-- ///////////// Js Files ////////////////////  -->
 <!-- Jquery -->
