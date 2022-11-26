@@ -14,19 +14,17 @@ function setOrderHistoryList() {
     let orderHistoryHtml = "";
 
     if (orderHistoryList.data.length === 0) {
-        orderHistoryHtml = "<p class='text-center'>주문내역이 없습니다.</p>"
+        orderHistoryHtml = "<p class='text-center pt-5 pb-5'>주문내역이 없습니다.</p>"
     }
 
-    let orderHistory = orderHistoryList.data.reverse();
-    let timeStr = "2022/10/20(목)";
+    let orderHistory = orderHistoryList.data;
+    let timeStr = "2022/11/24(목)";
     $.each(orderHistory, function (index, order) {
-        // TEST 용 임시 변수
-        timeStr = index > 1 ? "2022/10/18(화)" : index > 2 ? "2022/10/19(수)" : timeStr;
         orderHistoryHtml += `
        <div class="card mt-2 history-card">
             <div class="history-status">
                 <img src="${order.store.backgroundImageUrl}" alt="" class="w-100">
-                <p class="text-white">주문 대기</p>
+                <p class="text-white">${order.orderStatus == "WAITING" ? "주문 대기" : "수령 완료"}</p>
             </div>   
             
             <div class="p-2">
@@ -56,15 +54,16 @@ function setOrderHistoryList() {
         menuList += `<hr>  <p class="font-weight-bold mt-2">
                     <span>합계</span>
                     <span class="float-right">${numberFormat(menuTotalPrice)}원</span>
-                </p></div>`;
+                </p></div></div></div>`;
 
         orderHistoryHtml += menuList;
 
-        orderHistoryHtml += `  <div class="mt-2">
-                    <button class="btn btn-outline-primary w-100">리뷰 작성하기</button>
-                </div>
-            </div>
-        </div>`;
+        // orderHistoryHtml += `  <div class="mt-2">
+        //             <button class="btn btn-outline-primary w-100">리뷰 작성하기</button>
+        //         </div>
+        //     </div>
+        // </div>
+        // `;
 
 
     });

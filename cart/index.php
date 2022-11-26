@@ -40,6 +40,7 @@ $_GET['jsFile'] = "cart";
 include "../template/order_footer.php";
 ?>
 <script>
+    const cartId = <?php echo $_GET["id"]?>;
     $(document).ready(function () {
         const response = callCartApi();
         setStoreInfo();

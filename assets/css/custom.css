@@ -5,7 +5,7 @@
     --color-text: #2D3243;
     --color-black: #1D1D1D;
     --color-yellow: #FFE114;
-    --color-black-text: #000000;
+    --color-blue-gray: #e5e9f2;
     --color-white-text: #FFFFFF;
     --color-yellow-text: #FFB906;
     --color-dark-yellow-text: #d8b84d;
@@ -26,9 +26,37 @@
     src: url("../../assets/font/Yeongdo.woff2") format("woff2");
 }
 
+@font-face {
+    font-family: 'MaruBuri-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html {
     font-family: 'Noto Sans KR', sans-serif;
     color: var(--color-text);
+}
+
+.maruburi-ft {
+    font-family: MaruBuri-Regular !important;
+}
+
+.yeongdo-ft {
+    font-family: Yeongdo !important;
+}
+
+.header-logo {
+    font-family: Yeongdo !important;
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    margin-right: 4px;
+}
+
+.header-beta-logo {
+    font-family: MaruBuri-Regular !important;
+    padding-bottom: 16px;
+    font-style: italic;
 }
 
 #intro-section {
@@ -79,7 +107,7 @@ html {
 }
 
 .bg-black {
-    background-color: var(--color-black-text) !important;
+    background-color: var(--color-black) !important;
 }
 
 .bg-dark {
@@ -139,7 +167,7 @@ html {
 }
 
 .txt-black {
-    color: var(--color-black-text) !important;
+    color: var(--color-black) !important;
 }
 
 .txt-red {
@@ -343,7 +371,7 @@ ion-icon {
 }
 
 #indexCategoryList .item p {
-    color: var(--color-black-text) !important;
+    color: var(--color-black) !important;
     margin: 15px 0 0 0;
 }
 
@@ -419,7 +447,7 @@ ion-icon {
 }
 
 .card-tag {
-    background-color: var(--color-black-text);
+    background-color: var(--color-black);
     width: auto;
     padding: 7px 10px;
     font-size: 0.9rem;
@@ -484,7 +512,7 @@ a {
 .store-friend-menu-list .title {
     font-size: 1.1rem;
     font-weight: bold;
-    color: var(--color-black-text);
+    color: var(--color-black);
 }
 
 .store-img-box {
@@ -545,7 +573,7 @@ a {
 
 .store-menu-list .menu-box .menu .content {
     width: 70%;
-    color: var(--color-black-text);
+    color: var(--color-black);
     padding-right: 10px;
 }
 
@@ -572,7 +600,7 @@ a {
 }
 
 .quantity-box {
-    background-color: var(--color-light-gray-text);
+    background-color: var(--color-blue-gray);
     padding: 7px 16px;
     border-radius: 5px;
 }
@@ -645,8 +673,8 @@ a {
 }
 
 .time-tab li a.active {
-    color: var(--color-black-text);
-    border-bottom: 3px solid var(--color-black-text);
+    color: var(--color-black);
+    border-bottom: 3px solid var(--color-black);
     padding-bottom: 13px;
 }
 
@@ -692,13 +720,13 @@ footer {
     background-color: var(--color-light-gray-text);
     padding: 20px 15px 70px 15px;
     margin-top: 30px;
+    font-size: 0.8rem;
 }
 
 footer p {
     margin: 5px 0;
     color: var(--color-dark-gray-text);
     font-weight: normal;
-    font-size: 0.8rem;
 }
 
 footer p .title {
@@ -718,4 +746,35 @@ footer p .title {
     color: #a8a8a8;
     background-color: #e5e9f2;
     border-radius: 0 0 6px 6px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.menu-option-title {
+    font-weight: bold;
+    color: var(--color-black);
+    background-color: var(--color-blue-gray);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.option-check-box {
+    display: inline-block;
+    float: right;
+}
+
+.menu-option-box {
+    overflow-x: hidden;
+}
+
+.menu-option-detail {
+    margin-top: 10px;
+    overflow-x: hidden;
+}
+
+.cart-option {
+    margin: 5px 0;
+    color: var(--color-dark-gray-text);
 }

@@ -7,6 +7,10 @@ function callCartApi() {
     return callFormTypeApi(`${cartApiUrl}`, getEatdaToken(), METHOD_GET, {});
 }
 
+function callCartDeleteApi(orderDetailId) {
+    return callApi(`${cartApiUrl}${orderDetailId}`, getEatdaToken(), METHOD_PUT, {});
+}
+
 function callOrderApi(orderId) {
     return callFormTypeApi(`${orderApiUrl}/${orderId}`, getEatdaToken(), METHOD_GET, {});
 }
@@ -26,22 +30,37 @@ let payInfo = {};
 function setCartList(cartList) {
     let cartListHtml = "";
     let totalPrice = 0;
-
+    let optionHtml = "";
+    let quantityHtml = "";
+    let optionPriceHtml = "";
     $.each(cartList, function (index, cart) {
+        optionHtml = "";
+        quantityHtml = "";
+        // 옵션이 있을경우 옵션 노출
+        if (cart.orderDetailOptions != [] && cart.orderDetailOptions.length > 0) {
+            $.each(cart.orderDetailOptions, function (index, option) {
+                optionPriceHtml = option.menuOption.optionPrice > 0 ? `<span>(+${numberFormat(option.menuOption.optionPrice)}원)</span>` : "";
+                optionHtml += `<p class="cart-option">${option.menuOption.optionName} ${optionPriceHtml}</p>`;
+            });
+        }
+
+        for (let i = 1; i < 11; i++) {
+            quantityHtml += getCartQuantityHtml(cart.quantity, i);
+        }
+
         cartListHtml += `<div class="row mt-2">
         <div class="col-9 txt-black mt-1">
-            <span>${cart.menu.name}</span><br>
+            <span>
+            ${cart.menu.name}
+            </span>
+            <br>
+            ${optionHtml}
             <span>${numberFormat(cart.totalPrice)}원</span>
         </div>
         <div class="col-3 mt-1">
+        <span class="float-right lg-txt" onclick="deleteMenu(${cart.id}, '${cart.menu.name}')"><ion-icon name="close-outline"></ion-icon></span>
             <select class="custom-select">
-                <option value="1" ${cart.quantity === 1 ? "selected" : ""}>1</option>
-                <option value="2" ${cart.quantity === 2 ? "selected" : ""}>2</option>
-                <option value="3" ${cart.quantity === 3 ? "selected" : ""}>3</option>
-                <option value="4" ${cart.quantity === 4 ? "selected" : ""}>4</option>
-                <option value="5" ${cart.quantity === 5 ? "selected" : ""}>5</option>
-                <option value="6" ${cart.quantity === 6 ? "selected" : ""}>6</option>
-                <option value="7" ${cart.quantity === 7 ? "selected" : ""}>7</option>
+                ${quantityHtml}
             </select>
         </div>
     </div>`;
@@ -55,6 +74,22 @@ function setCartList(cartList) {
     payInfo.price = totalPrice;
     payInfo.quantity = cartList.length;
     payInfo.title = payInfo.quantity === 1 ? cartList[0].menu.name : `${cartList[0].menu.name}외 ${payInfo.quantity - 1}건`;
+}
+
+function getCartQuantityHtml(cartQuantity, index) {
+    return `<option value="${index}" ${cartQuantity === index ? "selected" : ""}>${index}</option>`;
+}
+
+function deleteMenu(cartId, menuName) {
+    const result = confirm(`${menuName} 메뉴를 삭제하시겠습니까?`);
+    if (result) {
+        const response = callCartDeleteApi(cartId);
+        if (response.status === 200) {
+            location.reload();
+        } else {
+            alert("장바구니 메뉴 삭제에 실패하였습니다.");
+        }
+    }
 }
 
 function addOrderButton(orderId) {

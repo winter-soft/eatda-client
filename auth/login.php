@@ -37,5 +37,9 @@
         <!--            <img src="../assets/img/login/naver_logo.png">-->
         <!--            네이버로 로그인-->
         <!--        </button>-->
+        <div class="text-gray font-weight-normal text-center mt-2 mb-2 text-underline" onclick="loginWithTest()">
+            바로 서비스 이용하기
+        </div>
     </div>
+
 <?php include "../template/login_footer.php"; ?>
