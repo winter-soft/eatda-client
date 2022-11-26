@@ -50,7 +50,7 @@ function isActiveCurrentPage($needle): string
 <div class="appHeader">
     <div class="left">
 		<?php
-		echo !empty($isLogo) ? '<img alt="잇다" class="image" src="../assets/img/logo.png">' : '<div class="left">
+		echo !empty($isLogo) ? '<span class="header-logo">잇다</span><span class="sm-txt text-primary header-beta-logo">Beta</span>' : '<div class="left">
     <a href="javascript:;" class="icon goBack">
       <i class="icon ion-ios-arrow-back"></i>
     </a>
