@@ -32,13 +32,15 @@ function setCartList(cartList) {
     let totalPrice = 0;
     let optionHtml = "";
     let quantityHtml = "";
+    let optionPriceHtml = "";
     $.each(cartList, function (index, cart) {
         optionHtml = "";
         quantityHtml = "";
         // 옵션이 있을경우 옵션 노출
         if (cart.orderDetailOptions != [] && cart.orderDetailOptions.length > 0) {
             $.each(cart.orderDetailOptions, function (index, option) {
-                optionHtml += `<p class="cart-option">${option.menuOption.optionName}</p>`;
+                optionPriceHtml = option.menuOption.optionPrice > 0 ? `<span>(+${numberFormat(option.menuOption.optionPrice)}원)</span>` : "";
+                optionHtml += `<p class="cart-option">${option.menuOption.optionName} ${optionPriceHtml}</p>`;
             });
         }
 
