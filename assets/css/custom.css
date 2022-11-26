@@ -107,7 +107,7 @@ html {
 }
 
 .bg-black {
-    background-color: var(--color-black-text) !important;
+    background-color: var(--color-black) !important;
 }
 
 .bg-dark {
@@ -371,7 +371,7 @@ ion-icon {
 }
 
 #indexCategoryList .item p {
-    color: var(--color-black-text) !important;
+    color: var(--color-black) !important;
     margin: 15px 0 0 0;
 }
 
@@ -447,7 +447,7 @@ ion-icon {
 }
 
 .card-tag {
-    background-color: var(--color-black-text);
+    background-color: var(--color-black);
     width: auto;
     padding: 7px 10px;
     font-size: 0.9rem;
@@ -512,7 +512,7 @@ a {
 .store-friend-menu-list .title {
     font-size: 1.1rem;
     font-weight: bold;
-    color: var(--color-black-text);
+    color: var(--color-black);
 }
 
 .store-img-box {
@@ -573,7 +573,7 @@ a {
 
 .store-menu-list .menu-box .menu .content {
     width: 70%;
-    color: var(--color-black-text);
+    color: var(--color-black);
     padding-right: 10px;
 }
 
@@ -673,8 +673,8 @@ a {
 }
 
 .time-tab li a.active {
-    color: var(--color-black-text);
-    border-bottom: 3px solid var(--color-black-text);
+    color: var(--color-black);
+    border-bottom: 3px solid var(--color-black);
     padding-bottom: 13px;
 }
 
@@ -772,4 +772,9 @@ footer p .title {
 .menu-option-detail {
     margin-top: 10px;
     overflow-x: hidden;
+}
+
+.cart-option {
+    margin: 5px 0;
+    color: var(--color-dark-gray-text);
 }

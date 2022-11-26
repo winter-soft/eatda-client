@@ -10,6 +10,7 @@ const LOGIN_URL = `${DOMAIN}/auth/login.php`;
 
 const METHOD_POST = "POST";
 const METHOD_GET = "GET";
+const METHOD_PUT = "PUT";
 const TYPE_JSON = "application/json; charset=utf-8";
 const TYPE_FORM = "application/x-www-form-urlencoded; charset=utf-8";
 
@@ -53,6 +54,9 @@ function callCommonApi(url, header, method, data) {
         method: method,
         async: false,
         success: function (resultData) {
+            result = resultData;
+        },
+        fail: function (resultData) {
             result = resultData;
         }
     });
