@@ -9,43 +9,61 @@ function setMenu(menu) {
     let optionHtml = "";
 
     $.each(menu.menuOptionTitle, function (index, menuOptionTitle) {
-        optionHtml += `<p class="menu-option-title">${menuOptionTitle.titleName}</p>
+        optionHtml += `
+        <p class="menu-option-title">${menuOptionTitle.titleName}</p>
         <div class='menu-option-detail'>`;
         $.each(menuOptionTitle.menuOptionList, function (index, menuOption) {
             let optionPrice = menuOption.optionPrice > 0 ? `<span class="text-gray">(+ ` + numberFormat(menuOption.optionPrice) + '원)</span>' : '';
-            optionHtml += `<span>${menuOption.optionName} ${optionPrice}
-                        <div class="custom-control custom-checkbox mb-1 option-check-box">
+            let choiceHtml = "";
+
+            // 다중선택 옵션
+            if (menuOptionTitle.multipleCheck) {
+                choiceHtml = `
+                    <div class="custom-control custom-checkbox mb-1 option-check-box">
                         <input type="checkbox" class="custom-control-input menu-option" id="menuOption${menuOption.id}" data-id="${menuOption.id}">
                         <label class="custom-control-label" for="menuOption${menuOption.id}"></label>
-                    </div></p>`;
+                    </div>`;
+            } else {
+                choiceHtml += `
+                <div class="custom-control custom-radio mb-1 option-check-box">
+                    <input type="radio" id="menuOption${menuOption.id}" name="menuOption${menuOptionTitle.id}" data-id="${menuOption.id}" class="custom-control-input menu-option">
+                    <label class="custom-control-label" for="menuOption${menuOption.id}"></label>
+                </div>`;
+            }
+
+            optionHtml += `<span>${menuOption.optionName} ${optionPrice}
+                            ${choiceHtml}
+                        </p>`;
         });
-        optionHtml += `</div>`;
+        optionHtml += `</div>
+    `;
     });
 
     let menuHtml = `
-    <div id="menu" class="txt-black">
-        <div class="menu-img-box">
-            <img src="${menu.menu.imageUrl}" alt="">
-        </div>
-        <div class="menu-content">
-             <p class="font-weight-bold lg-txt txt-black">${menu.menu.name}</p>
-            <div class="mt-1">
-                <p><span class="font-weight-bold">가격</span><span class="float-right">${numberFormat(menu.menu.price)}원</span></p>
-                <p><span class="font-weight-bold">수량</span>
-                    <span class="float-right quantity-box">
+        <div id="menu" class="txt-black">
+            <div class="menu-img-box">
+                <img src="${menu.menu.imageUrl}" alt="">
+            </div>
+            <div class="menu-content">
+                <p class="font-weight-bold lg-txt txt-black">${menu.menu.name}</p>
+                <div class="mt-1">
+                    <p><span class="font-weight-bold">가격</span><span
+                        class="float-right">${numberFormat(menu.menu.price)}원</span></p>
+                    <p><span class="font-weight-bold">수량</span>
+                        <span class="float-right quantity-box">
                     <span onclick="minusQuantity()">-</span>
                     <span class="quantity" id="quantity">1</span>
                     <span onclick="addQuantity()">+</span>
                 </span>
-                </p>
+                    </p>
+                </div>
+                <div class="divider mt-3 mb-2"></div>
             </div>
-            <div class="divider mt-3 mb-2"></div>
+            <div class="menu-option-box">
+                ${optionHtml}
+            </div>
         </div>
-        <div class="menu-option-box">
-            ${optionHtml}
-        </div>
-    </div>
-`;
+    `;
     $('#menu').html(menuHtml);
 }
 
