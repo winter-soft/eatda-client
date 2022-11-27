@@ -39,7 +39,7 @@ include "template/header.php"
         <div class="main-banner mt-2 mb-3 bg-black">
             <p>
                 베타 테스트 기간입니다<br>
-                (11/26 고씨네)
+                (11/28 하이로왕 마라탕)
             </p>
             <!--            <img src="assets/img/icon/hambuger_3d.png" alt="" class="hambuger-icon">-->
         </div>

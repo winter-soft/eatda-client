@@ -20,6 +20,9 @@ function callStoreApi() {
 function setStoreGaugeList() {
     let storeHtml = "";
     $.each(storeList.data.content, function (index, store) {
+        if (store.id !== 2) {
+            return true;
+        }
         let currentAmount = store.recentlyOrder && store.recentlyOrder.currentAmount ? store.recentlyOrder.currentAmount : 0;
         let currentMinOrderPrice = store.minOrderPrice - currentAmount;
         currentMinOrderPrice = currentMinOrderPrice < 0 ? "금액 달성 완료" : `${numberFormat(currentMinOrderPrice)}원만 모이면 배달 가능`;
@@ -57,7 +60,7 @@ function setStoreGaugeList() {
                 </div>
             </div>
             <div class="p-1 card-banner">
-                2022-11-26 오전 11시 30분 마감
+                2022-11-28 오후 7시 마감
             </div>
         </div>
         </a>`;
