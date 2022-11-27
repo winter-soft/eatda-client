@@ -24,7 +24,7 @@ function setOrderHistoryList() {
        <div class="card mt-2 history-card">
             <div class="history-status">
                 <img src="${order.store.backgroundImageUrl}" alt="" class="w-100">
-                <p class="text-white">${order.orderStatus == "WAITING" ? "주문 대기" : "수령 완료"}</p>
+                <p class="text-white">${order.orderStatus === "WAITING" ? "주문 대기" : "수령 완료"}</p>
             </div>   
             
             <div class="p-2">

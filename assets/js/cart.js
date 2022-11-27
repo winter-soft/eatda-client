@@ -2,6 +2,7 @@ let cartApiUrl = "/orderDetail/";
 let orderApiUrl = "/order";
 let userOrderApiUrl = "/orderDetail/userOrder";
 let validApiUrl = "/valid";
+let orderQuantityApiUrl = "/orderDetail/quantity";
 
 function callCartApi() {
     return callFormTypeApi(`${cartApiUrl}`, getEatdaToken(), METHOD_GET, {});
@@ -18,6 +19,13 @@ function callOrderApi(orderId) {
 function callStoreApi() {
     const storeId = window.localStorage.getItem("sid");
     return callFormTypeApi(`${storeApiUrl}/${storeId}`, getEatdaToken(), METHOD_GET, {});
+}
+
+function callUpdateOrderQuantity(orderDetailId, quantity) {
+    const data = {
+        "quantity": quantity
+    }
+    return callApi(`${orderQuantityApiUrl}/${orderDetailId}`, getEatdaToken(), METHOD_PUT, data);
 }
 
 function setStoreInfo() {
@@ -59,7 +67,7 @@ function setCartList(cartList) {
         </div>
         <div class="col-3 mt-1">
         <span class="float-right lg-txt" onclick="deleteMenu(${cart.id}, '${cart.menu.name}')"><ion-icon name="close-outline"></ion-icon></span>
-            <select class="custom-select">
+            <select class="custom-select" onchange="updateQuantity(${cart.id}, this)">
                 ${quantityHtml}
             </select>
         </div>
@@ -138,4 +146,16 @@ function payWithToss(orderId) {
     //         failUrl: 'http://eat-da.com',
     //     })
     // }
+}
+
+function updateQuantity(orderDetailId, thisValue) {
+    const quantity = $(thisValue).children("option:selected").val();
+    const response = callUpdateOrderQuantity(orderDetailId, quantity);
+    if (response.status === 200) {
+        const response = callCartApi();
+        setStoreInfo();
+        setCartList(response.data);
+    } else {
+        alert("메뉴 수량 변경 실패");
+    }
 }
