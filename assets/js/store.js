@@ -152,9 +152,9 @@ function seCartInfoButton(quantity, price) {
     const orderId = window.localStorage.getItem("oid");
     $(".appBottomMenu").remove();
     const cartInfoBtnHtml = `
-    <button class="bottom-btn lg-txt" onclick="">
+    <button class="bottom-btn lg-txt" onclick="redirectToUrl('../cart/index.php')">
         <span class="float-left mr-2 cart-num">${quantity}</span>
-        <span class="float-left cart-txt" onclick="redirectToUrl('../cart/index.php?id=${orderId}')">카트보기</span>
+        <span class="float-left cart-txt">카트보기</span>
         <span class="float-right cart-price">${numberFormat(price)}원</span>
     </button>
     `;

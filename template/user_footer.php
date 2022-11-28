@@ -8,7 +8,7 @@
         </a>
     </div>
     <div class="item <?php echo isActivePage("cart"); ?>">
-        <a href="../cart/history.php">
+        <a href="../cart/index.php">
             <p>
                 <ion-icon name="cart-outline"></ion-icon>
                 <span>장바구니</span>

@@ -3,6 +3,7 @@ let orderApiUrl = "/order";
 let userOrderApiUrl = "/orderDetail/userOrder";
 let validApiUrl = "/valid";
 let orderQuantityApiUrl = "/orderDetail/quantity";
+let couponApi = "/coupon/";
 
 function callCartApi() {
     return callFormTypeApi(`${cartApiUrl}`, getEatdaToken(), METHOD_GET, {});
@@ -26,6 +27,13 @@ function callUpdateOrderQuantity(orderDetailId, quantity) {
         "quantity": quantity
     }
     return callApi(`${orderQuantityApiUrl}/${orderDetailId}`, getEatdaToken(), METHOD_PUT, data);
+}
+
+function callCouponRegisterApi(couponCode) {
+    const data = {
+        "couponCode": couponCode
+    }
+    return callApi(`${couponApi}`, getEatdaToken(), METHOD_POST, data);
 }
 
 function setStoreInfo() {
@@ -157,10 +165,30 @@ function updateQuantity(orderDetailId, thisValue) {
     const quantity = $(thisValue).children("option:selected").val();
     const response = callUpdateOrderQuantity(orderDetailId, quantity);
     if (response.status === 200) {
-        const response = callCartApi();
-        setStoreInfo();
-        setCartList(response.data);
+        reloadCartList();
     } else {
         alert("메뉴 수량 변경 실패");
     }
+}
+
+function reloadCartList() {
+    const response = callCartApi();
+    setStoreInfo();
+    setCartList(response.data);
+    addOrderButton(response.data[0].id);
+}
+
+function applyCouponCode() {
+    const couponCode = $("#couponCode").val();
+    const response = callCouponRegisterApi(couponCode);
+
+    if (response.status === 200) {
+        reloadCartList();
+    } else {
+        alert(response.data.message);
+    }
+}
+
+function hideCouponBox() {
+    $("#couponBox").hide();
 }
