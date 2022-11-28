@@ -21,7 +21,7 @@ function setOrderHistoryList() {
     let timeStr = "2022/11/24(목)";
     $.each(orderHistory, function (index, order) {
         orderHistoryHtml += `
-       <div class="card mt-2 history-card">
+       <div class="card mt-2 history-card" onclick="moveOrderDetailPage(${order.order.id})">
             <div class="history-status">
                 <img src="${order.store.backgroundImageUrl}" alt="" class="w-100">
                 <p class="text-white">${order.orderStatus === "WAITING" ? "주문 대기" : "수령 완료"}</p>
@@ -69,4 +69,8 @@ function setOrderHistoryList() {
     });
 
     $('#orderHistoryList').html(orderHistoryHtml);
+}
+
+function moveOrderDetailPage(orderId) {
+    location.href = `http://eat-da.com/order/index.php?id=${orderId}`;
 }

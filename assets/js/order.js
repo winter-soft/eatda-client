@@ -14,12 +14,21 @@ function setStoreInfo() {
 function setOrderInfo(order) {
     let orderHtml = "";
     let totalPrice = 0;
+    let optionHtml = "";
 
-    $.each(order.orderDetails, function (index, order) {
-        orderHtml += `<p class="txt-black"><span>${order.menu.name} ${order.quantity}개</span><span class="float-right">${numberFormat(order.totalPrice)}원</span></p>`;
+    $.each(order[0].orderDetails, function (index, order) {
+        optionHtml = "";
+        $.each(order.orderDetailOptions, function (optionIndex, option) {
+            optionHtml += `<p class="mg-bottom-3">${option.menuOption.optionName}<span class="float-right">${numberFormat(option.menuOption.optionPrice)}원</span></p>`;
+        });
+        orderHtml += `
+        <p class="txt-black"><span>${order.menu.name} ${order.quantity}개</span><span class="float-right">${numberFormat(order.totalPrice)}원</span></p>
+        <div>${optionHtml}</div>
+        `;
 
         totalPrice += order.totalPrice;
     });
+    
 
     $("#orderInfo").html(orderHtml);
     $(".total-price").text(`${numberFormat(totalPrice)}원`);

@@ -112,15 +112,20 @@ function order(orderId) {
     }
 }
 
-function callUserOrderApi(orderId) {
-    return callFormTypeApi(`${userOrderApiUrl}/${orderId}`, getEatdaToken(), METHOD_GET, {});
+function callUserOrderApi(orderId, paymentId, couponUseId) {
+    const data = {
+        "paymentId": paymentId,
+        "couponUseId": couponUseId
+    };
+    return callFormTypeApi(`${userOrderApiUrl}/${orderId}`, getEatdaToken(), METHOD_GET, data);
 }
 
 function callValidApi(orderId, orderName, amount) {
     const data = {
         "order_id": orderId,
         "amount": amount,
-        "order_name": orderName
+        "order_name": orderName,
+        "couponUse_id": 0,
     };
     return callApi(`${validApiUrl}`, getEatdaToken(), METHOD_POST, data);
 }
