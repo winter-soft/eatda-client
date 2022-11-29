@@ -12,7 +12,7 @@
 <!-- Owl Carousel -->
 <script src="../assets/js/plugins/owl.carousel.min.js"></script>
 <!-- Main Js File -->
-<script src="../assets/js/app.js"></script>
+<script src="../assets/js/app.js?221130"></script>
 <script src="../assets/js/common.js?<?php echo time(); ?>"></script>
 <script src="../assets/js/api.js"></script>
 <?php

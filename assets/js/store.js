@@ -141,14 +141,14 @@ function showCartInfoButton() {
                     });
 
                     // 하단에 장바구니 정보 버튼 추가
-                    seCartInfoButton(menuQuantity, cartTotalPrice);
+                    setCartInfoButton(menuQuantity, cartTotalPrice);
                 }
             }
         }
     }
 }
 
-function seCartInfoButton(quantity, price) {
+function setCartInfoButton(quantity, price) {
     const orderId = window.localStorage.getItem("oid");
     $(".appBottomMenu").remove();
     const cartInfoBtnHtml = `
