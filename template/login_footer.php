@@ -34,7 +34,7 @@ if (!empty($_GET["jsFile"])) {
         getKakaoToken("<?php echo empty($_GET["code"]) ? "" : $_GET["code"] ?>");
     }
 
-    // var naver_id_login = new naver_id_login("wdS5u9Z7EcvhwSzO5j9x", "http://eat-da.com/auth/n_loading.php");
+    // var naver_id_login = new naver_id_login("wdS5u9Z7EcvhwSzO5j9x", "https://eat-da.com/auth/n_loading.php");
     // var state = naver_id_login.getUniqState();
     // naver_id_login.setButton("white", 2, 40);
     // naver_id_login.setDomain("eat-da.com");

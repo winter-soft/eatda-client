@@ -18,19 +18,19 @@ function setOrderHistoryList() {
     }
 
     let orderHistory = orderHistoryList.data;
-    let timeStr = "2022/11/24(목)";
+    let timeStr = "2022/11/28(월)";
     $.each(orderHistory, function (index, order) {
         orderHistoryHtml += `
-       <div class="card mt-2 history-card">
+       <div class="card mt-2 history-card" onclick="moveOrderDetailPage(${order.order.id})">
             <div class="history-status">
                 <img src="${order.store.backgroundImageUrl}" alt="" class="w-100">
-                <p class="text-white">${order.orderStatus === "WAITING" ? "주문 대기" : "수령 완료"}</p>
+                <p class="text-white">${setOrderStatusString(order.order.orderStatus)}</p>
             </div>   
             
             <div class="p-2">
                 <div class="mb-2">
                     <span class="history-tag bg-black mr-3p">${timeStr}</span>
-                    <span class="history-tag bg-yellow">오후 1시 점심</span>
+                    <span class="history-tag bg-yellow">오후 7시 저녁</span>
                 </div>
                 <div class="lg-txt">
                     <span class="font-weight-bold text-dark">${order.store.name}</span>
@@ -69,4 +69,33 @@ function setOrderHistoryList() {
     });
 
     $('#orderHistoryList').html(orderHistoryHtml);
+}
+
+function moveOrderDetailPage(orderId) {
+    location.href = `https://eat-da.com/order/index.php?id=${orderId}`;
+}
+
+function setOrderStatusString(orderStatus) {
+    let status = "";
+    switch (orderStatus) {
+        case "WAITING":
+            status = "주문 대기";
+            break;
+        case "ACCEPT":
+            status = "주문 수락";
+            break;
+        case "SHIPPING":
+            status = "배달중";
+            break;
+        case "COMPLETE":
+            status = "배달 완료";
+            break;
+        case "CANCEL;":
+            status = "주문 취소";
+            break;
+        default:
+            break;
+    }
+
+    return status;
 }

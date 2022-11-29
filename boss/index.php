@@ -30,13 +30,14 @@ include "../template/header.php"
             </a>
         </li>
     </ul>
-    <div class="tab-content mt-3">
-        <div class="tab-pane fade active show" id="order" role="tabpanel">
-
+    <div class="tab-content mt-1">
+        <div class="tab-pane active" id="order" role="tabpanel">
+            <div id="bossOrderListHtml"></div>
         </div>
+
         <div class="tab-pane fade" id="deal" role="tabpanel">
             <div class="sectionTitle mb-2">
-                <div id="storeGaugeList"></div>
+                <div id="bossOpenOrder"></div>
             </div>
         </div>
     </div>

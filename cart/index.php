@@ -14,9 +14,18 @@ include "../template/header.php"
     <div id="cartList"></div>
 
     <div class="divider mt-4 mb-2"></div>
+    <div id="couponBox">
+        <div class="form-group row mb-3">
+            <input class="form-control col-8 ml-1 mr-1" placeholder="쿠폰 프로모션 코드를 입력해주세요" type="text" id="couponCode">
+            <button class="btn btn-primary col-3" data-bs-toggle="modal"
+                    data-bs-target="#couponModal">조회
+            </button>
+        </div>
+    </div>
     <div class="txt-black">
         <p><span>주문금액</span><span class="float-right total-price"></span></p>
         <p class="txt-red"><span>배달비</span><span class="float-right">0원</span></p>
+        <p class="text-warning"><span>쿠폰</span><span class="float-right">0원</span></p>
         <p class="font-weight-bold"><span>총 결제금액</span><span class="float-right total-price"></span></p>
     </div>
     <!--    <div class="divider mt-4 mb-2"></div>-->
@@ -33,7 +42,19 @@ include "../template/header.php"
     <!--    </div>-->
 </div>
 <div id="orderBtnBox"></div>
-
+<!-- Modal -->
+<div class="modal fade" id="couponModal" tabindex="-1" aria-labelledby="couponModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                11
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php
 $_GET['jsFile'] = "cart";
@@ -41,9 +62,6 @@ include "../template/order_footer.php";
 ?>
 <script>
     $(document).ready(function () {
-        const response = callCartApi();
-        setStoreInfo();
-        setCartList(response.data);
-        addOrderButton(<?php echo $_GET["id"]?>);
+        reloadCartList();
     });
 </script>

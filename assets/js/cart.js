@@ -3,6 +3,7 @@ let orderApiUrl = "/order";
 let userOrderApiUrl = "/orderDetail/userOrder";
 let validApiUrl = "/valid";
 let orderQuantityApiUrl = "/orderDetail/quantity";
+let couponApi = "/coupon/";
 
 function callCartApi() {
     return callFormTypeApi(`${cartApiUrl}`, getEatdaToken(), METHOD_GET, {});
@@ -26,6 +27,13 @@ function callUpdateOrderQuantity(orderDetailId, quantity) {
         "quantity": quantity
     }
     return callApi(`${orderQuantityApiUrl}/${orderDetailId}`, getEatdaToken(), METHOD_PUT, data);
+}
+
+function callCouponRegisterApi(couponCode) {
+    const data = {
+        "couponCode": couponCode
+    }
+    return callApi(`${couponApi}`, getEatdaToken(), METHOD_POST, data);
 }
 
 function setStoreInfo() {
@@ -112,20 +120,25 @@ function order(orderId) {
     }
 }
 
-function callUserOrderApi(orderId) {
-    return callFormTypeApi(`${userOrderApiUrl}/${orderId}`, getEatdaToken(), METHOD_GET, {});
+function callUserOrderApi(orderId, paymentId, couponUseId) {
+    const data = {
+        "paymentId": paymentId,
+        "couponUseId": couponUseId
+    };
+    return callFormTypeApi(`${userOrderApiUrl}/${orderId}`, getEatdaToken(), METHOD_GET, data);
 }
 
 function callValidApi(orderId, orderName, amount) {
     const data = {
         "order_id": orderId,
         "amount": amount,
-        "order_name": orderName
+        "order_name": orderName,
+        "couponUse_id": 0,
     };
     return callApi(`${validApiUrl}`, getEatdaToken(), METHOD_POST, data);
 }
 
-var clientKey = 'test_ck_O6BYq7GWPVvN9lbXLbnVNE5vbo1d'
+var clientKey = 'live_ck_7XZYkKL4Mrjd4XLBApo30zJwlEWR'
 var tossPayments = TossPayments(clientKey)
 
 var button = document.getElementById('payment-button') // 결제하기 버튼
@@ -142,8 +155,8 @@ function payWithToss(orderId) {
     //         orderId: 'Bd3V0mVTtXlrSJqlyIRQ4',
     //         orderName: payInfo.title,
     //         customerName: '구지뽕',
-    //         successUrl: `http://eat-da.com/order/index.php?id=${orderId}`,
-    //         failUrl: 'http://eat-da.com',
+    //         successUrl: `https://eat-da.com/order/index.php?id=${orderId}`,
+    //         failUrl: 'https://eat-da.com',
     //     })
     // }
 }
@@ -152,10 +165,30 @@ function updateQuantity(orderDetailId, thisValue) {
     const quantity = $(thisValue).children("option:selected").val();
     const response = callUpdateOrderQuantity(orderDetailId, quantity);
     if (response.status === 200) {
-        const response = callCartApi();
-        setStoreInfo();
-        setCartList(response.data);
+        reloadCartList();
     } else {
         alert("메뉴 수량 변경 실패");
     }
+}
+
+function reloadCartList() {
+    const response = callCartApi();
+    setStoreInfo();
+    setCartList(response.data);
+    addOrderButton(response.data[0].order.id);
+}
+
+function applyCouponCode() {
+    const couponCode = $("#couponCode").val();
+    const response = callCouponRegisterApi(couponCode);
+
+    if (response.status === 200) {
+        reloadCartList();
+    } else {
+        alert(response.data.message);
+    }
+}
+
+function hideCouponBox() {
+    $("#couponBox").hide();
 }

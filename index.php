@@ -25,9 +25,10 @@ include "template/header.php"
     </li>
 </ul>
 
-<div class="tab-content mt-3">
+
+<div class="tab-content mt-2">
     <div class="tab-pane fade" id="today-lunch" role="tabpanel">
-        <div class="main-banner mt-2 mb-3 bg-black">
+        <div class="main-banner mt-1 mb-3 bg-black">
             <p>
                 11시까지 주문하고<br>
                 12시에 받아보세요
@@ -36,14 +37,24 @@ include "template/header.php"
         </div>
     </div>
     <div class="tab-pane fade active show" id="today-dinner" role="tabpanel">
-        <div class="main-banner mt-2 mb-3 bg-black">
-            <p>
-                베타 테스트 기간입니다<br>
-                (11/28 하이로왕 마라탕)
-            </p>
-            <!--            <img src="assets/img/icon/hambuger_3d.png" alt="" class="hambuger-icon">-->
+        <div class="main-banner-test mt-2 mb-1 bg-black">
+            <div class="row">
+                <div class="col-1 icon">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                </div>
+                <div class="col-11">단국대 학생들이 직접 만든 앱입니다.<br>오류가 발생할 수 있는 점 양해 부탁드립니다.<br></div>
+            </div>
         </div>
-        <ul class="nav nav-tabs size2" role="tablist">
+        <div class="main-banner-test mb-3 bg-black">
+            <div class="row">
+                <div class="col-1 icon">
+                    <ion-icon name="information-circle-outline"></ion-icon>
+                </div>
+                <div class="col-11"> 결제 시 현재 신한카드, 토스, 네이버페이<br>카카오페이, 페이코만 이용이 가능합니다.
+                </div>
+            </div>
+        </div>
+        <ul class="nav nav-tabs size2 mt-2" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#all" role="tab" aria-selected="true">
                     전체
@@ -58,6 +69,7 @@ include "template/header.php"
             </li>
 
         </ul>
+
         <div class="tab-content mt-3">
             <div class="tab-pane fade active show" id="all" role="tabpanel">
                 <div class="sectionTitle mb-2">
@@ -74,6 +86,15 @@ include "template/header.php"
                 <p class="text-center">오픈된 공동 배달딜이 없습니다.</p>
             </div>
             <div class="tab-pane fade" id="dormitory2" role="tabpanel">
+                <div class="sectionTitle mb-2">
+                    <div class="title">
+                        <h1>웅비홀 로비 문앞에서 수령!</h1>
+                    </div>
+                    <div>
+                        <p class="text-dark mt-1">웅비홀 로비 문앞으로 배송이 이뤄집니다.</p>
+                    </div>
+                    <div id="dormitory2StoreGaugeList"></div>
+                </div>
             </div>
             <div class="tab-pane fade" id="dormitory3" role="tabpanel">
                 <p class="text-center">오픈된 공동 배달딜이 없습니다.</p>
@@ -97,7 +118,7 @@ include "template/header.php"
         <!--                미리 예약해보세요-->
         <!--            </p>-->
         <!--        </div>-->
-        <p class="text-center">
+        <p class="text-center mt-5">
             베타 테스트 기간동안에는 <br>
             "내일 저녁 공동배달 딜"이 열리지 않습니다.
         </p>

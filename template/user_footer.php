@@ -8,18 +8,19 @@
         </a>
     </div>
     <div class="item <?php echo isActivePage("cart"); ?>">
-        <a href="../cart/history.php">
+        <a href="../cart/index.php">
             <p>
                 <ion-icon name="cart-outline"></ion-icon>
                 <span>장바구니</span>
             </p>
         </a>
     </div>
-    <div class="item <?php echo isActivePage("like"); ?>">
-        <a href="../like/index.php">
+    <div class="item <?php echo isActivePage("info"); ?>">
+        <a href="../info/index.php">
             <p>
-				<?php echo isActivePage("like") ? '<i class="icon ion-ios-heart txt-yellow"></i>' : '<ion-icon name="heart-outline"></ion-icon>' ?>
-                <span>즐겨찾기</span>
+				<?php // echo isActivePage("like") ? '<i class="icon ion-ios-heart txt-yellow"></i>' : '<ion-icon name="heart-outline"></ion-icon>' ?>
+                <ion-icon name="information-circle-outline"></ion-icon>
+                <span>이용안내</span>
             </p>
         </a>
     </div>

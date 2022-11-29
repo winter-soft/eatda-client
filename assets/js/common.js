@@ -1,5 +1,5 @@
-const API_BASE_URL = "http://api.eat-da.com/api";
-const INDEX = "http://eat-da.com";
+const API_BASE_URL = "https://eat-da.com:8000/api";
+const INDEX = "https://eat-da.com";
 const DOMAIN = location.protocol + '//' + location.host;
 
 const REST_API_KEY = "3aa8f27ae8e8482840c63a9643a5ae8d";
@@ -13,6 +13,18 @@ const METHOD_GET = "GET";
 const METHOD_PUT = "PUT";
 const TYPE_JSON = "application/json; charset=utf-8";
 const TYPE_FORM = "application/x-www-form-urlencoded; charset=utf-8";
+
+const ORDER_WAITING = "WAITING";
+const ORDER_ACCEPT = "ACCEPT";
+const ORDER_SHIPPING = "SHIPPING";
+const ORDER_COMPLETE = "COMPLETE";
+const ORDER_CANCEL = "CANCEL";
+
+const ORDER_WAITING_COLOR = "bg-light-gray";
+const ORDER_ACCEPT_COLOR = "btn-dark";
+const ORDER_SHIPPING_COLOR = "btn-primary";
+const ORDER_COMPLETE_COLOR = "btn-success";
+const ORDER_CANCEL_COLOR = "btn-danger";
 
 let USER_INFO_API_URL = "/auth/infor";
 let REFRESH_TOKEN_API_URL = "/auth/refresh";
@@ -100,7 +112,7 @@ function setCookie(name, value) {
     expiredDate.setDate(expiredDate.getDate() + expiredDays);
 
     // console.log(`document.cookie = ${name} + "=" + ${value} + "; expires=" + ${expiredDate.toUTCString()}`);
-    document.cookie = name + "=" + value + "; expires=" + expiredDate.toUTCString();
+    document.cookie = name + "=" + value + "; expires=" + expiredDate.toUTCString() + ";path=/";
 }
 
 function getCookie(name) {
@@ -117,6 +129,9 @@ function getCookie(name) {
     }
 }
 
+function deleteCookie(name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
+}
 
 function numberFormat(number, decimals, dec_point, thousands_sep) {
     number = (number + '').replace(',', '').replace(' ', '');
@@ -159,9 +174,10 @@ function checkLogin() {
         if (!isLoginPage()) {
             userInfo = callUserInfoApi();
             if (userInfo.role) {
-                if (!getCookie("erole")) {
-                    setCookie("erole", userInfo.role);
+                if (getCookie("erole")) {
+                    deleteCookie("erole");
                 }
+                setCookie("erole", userInfo.role);
                 setStoreUrl();
             }
         }
@@ -227,5 +243,34 @@ function logoutWithKakao() {
 }
 
 function setStoreUrl() {
-    $("#storeUrl").attr("href", `http://eat-da.com/store/index.php?id=${userInfo.storeId}`);
+    $("#storeUrl").attr("href", `https://eat-da.com/store/index.php?id=${userInfo.storeId}`);
+}
+
+function moveInstagram() {
+    location.href = "https://www.instagram.com/eatda_official/";
+}
+
+function setOrderStatusColor(orderStatus) {
+    let color = "";
+    switch (orderStatus) {
+        case "WAITING":
+            color = ORDER_WAITING_COLOR;
+            break;
+        case "ACCEPT":
+            color = ORDER_ACCEPT_COLOR;
+            break;
+        case "SHIPPING":
+            color = ORDER_SHIPPING_COLOR;
+            break;
+        case "COMPLETE":
+            color = ORDER_COMPLETE_COLOR;
+            break;
+        case "CANCEL;":
+            color = ORDER_CANCEL_COLOR;
+            break;
+        default:
+            break;
+    }
+
+    return color;
 }

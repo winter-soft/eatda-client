@@ -10,9 +10,14 @@
     });
 
     function successOfPaymentWithToss() {
+        let couponUseId = "<?php echo empty($_GET["couponUseId"]) ? 0 : $_GET["couponUseId"]?>";
+        couponUseId = couponUseId === "" ? 0 : parseInt(couponUseId);
+        const tossOrderId = "<?php echo $_GET["orderId"];?>";
+        const paymentId = "<?php echo $_GET["paymentKey"];?>";
+
         const data = {
-            "orderId": "<?php echo $_GET["orderId"];?>",
-            "paymentKey": "<?php echo $_GET["paymentKey"];?>",
+            "orderId": tossOrderId,
+            "paymentKey": paymentId,
             "amount": "<?php echo $_GET["amount"];?>",
         };
 
@@ -20,7 +25,7 @@
         let isSuccess = false;
         if (response.status === 200) {
             const orderId = response.data.order_id;
-            const orderedResponse = callUserOrderApi(orderId);
+            const orderedResponse = callUserOrderApi(orderId, tossOrderId, couponUseId);
             if (orderedResponse.status === 200) {
                 isSuccess = true;
                 location.href = `../order/index.php?id=${orderId}`;
@@ -28,8 +33,8 @@
         }
 
         if (!isSuccess) {
-            alert("결제가 실패하였습니다.");
-            location.href = INDEX;
+            alert("결제가 실패하였습니다.\n토스, 카카오페이, 페이코애서 카드로 결제시 신한카드를 제외한 다른 카드사는 결제가 불가합니다.");
+            // location.href = INDEX;
         }
 
     }

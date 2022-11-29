@@ -166,10 +166,10 @@ function sendAuthMessage() {
 
     if (isError) {
         alert("인증번호 발송에 문제가 생겼습니다.");
+    } else {
+        setAuthMessage("인증번호가 발송되었습니다.", "text-success");
+        showAuthNumberInput();
     }
-
-    setAuthMessage("인증번호가 발송되었습니다.", "text-success");
-    showAuthNumberInput();
 }
 
 function setAuthMessage(message, className) {

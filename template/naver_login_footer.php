@@ -16,7 +16,7 @@
 <script src="../assets/js/common.js"></script>
 <script src="../assets/js/api.js"></script>
 <script>
-    var naver_id_login = new naver_id_login("wdS5u9Z7EcvhwSzO5j9x", "http://eat-da.com/auth/n_loading.php");
+    var naver_id_login = new naver_id_login("wdS5u9Z7EcvhwSzO5j9x", "https://eat-da.com/auth/n_loading.php");
     // 접근 토큰 값 출력
     alert(naver_id_login.oauthParams.access_token);
     // 네이버 사용자 프로필 조회
