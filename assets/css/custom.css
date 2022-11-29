@@ -134,6 +134,10 @@ html {
     background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
+.bg-orange-gradient {
+    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
+}
+
 .bg-dark-yellow {
     background-color: var(--color-dark-yellow-text) !important;
 }
@@ -844,4 +848,28 @@ footer p .title {
 .boss-option {
     margin-bottom: 5px;
     font-size: 0.9rem;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
 }

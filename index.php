@@ -37,20 +37,24 @@ include "template/header.php"
         </div>
     </div>
     <div class="tab-pane fade active show" id="today-dinner" role="tabpanel">
-        <div class="main-banner-test mt-2 mb-1 bg-black">
+        <div class="main-banner-test mt-2 mb-1 bg-orange-gradient">
             <div class="row">
                 <div class="col-1 icon">
                     <ion-icon name="information-circle-outline"></ion-icon>
                 </div>
-                <div class="col-11">단국대 학생들이 직접 만든 앱입니다.<br>오류가 발생할 수 있는 점 양해 부탁드립니다.<br></div>
+                <div class="col-11">미리 주문해보세요!<br>오늘 오후 4시 30분까지만 주문을 받습니다.<br></div>
             </div>
         </div>
-        <div class="main-banner-test mb-3 bg-black">
+        <div class="main-banner-test mb-1 bg-black">
             <div class="row">
                 <div class="col-1 icon">
                     <ion-icon name="information-circle-outline"></ion-icon>
                 </div>
-                <div class="col-11"> 결제 시 현재 신한카드, 토스, 네이버페이<br>카카오페이, 페이코만 이용이 가능합니다.
+                <div class="col-11">
+                    단국대 학생들이 직접 만든 앱입니다.<br>
+                    오류가 발생할 수 있는 점 양해 부탁드립니다.<br><br>
+                    결제 시 현재 신한카드, 토스, 네이버페이<br>
+                    카카오페이, 페이코만 이용이 가능합니다.
                 </div>
             </div>
         </div>

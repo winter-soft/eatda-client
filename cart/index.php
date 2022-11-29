@@ -16,9 +16,8 @@ include "../template/header.php"
     <div class="divider mt-4 mb-2"></div>
     <div id="couponBox">
         <div class="form-group row mb-3">
-            <input class="form-control col-8 ml-1 mr-1" placeholder="쿠폰 프로모션 코드를 입력해주세요" type="text" id="couponCode">
-            <button class="btn btn-primary col-3" data-bs-toggle="modal"
-                    data-bs-target="#couponModal">조회
+            <input class="form-control col-8 ml-1 mr-1" placeholder="쿠폰 등록 버튼을 눌러주세요" type="text" id="couponCode">
+            <button class="btn btn-primary col-3" onclick="clickCouponModal()">등록
             </button>
         </div>
     </div>
@@ -43,17 +42,24 @@ include "../template/header.php"
 </div>
 <div id="orderBtnBox"></div>
 <!-- Modal -->
-<div class="modal fade" id="couponModal" tabindex="-1" aria-labelledby="couponModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                11
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-            </div>
+<!-- The Modal -->
+<div id="couponModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div>
+            <p class="txt-black font-weight-bold text-center">쿠폰 등록
+                <span class="close text-right" onclick="closeCouponModal()">&times;</span>
+            </p>
+            <hr>
+        </div>
+
+        <div>
+            <input class="form-control" placeholder="프로모션 코드 입력" type="text" id="couponCode">
+            <button class="btn btn-primary w-100 mt-1">등록</button>
         </div>
     </div>
+
 </div>
 
 <?php
@@ -61,7 +67,16 @@ $_GET['jsFile'] = ["store", "cart"];
 include "../template/order_footer.php";
 ?>
 <script>
+    const modal = document.getElementById("couponModal");
     $(document).ready(function () {
         reloadCartList();
     });
+
+    function clickCouponModal() {
+        modal.style.display = "block";
+    }
+
+    function closeCouponModal() {
+        modal.style.display = "none";
+    }
 </script>

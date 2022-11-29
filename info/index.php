@@ -34,7 +34,7 @@ include "../template/header.php"
         <div class="col-11">배송이 완료되면 단국대 기숙사 웅비홀 로비 앞<br>검정색잇다 가방에서 찾아가시면 됩니다.</div>
     </div>
 </div>
-<div class="main-banner-test mt-1 mg-bottom-3 bg-dark-yellow">
+<div class="main-banner-test mt-1 mg-bottom-3 bg-orange-gradient">
     <div class="row">
         <div class="col-1 icon">
             <ion-icon name="information-circle-outline"></ion-icon>
