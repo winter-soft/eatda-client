@@ -57,7 +57,7 @@ include "../template/header.php"
 </div>
 
 <?php
-$_GET['jsFile'] = "cart";
+$_GET['jsFile'] = ["store", "cart"];
 include "../template/order_footer.php";
 ?>
 <script>

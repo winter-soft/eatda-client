@@ -101,7 +101,7 @@ function deleteMenu(cartId, menuName) {
     if (result) {
         const response = callCartDeleteApi(cartId);
         if (response.status === 200) {
-            location.reload();
+            reloadCartList();
         } else {
             alert("장바구니 메뉴 삭제에 실패하였습니다.");
         }
