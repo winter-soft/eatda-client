@@ -782,3 +782,30 @@ footer p .title {
 .mg-bottom-3 {
     margin-bottom: 3px !important;
 }
+
+.boss-order .order-no {
+    color: #003fff;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.boss-order .order-content {
+    color: var(--color-black);
+}
+
+.boss-order-date {
+    background-color: var(--color-black);
+    width: auto;
+    padding: 7px 10px;
+    font-size: 0.9rem;
+    color: var(--color-white-text);
+    border-radius: 7px 7px 0 0;
+    font-weight: bold;
+}
+
+.number-box {
+    color: var(--color-white-text);
+    background-color: var(--color-black);
+    padding: 5px 10px;
+    font-weight: bold;
+}

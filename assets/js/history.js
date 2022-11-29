@@ -18,7 +18,7 @@ function setOrderHistoryList() {
     }
 
     let orderHistory = orderHistoryList.data;
-    let timeStr = "2022/11/24(목)";
+    let timeStr = "2022/11/28(월)";
     $.each(orderHistory, function (index, order) {
         orderHistoryHtml += `
        <div class="card mt-2 history-card" onclick="moveOrderDetailPage(${order.order.id})">
@@ -30,7 +30,7 @@ function setOrderHistoryList() {
             <div class="p-2">
                 <div class="mb-2">
                     <span class="history-tag bg-black mr-3p">${timeStr}</span>
-                    <span class="history-tag bg-yellow">오후 1시 점심</span>
+                    <span class="history-tag bg-yellow">오후 7시 저녁</span>
                 </div>
                 <div class="lg-txt">
                     <span class="font-weight-bold text-dark">${order.store.name}</span>
@@ -72,5 +72,5 @@ function setOrderHistoryList() {
 }
 
 function moveOrderDetailPage(orderId) {
-    location.href = `http://eat-da.com/order/index.php?id=${orderId}`;
+    location.href = `https://eat-da.com/order/index.php?id=${orderId}`;
 }

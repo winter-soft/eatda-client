@@ -17,7 +17,9 @@ include "../template/header.php"
     <div id="couponBox">
         <div class="form-group row mb-3">
             <input class="form-control col-8 ml-1 mr-1" placeholder="쿠폰 프로모션 코드를 입력해주세요" type="text" id="couponCode">
-            <button class="btn btn-primary col-3" onclick="applyCouponCode()">등록</button>
+            <button class="btn btn-primary col-3" data-bs-toggle="modal"
+                    data-bs-target="#couponModal">조회
+            </button>
         </div>
     </div>
     <div class="txt-black">
@@ -40,7 +42,19 @@ include "../template/header.php"
     <!--    </div>-->
 </div>
 <div id="orderBtnBox"></div>
-
+<!-- Modal -->
+<div class="modal fade" id="couponModal" tabindex="-1" aria-labelledby="couponModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                11
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php
 $_GET['jsFile'] = "cart";

@@ -155,8 +155,8 @@ function payWithToss(orderId) {
     //         orderId: 'Bd3V0mVTtXlrSJqlyIRQ4',
     //         orderName: payInfo.title,
     //         customerName: '구지뽕',
-    //         successUrl: `http://eat-da.com/order/index.php?id=${orderId}`,
-    //         failUrl: 'http://eat-da.com',
+    //         successUrl: `https://eat-da.com/order/index.php?id=${orderId}`,
+    //         failUrl: 'https://eat-da.com',
     //     })
     // }
 }
@@ -175,7 +175,7 @@ function reloadCartList() {
     const response = callCartApi();
     setStoreInfo();
     setCartList(response.data);
-    addOrderButton(response.data[0].id);
+    addOrderButton(response.data[0].order.id);
 }
 
 function applyCouponCode() {

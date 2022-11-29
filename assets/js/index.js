@@ -20,7 +20,7 @@ function callStoreApi() {
 function setStoreGaugeList() {
     let storeHtml = "";
     $.each(storeList.data.content, function (index, store) {
-        if (store.id !== 2) {
+        if (store.id !== 6) {
             return true;
         }
         let currentAmount = store.recentlyOrder && store.recentlyOrder.currentAmount ? store.recentlyOrder.currentAmount : 0;
@@ -60,7 +60,7 @@ function setStoreGaugeList() {
                 </div>
             </div>
             <div class="p-1 card-banner">
-                2022-11-28 오후 7시 마감
+                2022-11-29 오후 7시 마감
             </div>
         </div>
         </a>`;

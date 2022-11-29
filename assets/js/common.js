@@ -1,5 +1,5 @@
-const API_BASE_URL = "http://api.eat-da.com/api";
-const INDEX = "http://eat-da.com";
+const API_BASE_URL = "https://eat-da.com:8000/api";
+const INDEX = "https://eat-da.com";
 const DOMAIN = location.protocol + '//' + location.host;
 
 const REST_API_KEY = "3aa8f27ae8e8482840c63a9643a5ae8d";
@@ -100,7 +100,7 @@ function setCookie(name, value) {
     expiredDate.setDate(expiredDate.getDate() + expiredDays);
 
     // console.log(`document.cookie = ${name} + "=" + ${value} + "; expires=" + ${expiredDate.toUTCString()}`);
-    document.cookie = name + "=" + value + "; expires=" + expiredDate.toUTCString();
+    document.cookie = name + "=" + value + "; expires=" + expiredDate.toUTCString() + ";path=/";
 }
 
 function getCookie(name) {
@@ -117,6 +117,9 @@ function getCookie(name) {
     }
 }
 
+function deleteCookie(name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1999 00:00:10 GMT;';
+}
 
 function numberFormat(number, decimals, dec_point, thousands_sep) {
     number = (number + '').replace(',', '').replace(' ', '');
@@ -159,9 +162,10 @@ function checkLogin() {
         if (!isLoginPage()) {
             userInfo = callUserInfoApi();
             if (userInfo.role) {
-                if (!getCookie("erole")) {
-                    setCookie("erole", userInfo.role);
+                if (getCookie("erole")) {
+                    deleteCookie("erole");
                 }
+                setCookie("erole", userInfo.role);
                 setStoreUrl();
             }
         }
@@ -227,5 +231,9 @@ function logoutWithKakao() {
 }
 
 function setStoreUrl() {
-    $("#storeUrl").attr("href", `http://eat-da.com/store/index.php?id=${userInfo.storeId}`);
+    $("#storeUrl").attr("href", `https://eat-da.com/store/index.php?id=${userInfo.storeId}`);
+}
+
+function moveInstagram() {
+    location.href = "https://www.instagram.com/eatda_official/";
 }
