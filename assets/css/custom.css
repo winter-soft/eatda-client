@@ -154,6 +154,10 @@ html {
     background-color: var(--color-light-gray-text) !important;
 }
 
+.bg-gray {
+    background-color: var(--color-dark-gray-text) !important;
+}
+
 .txt-gray {
     color: var(--color-gray-text) !important;
 }
@@ -816,6 +820,7 @@ footer p .title {
     padding: 7px 10px;
     font-size: 0.9rem;
     color: var(--color-white-text);
+    background-color: var(--color-dark-gray-text);
     border-radius: 7px 7px 0 0;
     font-weight: bold;
 }
@@ -872,4 +877,23 @@ footer p .title {
     padding: 20px;
     border: 1px solid #888;
     width: 90%;
+}
+
+.coupon {
+    /*border: 1.5px solid #999999 !important;*/
+    /*padding: 10px 15px;*/
+    /*border-radius: 6px;*/
+    color: var(--color-black);
+    font-weight: bold;
+    /*background-color: #fafafa*/
+    background-size: 100% 100%;
+    height: 70px;
+    background-image: url("../img/coupon/coupon.png");
+}
+
+.coupon span {
+    position: relative;
+    left: 40%;
+    transform: translateX(-50%);
+    top: 23px;
 }

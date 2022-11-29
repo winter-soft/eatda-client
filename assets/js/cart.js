@@ -36,6 +36,60 @@ function callCouponRegisterApi(couponCode) {
     return callApi(`${couponApi}`, getEatdaToken(), METHOD_POST, data);
 }
 
+function callCouponListApi() {
+    return callFormTypeApi(`${couponApi}`, getEatdaToken(), METHOD_GET, {});
+}
+
+function clickCouponModal() {
+    modal.style.display = "block";
+}
+
+function closeCouponModal() {
+    modal.style.display = "none";
+}
+
+function registerCoupon() {
+    const couponCode = $("#couponCode").val();
+    let response = callCouponRegisterApi(couponCode);
+    if (response.status === 200) {
+        reloadCouponList();
+        alert("쿠폰 등록이 완료되었습니다");
+    } else {
+        alert(response.data.message);
+    }
+}
+
+function reloadCouponList() {
+    const couponList = callCouponListApi();
+    let couponHtml = "";
+
+    $.each(couponList.data, function (index, coupon) {
+        if (coupon.couponUse) {
+            return true;
+        }
+        couponHtml += `<div class="border-primary coupon mt-1" onclick="applyCoupon(${coupon.id}, '${coupon.coupon.couponName}', ${coupon.coupon.couponPrice})">
+                    <span>${coupon.coupon.couponName}</span>
+                </div>`;
+    });
+
+    if (couponHtml === "") {
+        couponHtml = "<p class='text-center mt-1'>등록된 쿠폰이 없습니다.</p>"
+    }
+
+    $("#couponList").html(couponHtml);
+}
+
+function applyCoupon(couponId, couponName, couponPrice) {
+    payInfo.totalPrice = payInfo.price - couponPrice;
+    payInfo.totalPrice = payInfo.totalPrice < 0 ? 0 : payInfo.totalPrice;
+    payInfo.couponId = couponId;
+    $("#registeredCouponCode").val(couponName);
+    $(".coupon-price").text(`${numberFormat(couponPrice)}원`);
+    $(".total-price").text(`${numberFormat(payInfo.totalPrice)}원`);
+    closeCouponModal();
+}
+
+
 function setStoreInfo() {
     const store = callStoreApi().data;
     $("#storeName").text(store.name);
@@ -49,7 +103,7 @@ function setCartList(cartList) {
     let optionHtml = "";
     let quantityHtml = "";
     let optionPriceHtml = "";
-    console.log(cartList);
+
     if (!cartList || cartList.length == 0) {
         alert("장바구니에 메뉴를 담아주세요 :)");
         location.href = document.referrer;
@@ -134,12 +188,12 @@ function callUserOrderApi(orderId, paymentId, couponUseId) {
     return callFormTypeApi(`${userOrderApiUrl}/${orderId}`, getEatdaToken(), METHOD_GET, data);
 }
 
-function callValidApi(orderId, orderName, amount) {
+function callValidApi(orderId, couponId, orderName, amount) {
     const data = {
         "order_id": orderId,
         "amount": amount,
         "order_name": orderName,
-        "couponUse_id": 0,
+        "couponUse_id": couponId,
     };
     return callApi(`${validApiUrl}`, getEatdaToken(), METHOD_POST, data);
 }
@@ -150,7 +204,7 @@ var tossPayments = TossPayments(clientKey)
 var button = document.getElementById('payment-button') // 결제하기 버튼
 
 function payWithToss(orderId) {
-    const response = callValidApi(orderId, payInfo.title, payInfo.price);
+    const response = callValidApi(orderId, payInfo.couponId, payInfo.title, payInfo.price);
 
     if (response.status === 200) {
         tossPayments.requestPayment('카드', response.data);

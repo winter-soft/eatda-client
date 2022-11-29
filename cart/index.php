@@ -16,7 +16,8 @@ include "../template/header.php"
     <div class="divider mt-4 mb-2"></div>
     <div id="couponBox">
         <div class="form-group row mb-3">
-            <input class="form-control col-8 ml-1 mr-1" placeholder="쿠폰 등록 버튼을 눌러주세요" type="text" id="couponCode">
+            <input class="form-control col-8 ml-1 mr-1" placeholder="쿠폰 등록 버튼을 눌러주세요" type="text"
+                   id="registeredCouponCode" readonly>
             <button class="btn btn-primary col-3" onclick="clickCouponModal()">등록
             </button>
         </div>
@@ -24,7 +25,7 @@ include "../template/header.php"
     <div class="txt-black">
         <p><span>주문금액</span><span class="float-right total-price"></span></p>
         <p class="txt-red"><span>배달비</span><span class="float-right">0원</span></p>
-        <p class="text-warning"><span>쿠폰</span><span class="float-right">0원</span></p>
+        <p class="text-warning"><span>쿠폰</span><span class="float-right coupon-price">0원</span></p>
         <p class="font-weight-bold"><span>총 결제금액</span><span class="float-right total-price"></span></p>
     </div>
     <!--    <div class="divider mt-4 mb-2"></div>-->
@@ -56,7 +57,12 @@ include "../template/header.php"
 
         <div>
             <input class="form-control" placeholder="프로모션 코드 입력" type="text" id="couponCode">
-            <button class="btn btn-primary w-100 mt-1">등록</button>
+            <button class="btn btn-primary w-100 mt-1" onclick="registerCoupon()">등록</button>
+        </div>
+        <div>
+            <p class="txt-black font-weight-bold mt-2">* 등록된 쿠폰 목록</p>
+            <div id="couponList">
+            </div>
         </div>
     </div>
 
@@ -70,13 +76,6 @@ include "../template/order_footer.php";
     const modal = document.getElementById("couponModal");
     $(document).ready(function () {
         reloadCartList();
+        reloadCouponList();
     });
-
-    function clickCouponModal() {
-        modal.style.display = "block";
-    }
-
-    function closeCouponModal() {
-        modal.style.display = "none";
-    }
 </script>

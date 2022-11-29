@@ -20,7 +20,7 @@ const ORDER_SHIPPING = "SHIPPING";
 const ORDER_COMPLETE = "COMPLETE";
 const ORDER_CANCEL = "CANCEL";
 
-const ORDER_WAITING_COLOR = "bg-light-gray";
+const ORDER_WAITING_COLOR = "bg-gray";
 const ORDER_ACCEPT_COLOR = "btn-dark";
 const ORDER_SHIPPING_COLOR = "btn-primary";
 const ORDER_COMPLETE_COLOR = "btn-success";
