@@ -841,3 +841,8 @@ footer p .title {
     font-size: 1.3rem;
     color: var(--color-white-text);
 }
+
+.boss-option {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}

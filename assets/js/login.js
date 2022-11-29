@@ -162,7 +162,6 @@ function sendAuthMessage() {
     if (response.result) {
         let authNumber = getCookie("auth_num");
         isError = authNumber === undefined || authNumber === "" ? true : isError;
-        alert(authNumber);
     }
 
     if (isError) {

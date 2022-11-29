@@ -28,6 +28,9 @@ function isDealClosed(isOrderFinished, storeId) {
 function setStoreGaugeList() {
     let storeHtml = "";
     $.each(storeList.data.content, function (index, store) {
+        if (store.recentlyOrder.orderStatus === ORDER_CANCEL) {
+            return true;
+        }
         let currentAmount = store.recentlyOrder && store.recentlyOrder.currentAmount ? store.recentlyOrder.currentAmount : 0;
         let currentMinOrderPrice = store.minOrderPrice - currentAmount;
         let isOrderFinished = store.recentlyOrder.orderStatus !== ORDER_WAITING;
