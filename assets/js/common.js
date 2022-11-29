@@ -14,6 +14,12 @@ const METHOD_PUT = "PUT";
 const TYPE_JSON = "application/json; charset=utf-8";
 const TYPE_FORM = "application/x-www-form-urlencoded; charset=utf-8";
 
+const ORDER_WAITING = "WAITING";
+const ORDER_ACCEPT = "ACCEPT";
+const ORDER_SHIPPING = "SHIPPING";
+const ORDER_COMPLETE = "COMPLETE";
+const ORDER_CANCEL = "CANCEL";
+
 let USER_INFO_API_URL = "/auth/infor";
 let REFRESH_TOKEN_API_URL = "/auth/refresh";
 

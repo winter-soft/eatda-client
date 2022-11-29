@@ -138,7 +138,7 @@ function callValidApi(orderId, orderName, amount) {
     return callApi(`${validApiUrl}`, getEatdaToken(), METHOD_POST, data);
 }
 
-var clientKey = 'test_ck_O6BYq7GWPVvN9lbXLbnVNE5vbo1d'
+var clientKey = 'live_ck_7XZYkKL4Mrjd4XLBApo30zJwlEWR'
 var tossPayments = TossPayments(clientKey)
 
 var button = document.getElementById('payment-button') // 결제하기 버튼

@@ -24,7 +24,7 @@ function setOrderHistoryList() {
        <div class="card mt-2 history-card" onclick="moveOrderDetailPage(${order.order.id})">
             <div class="history-status">
                 <img src="${order.store.backgroundImageUrl}" alt="" class="w-100">
-                <p class="text-white">${order.orderStatus === "WAITING" ? "주문 대기" : "수령 완료"}</p>
+                <p class="text-white">${setOrderStatusString(order.order.orderStatus)}</p>
             </div>   
             
             <div class="p-2">
@@ -73,4 +73,29 @@ function setOrderHistoryList() {
 
 function moveOrderDetailPage(orderId) {
     location.href = `https://eat-da.com/order/index.php?id=${orderId}`;
+}
+
+function setOrderStatusString(orderStatus) {
+    let status = "";
+    switch (orderStatus) {
+        case "WAITING":
+            status = "주문 대기";
+            break;
+        case "ACCEPT":
+            status = "주문 수락";
+            break;
+        case "SHIPPING":
+            status = "배달중";
+            break;
+        case "COMPLETE":
+            status = "배달 완료";
+            break;
+        case "CANCEL;":
+            status = "주문 취소";
+            break;
+        default:
+            break;
+    }
+
+    return status;
 }

@@ -27,7 +27,7 @@
 <header>
     <span>잇다</span>
     <a href="https://eat-da.com">
-        <button>앱 다운로드</button>
+        <button>서비스 사용하기</button>
     </a>
 </header>
 <section id="intro-section">

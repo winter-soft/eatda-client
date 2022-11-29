@@ -255,18 +255,32 @@ html {
     margin-right: 30px;
 }
 
-.main-banner {
+.main-banner, .main-banner-test {
     padding: 15px 20px;
     border-radius: 10px;
-    line-height: 33px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
+.main-banner-test div {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--color-white-text);
+    margin: 0;
+    line-height: 130%;
+}
+
+.main-banner-test .icon {
+    font-size: 1.3rem !important;
+    left: -10px;
+}
+
 
 .main-banner p {
     font-size: 1.5rem;
     font-weight: 800;
     color: var(--color-white-text);
     margin: 0;
+    line-height: 33px;
 }
 
 ion-icon {
@@ -719,8 +733,8 @@ button:focus {
 footer {
     background-color: var(--color-light-gray-text);
     padding: 20px 15px 70px 15px;
-    margin-top: 30px;
     font-size: 0.8rem;
+    margin-top: 30px;
 }
 
 footer p {
@@ -808,4 +822,22 @@ footer p .title {
     background-color: var(--color-black);
     padding: 5px 10px;
     font-weight: bold;
+}
+
+.w-48 {
+    width: 48%;
+}
+
+.brightness-50 {
+    filter: brightness(40%);
+}
+
+.deal-close-comment {
+    position: absolute;
+    top: 47%;
+    z-index: 100;
+    left: 29%;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: var(--color-white-text);
 }
