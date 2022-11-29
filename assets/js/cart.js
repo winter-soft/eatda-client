@@ -49,6 +49,12 @@ function setCartList(cartList) {
     let optionHtml = "";
     let quantityHtml = "";
     let optionPriceHtml = "";
+    console.log(cartList);
+    if (!cartList || cartList.length == 0) {
+        alert("장바구니에 메뉴를 담아주세요 :)");
+        location.href = document.referrer;
+    }
+
     $.each(cartList, function (index, cart) {
         optionHtml = "";
         quantityHtml = "";
