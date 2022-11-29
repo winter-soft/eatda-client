@@ -20,6 +20,12 @@ const ORDER_SHIPPING = "SHIPPING";
 const ORDER_COMPLETE = "COMPLETE";
 const ORDER_CANCEL = "CANCEL";
 
+const ORDER_WAITING_COLOR = "bg-light-gray";
+const ORDER_ACCEPT_COLOR = "btn-dark";
+const ORDER_SHIPPING_COLOR = "btn-primary";
+const ORDER_COMPLETE_COLOR = "btn-success";
+const ORDER_CANCEL_COLOR = "btn-danger";
+
 let USER_INFO_API_URL = "/auth/infor";
 let REFRESH_TOKEN_API_URL = "/auth/refresh";
 
@@ -242,4 +248,29 @@ function setStoreUrl() {
 
 function moveInstagram() {
     location.href = "https://www.instagram.com/eatda_official/";
+}
+
+function setOrderStatusColor(orderStatus) {
+    let color = "";
+    switch (orderStatus) {
+        case "WAITING":
+            color = ORDER_WAITING_COLOR;
+            break;
+        case "ACCEPT":
+            color = ORDER_ACCEPT_COLOR;
+            break;
+        case "SHIPPING":
+            color = ORDER_SHIPPING_COLOR;
+            break;
+        case "COMPLETE":
+            color = ORDER_COMPLETE_COLOR;
+            break;
+        case "CANCEL;":
+            color = ORDER_CANCEL_COLOR;
+            break;
+        default:
+            break;
+    }
+
+    return color;
 }

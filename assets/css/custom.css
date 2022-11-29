@@ -808,7 +808,6 @@ footer p .title {
 }
 
 .boss-order-date {
-    background-color: var(--color-black);
     width: auto;
     padding: 7px 10px;
     font-size: 0.9rem;

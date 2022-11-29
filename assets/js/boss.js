@@ -28,6 +28,21 @@ function callOrderAccept(orderId) {
     updateOrderStatus(orderId, ORDER_ACCEPT, "주문 수락 완료!\n주문한 학생들에게 주문 수락 알림이 발송되었습니다");
 }
 
+function callOrderShipping(orderId) {
+    updateOrderStatus(orderId, ORDER_SHIPPING, "배달 시작!\n주문한 학생들에게 배달 시작 알림이 발송되었습니다");
+}
+
+function callOrderComplete(orderId) {
+    updateOrderStatus(orderId, ORDER_COMPLETE, "배달 완료!\n주문한 학생들에게 배달 완료 알림이 발송되었습니다");
+}
+
+function callOrderCancel(orderId) {
+    const result = confirm("주문 전체를 정말 취소하시겠습니까?");
+    if (result) {
+        updateOrderStatus(orderId, ORDER_CANCEL, "주문 취소가 되었습니다.\n주문한 학생들에게 주문 취소 알림이 발송되었습니다");
+    }
+}
+
 function callBossOrderListApi(date) {
     const data = {
         "date": date
@@ -48,6 +63,7 @@ function setOrderCardList() {
             return true;
         }
         let orderId = response.data[0].id;
+        let orderColor = setOrderStatusColor(response.data[0].orderStatus);
 
         let orderDetailHtml = "";
         let orderDetailResponse = callBossOrderDetailListApi(orderId);
@@ -89,19 +105,19 @@ function setOrderCardList() {
         });
 
         orderCardHtml += `
-        <div class="boss-order-date">
+        <div class="boss-order-date ${orderColor}">
             ${date} 저녁 주문건
 <!--            <span class="float-right"><ion-icon name="chevron-down-outline"></ion-icon></span>-->
         </div>
         <div class="card p-2 mb-3">
         ${orderDetailHtml}
             <div class="row mb-1">
-                <button class="btn btn-dark mr-1 w-48">주문수락</button>
-                <button class="btn btn-success w-48">배달시작</button>
+                <button class="btn ${ORDER_ACCEPT_COLOR} mr-1 w-48" onclick="callOrderAccept(${orderId})">주문수락</button>
+                <button class="btn ${ORDER_SHIPPING_COLOR} w-48" onclick="callOrderShipping(${orderId})">배달시작</button>
             </div>
             <div class="row mb-1">
-                <button class="btn btn-primary mr-1 w-48">배달완료</button>
-                <button class="btn btn-danger w-48">주문취소</button>
+                <button class="btn ${ORDER_COMPLETE_COLOR} mr-1 w-48" onclick="callOrderComplete(${orderId})">배달완료</button>
+                <button class="btn ${ORDER_CANCEL_COLOR} w-48" onclick="callOrderCancel(${orderId})">주문취소</button>
             </div>
         </div>
         `;
