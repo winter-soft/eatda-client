@@ -5,9 +5,9 @@ include "../template/header.php"
 <img src="../assets/img/order/order-status.png" alt=""
 <div class="mt-3">
     <p class="lg-txt txt-black font-weight-bold mt-3" id="storeName">
-        배달주소 <span class="txt-yellow">*16번 라커</span>
+        배달주소
     </p>
-    <p class="txt-black mt-1">단국대학교 기숙사 진리관 로비</p>
+    <p class="txt-black mt-1">단국대학교 기숙사 웅비홀 로비 앞</p>
     <div id="orderInfo"></div>
 
     <div class="txt-black">
