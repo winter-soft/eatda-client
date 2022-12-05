@@ -23,10 +23,11 @@ include "../template/header.php"
         </div>
     </div>
     <div class="txt-black">
-        <p><span>주문금액</span><span class="float-right total-price"></span></p>
+        <p><span>주문금액</span><span class="float-right order-price"></span></p>
         <p class="txt-red"><span>배달비</span><span class="float-right">0원</span></p>
         <p class="text-warning"><span>쿠폰</span><span class="float-right coupon-price">0원</span></p>
         <p class="font-weight-bold"><span>총 결제금액</span><span class="float-right total-price"></span></p>
+        <p id="coupon-free"></p>
     </div>
     <!--    <div class="divider mt-4 mb-2"></div>-->
     <!--    <p class="txt-black"><span>결제수단</span><span class="float-right">카카오페이</span></p>-->
@@ -60,7 +61,7 @@ include "../template/header.php"
             <button class="btn btn-primary w-100 mt-1" onclick="registerCoupon()">등록</button>
         </div>
         <div>
-            <p class="txt-black font-weight-bold mt-2">* 등록된 쿠폰 목록</p>
+            <p class="txt-black font-weight-bold mt-2">* MY 쿠폰 목록</p>
             <div id="couponList">
             </div>
         </div>

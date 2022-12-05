@@ -2,6 +2,7 @@ $(document).ready(function () {
     setBossInfo();
     setOrderCardList();
     setOpenOrderCard();
+    callBossOrderDetailListApi(19);
 });
 
 let orderStatusApiUrl = "/order";
@@ -143,7 +144,7 @@ function setOpenOrderCard() {
     let imgStyle = isOrderFinished ? "brightness-50" : "";
     currentMinOrderPrice = isOrderFinished ? "금액 달성 완료" : `${numberFormat(currentMinOrderPrice)}원만 모이면 배달 가능`;
     let orderFinishedComment = isOrderFinished ? `<p class="deal-close-comment">공동배달 딜 마감</p>` : "";
-    let orderFinishedFooterComment = isOrderFinished ? "오늘의 공동배달딜이 매진되었습니다" : "오늘 오후 4시 30분에 주문이 마감됩니다";
+    let orderFinishedFooterComment = isOrderFinished ? "오늘의 공동배달딜이 매진되었습니다" : "오늘 오후 5시에 주문이 마감됩니다";
 
     let gaugeHtml = ` <div class="gauge mb-1">
                         <div class="float-right">${numberFormat(store.minOrderPrice)}원</div>

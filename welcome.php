@@ -47,7 +47,7 @@
 </section>
 <section id="section1">
     김밥 한줄도 <span class="font-weight-bold">무료배달</span><br>
-    <span class="font-weight-bold">오후 4시 30분</span>까지 주문하고<br>
+    <span class="font-weight-bold">오후 5시</span>까지 주문하고<br>
     <span class="font-weight-bold">기숙사 로비</span>에서 받아보세요<br>
 </section>
 <section id="section2">

@@ -38,26 +38,41 @@ include "template/header.php"
     </div>
     <div class="tab-pane fade active show" id="today-dinner" role="tabpanel">
         <div class="main-banner-test mt-2 mb-1 bg-orange-gradient">
-            <div class="row">
-                <div class="col-1 icon">
-                    <ion-icon name="information-circle-outline"></ion-icon>
+            <a href="https://www.instagram.com/eatda_official/">
+                <div class="row">
+                    <div class="col-1 icon">
+                        <ion-icon name="information-circle-outline"></ion-icon>
+                    </div>
+                    <div class="col-11">베타 테스트 기간이 종료되었습니다.<br>
+                        겨울방학 때 다시 돌아올 잇다를 기대해주세요!<br>
+                        (버튼 클릭시 인스타그램으로 이동합니다.)<br>
+                    </div>
                 </div>
-                <div class="col-11">미리 주문해보세요!<br>오늘 오후 4시 30분까지만 주문을 받습니다.<br></div>
-            </div>
+            </a>
         </div>
-        <div class="main-banner-test mb-1 bg-black">
-            <div class="row">
-                <div class="col-1 icon">
-                    <ion-icon name="information-circle-outline"></ion-icon>
-                </div>
-                <div class="col-11">
-                    단국대 학생들이 직접 만든 앱입니다.<br>
-                    오류가 발생할 수 있는 점 양해 부탁드립니다.<br><br>
-                    결제 시 현재 신한카드, 토스, 네이버페이<br>
-                    카카오페이, 페이코만 이용이 가능합니다.
-                </div>
-            </div>
-        </div>
+        <!--        <div class="main-banner-test mb-1 bg-black">-->
+        <!--            <div class="row">-->
+        <!--                <div class="col-1 icon">-->
+        <!--                    <ion-icon name="information-circle-outline"></ion-icon>-->
+        <!--                </div>-->
+        <!--                <div class="col-11">-->
+        <!--                    단국대 학생들이 직접 만든 앱입니다.<br>-->
+        <!--                    오류가 발생할 수 있는 점 양해 부탁드립니다.<br><br>-->
+        <!--                    결제 시 현재 신한카드, 토스, 네이버페이<br>-->
+        <!--                    카카오페이, 페이코만 이용이 가능합니다.-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--        <div class="main-banner-test mb-1 bg-insta-gradient">-->
+        <!--            <a href="https://www.instagram.com/eatda_official/">-->
+        <!--                <div class="row">-->
+        <!--                    <div class="col-1 icon">-->
+        <!--                        <ion-icon name="information-circle-outline"></ion-icon>-->
+        <!--                    </div>-->
+        <!--                    <div class="col-11">인스타그램 속 학생들의 리뷰!<br>버튼 클릭시 인스타그램으로 이동합니다.<br></div>-->
+        <!--                </div>-->
+        <!--            </a>-->
+        <!--        </div>-->
         <ul class="nav nav-tabs size2 mt-2" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#all" role="tab" aria-selected="true">
@@ -81,7 +96,7 @@ include "template/header.php"
                         <h1>새로 들어왔어요!</h1>
                     </div>
                     <div>
-                        <p class="text-dark mt-1">건별 주문이 이뤄지며, 게이지가 다 차지 않아도<br>주문이 시작됩니다.</p>
+                        <p class="text-dark mt-1">건별 주문이 이뤄지며, 게이지가 다 차지 않아도 주문이<br>시작됩니다. (하이로왕 마라탕 매주 금요일 휴무)</p>
                     </div>
                     <div id="storeGaugeList"></div>
                 </div>

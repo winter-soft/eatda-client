@@ -18,16 +18,20 @@ function callStoreApi() {
 }
 
 function isDealClosed(isOrderFinished, storeId) {
-    if (isOrderFinished) {
-        alert("이미 마감된 공동배달 딜입니다\n내일 주문 부탁드려요 :)");
-    } else {
-        location.href = `../../store/index.php?id=${storeId}`;
-    }
+    // if (isOrderFinished) {
+    //     alert("이미 마감된 공동배달 딜입니다\n내일 주문 부탁드려요 :)");
+    // } else {
+    //     location.href = `../../store/index.php?id=${storeId}`;
+    // }
+
+    location.href = `../../store/index.php?id=${storeId}`;
 }
 
 function setStoreGaugeList() {
     let storeHtml = "";
-    $.each(storeList.data.content, function (index, store) {
+    let storeReversedList = storeList.data.content.reverse();
+    console.log(storeReversedList);
+    $.each(storeReversedList, function (index, store) {
         if (store.recentlyOrder.orderStatus === ORDER_CANCEL) {
             return true;
         }
@@ -35,9 +39,13 @@ function setStoreGaugeList() {
         let currentMinOrderPrice = store.minOrderPrice - currentAmount;
         let isOrderFinished = store.recentlyOrder.orderStatus !== ORDER_WAITING;
         let imgStyle = isOrderFinished ? "brightness-50" : "";
-        currentMinOrderPrice = isOrderFinished ? "금액 달성 완료" : `${numberFormat(currentMinOrderPrice)}원만 모이면 배달 가능`;
+
+        let currentMinOrderPriceStr = isOrderFinished ? "금액 달성 완료" : `${numberFormat(currentMinOrderPrice)}원만 모이면 배달 가능`;
+        if (currentMinOrderPrice < 0) {
+            currentMinOrderPriceStr = "금액 달성 완료";
+        }
         let orderFinishedComment = isOrderFinished ? `<p class="deal-close-comment">공동배달 딜 마감</p>` : "";
-        let orderFinishedFooterComment = isOrderFinished ? "오늘의 공동배달딜이 매진되었습니다" : "오늘 오후 4시 30분에 주문이 마감됩니다";
+        let orderFinishedFooterComment = isOrderFinished ? "오늘의 공동배달딜이 매진되었습니다" : "오늘 오후 5시에 주문이 마감됩니다";
 
         let gaugeHtml = ` <div class="gauge mb-1">
                         <div class="float-right">${numberFormat(store.minOrderPrice)}원</div>
@@ -60,7 +68,7 @@ function setStoreGaugeList() {
             <div class="card-tag-box">
                 <img src="${store.backgroundImageUrl}" alt="" class="w-100 ${imgStyle}">
                 ${orderFinishedComment}
-                <div class="card-tag"><span class="font-weight-bold">${currentMinOrderPrice}</span></div>
+                <div class="card-tag"><span class="font-weight-bold">${currentMinOrderPriceStr}</span></div>
             </div>
 
             <div class="p-2">

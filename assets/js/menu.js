@@ -68,7 +68,8 @@ function setMenu(menu) {
 }
 
 function setAddCartButton(menuId, orderId) {
-    const addCartBtnHtml = `<button class="bottom-btn" onclick="addCart(${menuId}, ${orderId})">장바구니에 담기</button>`;
+    // const addCartBtnHtml = `<button class="bottom-btn" onclick="addCart(${menuId}, ${orderId})">장바구니에 담기</button>`;
+    const addCartBtnHtml = `<button class="bottom-btn" onclick="addCartWhenDealClosed()">장바구니에 담기</button>`;
     $('#addCartBtn').html(addCartBtnHtml);
 }
 

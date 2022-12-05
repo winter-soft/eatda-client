@@ -26,6 +26,7 @@ function setStore(store) {
     let response = {};
     let storeDetail = {};
     let orderId = 0;
+    const deliveryTime = store.id !== 2 ? "18:00" : "18:30";
 
     // 최근 주문이 있는지 확인
     if (!store.recentlyOrder) {
@@ -108,11 +109,11 @@ function setStore(store) {
         <div class="row">
             <div class="col-6 border-right text-center txt-black p-2">
                 <span class="font-weight-bold mr-1">주문마감</span>
-                <span class="font-weight-light">16:30</span>
+                <span class="font-weight-light">17:00</span>
             </div>
             <div class="col-6 text-center txt-black p-2">
                 <span class="font-weight-bold mr-1">배달시작</span>
-                <span class="font-weight-light">19:00</span>
+                <span class="font-weight-light">${deliveryTime}</span>
             </div>
         </div>
     </div>

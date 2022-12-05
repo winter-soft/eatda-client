@@ -80,8 +80,12 @@ function reloadCouponList() {
 }
 
 function applyCoupon(couponId, couponName, couponPrice) {
-    payInfo.totalPrice = payInfo.price - couponPrice;
-    payInfo.totalPrice = payInfo.totalPrice < 0 ? 0 : payInfo.totalPrice;
+    payInfo.totalPrice = payInfo.orderPrice - couponPrice;
+    if (payInfo.totalPrice <= 0) {
+        $("#coupon-free").html("쿠폰을 사용하셔서 결제 금액이 없다면,<br>1원만 결제 부탁드립니다 :)");
+    }
+    payInfo.totalPrice = payInfo.totalPrice <= 0 ? 1 : payInfo.totalPrice;
+
     payInfo.couponId = couponId;
     $("#registeredCouponCode").val(couponName);
     $(".coupon-price").text(`${numberFormat(couponPrice)}원`);
@@ -98,6 +102,11 @@ function setStoreInfo() {
 let payInfo = {};
 
 function setCartList(cartList) {
+    // 종료 처리
+    addCartWhenDealClosed();
+    location.href = document.referrer;
+    return;
+
     let cartListHtml = "";
     let totalPrice = 0;
     let optionHtml = "";
@@ -145,8 +154,10 @@ function setCartList(cartList) {
     });
 
     $("#cartList").html(cartListHtml);
+    $(".order-price").text(`${numberFormat(totalPrice)}원`);
     $(".total-price").text(`${numberFormat(totalPrice)}원`);
 
+    payInfo.orderPrice = totalPrice;
     payInfo.price = totalPrice;
     payInfo.quantity = cartList.length;
     payInfo.title = payInfo.quantity === 1 ? cartList[0].menu.name : `${cartList[0].menu.name}외 ${payInfo.quantity - 1}건`;
@@ -189,12 +200,17 @@ function callUserOrderApi(orderId, paymentId, couponUseId) {
 }
 
 function callValidApi(orderId, couponId, orderName, amount) {
+    if (!couponId || couponId === "") {
+        couponId = 0;
+    }
     const data = {
         "order_id": orderId,
         "amount": amount,
         "order_name": orderName,
         "couponUse_id": couponId,
     };
+
+    console.log(data);
     return callApi(`${validApiUrl}`, getEatdaToken(), METHOD_POST, data);
 }
 
@@ -208,6 +224,8 @@ function payWithToss(orderId) {
 
     if (response.status === 200) {
         tossPayments.requestPayment('카드', response.data);
+    } else {
+        alert("결제 모듈을 점검중입니다\n잠시만 기다려주세요\n감사합니다");
     }
     // if (callUserOrderApi(orderId).status === 200) {
     //     tossPayments.requestPayment('카드', {

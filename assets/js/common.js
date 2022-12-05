@@ -274,3 +274,7 @@ function setOrderStatusColor(orderStatus) {
 
     return color;
 }
+
+function addCartWhenDealClosed() {
+    alert("베타 서비스 기간이 종료되었습니다 :)\n겨울방학 때 돌아올 잇다를 조금만 기다려주세요");
+}
