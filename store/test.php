@@ -45,13 +45,16 @@ include "../template/header.php"
 </div>
 <div id="cartInfoBtn"></div>
 <?php
-$_GET['jsFile'] = ["cart", "store"];
+$_GET['jsFile'] = ["cart", "store", "review"];
 include "../template/footer.php";
 ?>
 <script>
     $(document).ready(function () {
-        const response = callStoreApi(<?php echo $_GET["id"]?>);
+        const storeId = <?php echo $_GET["id"]?>;
+        const response = callStoreApi(storeId);
         setStore(response.data);
+
+        setPreviewReviewList(storeId);
     });
 </script>
 

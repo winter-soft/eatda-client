@@ -908,6 +908,7 @@ footer p .title {
     overflow: auto;
     overflow-y: hidden;
     white-space: nowrap;
+    margin-top: -30px;
 }
 
 .review-list .review {
@@ -929,7 +930,7 @@ footer p .title {
     height: 80px;
     border-radius: 5px;
     position: relative;
-    bottom: 140px;
+    bottom: 190px;
     padding: 17px;
     text-align: center;
     border: 1px solid var(--color-black);
@@ -942,6 +943,7 @@ footer p .title {
     margin-bottom: 90px;
     display: inline-block;
     border-radius: 5px 0 0 5px;
+    object-fit: cover;
 }
 
 .review .review-content {
@@ -951,13 +953,16 @@ footer p .title {
     display: inline-block;
     font-size: 0.8rem;
     position: relative;
-    top: -134px;
+    top: -128px;
     left: -24px;
     line-height: 135%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #storeMenu {
-    margin-top: -150px;
+    margin-top: -200px;
 }
 
 .rate {
@@ -985,22 +990,22 @@ footer p .title {
     content: '★ ';
 }
 
-.rate > input:checked ~ label {
-    color: var(--color-yellow-text);
-}
+/*.rate > input:checked ~ label {*/
+/*    color: var(--color-yellow-text);*/
+/*}*/
 
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: var(--color-yellow-text);
-}
+/*.rate:not(:checked) > label:hover,*/
+/*.rate:not(:checked) > label:hover ~ label {*/
+/*    color: var(--color-yellow-text);*/
+/*}*/
 
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: var(--color-yellow-text);
-}
+/*.rate > input:checked + label:hover,*/
+/*.rate > input:checked + label:hover ~ label,*/
+/*.rate > input:checked ~ label:hover,*/
+/*.rate > input:checked ~ label:hover ~ label,*/
+/*.rate > label:hover ~ input:checked ~ label {*/
+/*    color: var(--color-yellow-text);*/
+/*}*/
 
 .review .rate-box {
     position: relative;
