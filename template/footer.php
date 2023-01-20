@@ -1,7 +1,7 @@
 <?php
 $fileName = "user_footer.php";
 if (!empty($_COOKIE['erole']) && $_COOKIE['erole'] == "BOSS") {
-	$fileName = "boss_footer.php";
+    $fileName = "boss_footer.php";
 }
 ?>
 
@@ -32,14 +32,14 @@ include_once $fileName;
 <?php
 $jsFileName = $_GET["jsFile"];
 if (!empty($jsFileName)) {
-	$currentTime = time();
-	if (is_array($jsFileName) && sizeof($jsFileName) > 1) {
-		foreach ($jsFileName as $fileName) {
-			echo "<script src='../assets/js/{$fileName}.js?{$currentTime}'></script>";
-		}
-	} else {
-		echo "<script src='../assets/js/{$jsFileName}.js?{$currentTime}'></script>";
-	}
+    $currentTime = time();
+    if (is_array($jsFileName) && sizeof($jsFileName) > 1) {
+        foreach ($jsFileName as $fileName) {
+            echo "<script src='../assets/js/{$fileName}.js?{$currentTime}'></script>";
+        }
+    } else {
+        echo "<script src='../assets/js/{$jsFileName}.js?{$currentTime}'></script>";
+    }
 }
 ?>
 

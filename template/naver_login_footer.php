@@ -13,7 +13,7 @@
 <!-- Main Js File -->
 <script src="../assets/js/app.js?221130"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script src="../assets/js/common.js"></script>
+<script src="../assets/js/common.js?230120"></script>
 <script src="../assets/js/api.js"></script>
 <script>
     var naver_id_login = new naver_id_login("wdS5u9Z7EcvhwSzO5j9x", "https://eat-da.com/auth/n_loading.php");

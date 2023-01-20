@@ -1,5 +1,6 @@
 const API_BASE_URL = "https://eat-da.com:8000/api";
-const INDEX = "https://eat-da.com";
+// const INDEX = "https://eat-da.com";
+const INDEX = "http://eatda.wintersoft.kr";
 const DOMAIN = location.protocol + '//' + location.host;
 
 const REST_API_KEY = "3aa8f27ae8e8482840c63a9643a5ae8d";
@@ -243,7 +244,7 @@ function logoutWithKakao() {
 }
 
 function setStoreUrl() {
-    $("#storeUrl").attr("href", `https://eat-da.com/store/index.php?id=${userInfo.storeId}`);
+    $("#storeUrl").attr("href", `${INDEX}/store/index.php?id=${userInfo.storeId}`);
 }
 
 function moveInstagram() {

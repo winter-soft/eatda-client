@@ -72,7 +72,7 @@ function setOrderHistoryList() {
 }
 
 function moveOrderDetailPage(orderId) {
-    location.href = `https://eat-da.com/order/index.php?id=${orderId}`;
+    location.href = `${INDEX}/order/index.php?id=${orderId}`;
 }
 
 function setOrderStatusString(orderStatus) {

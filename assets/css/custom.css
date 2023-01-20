@@ -902,3 +902,113 @@ footer p .title {
     top: 23px;
     font-weight: bold;
 }
+
+.review-list {
+    width: 100%;
+    overflow: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.review-list .review {
+    display: inline-block;
+    width: 200px;
+    height: 80px;
+    margin-right: 5px;
+}
+
+.review {
+    margin-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    border-radius: 5px;
+}
+
+.review-last {
+    display: inline-block;
+    width: 100px;
+    height: 80px;
+    border-radius: 5px;
+    position: relative;
+    bottom: 140px;
+    padding: 17px;
+    text-align: center;
+    border: 1px solid var(--color-black);
+    color: var(--color-black);
+}
+
+.review img {
+    width: 80px;
+    height: 100%;
+    margin-bottom: 90px;
+    display: inline-block;
+    border-radius: 5px 0 0 5px;
+}
+
+.review .review-content {
+    width: 45%;
+    margin-left: 12px;
+    height: 80px;
+    display: inline-block;
+    font-size: 0.8rem;
+    position: relative;
+    top: -134px;
+    left: -24px;
+    line-height: 135%;
+}
+
+#storeMenu {
+    margin-top: -150px;
+}
+
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+
+.rate:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rate > input:checked ~ label {
+    color: var(--color-yellow-text);
+}
+
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: var(--color-yellow-text);
+}
+
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: var(--color-yellow-text);
+}
+
+.review .rate-box {
+    position: relative;
+    top: -161px;
+    left: 80px;
+}
+
+.review .rate-box label {
+    width: 17px;
+    font-size: 18px;
+}
