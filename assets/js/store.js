@@ -22,11 +22,10 @@ function getStoreOrderApiJson() {
     return data;
 }
 
-function setStore(store) {
+function setStore(store, isReview) {
     let response = {};
     let storeDetail = {};
     let orderId = 0;
-    const deliveryTime = store.id !== 2 ? "18:00" : "18:30";
 
     // 최근 주문이 있는지 확인
     if (!store.recentlyOrder) {
@@ -64,6 +63,7 @@ function setStore(store) {
                     <div class="content">
                         <p class="name font-weight-bold">${menu.name}</p>
                         <p class="price">${numberFormat(menu.price)}원</p>
+                        <p class="detail">${menu.menuDetail == null ? "" : menu.menuDetail}</p>
                     </div>
                      <div class="menu-img">
                         <img src="${menu.imageUrl}" alt="">
@@ -104,18 +104,7 @@ function setStore(store) {
                 <p class="float-right text-black-50 font-weight-bold m-0 m-txt">${numberFormat(storeDetail.store.minOrderPrice)}원부터 공동배달</p>
             </div>
         </div>
-       
-        <hr class="p-0 m-0">
-        <div class="row">
-            <div class="col-6 border-right text-center txt-black p-2">
-                <span class="font-weight-bold mr-1">주문마감</span>
-                <span class="font-weight-light">17:00</span>
-            </div>
-            <div class="col-6 text-center txt-black p-2">
-                <span class="font-weight-bold mr-1">배달시작</span>
-                <span class="font-weight-light">${deliveryTime}</span>
-            </div>
-        </div>
+       ${isReview ? "" : getDeliveryLimitTimeHtml()}
     </div>
     `;
 
@@ -123,6 +112,21 @@ function setStore(store) {
     $('#menuList').html(menuHtml);
 
     window.localStorage.setItem("sid", store.id);
+}
+
+function getDeliveryLimitTimeHtml() {
+    return `
+     <hr class="p-0 m-0">
+        <div class="row">
+            <div class="col-6 border-right text-center txt-black p-2">
+                <span class="font-weight-bold mr-1">주문마감</span>
+                <span class="font-weight-light">17:00</span>
+            </div>
+            <div class="col-6 text-center txt-black p-2">
+                <span class="font-weight-bold mr-1">배달시작</span>
+                <span class="font-weight-light">18:30</span>
+            </div>
+        </div>`;
 }
 
 // 장바구니에 담긴 상품이 있을경우 하단에 정보를 노출하는 함수

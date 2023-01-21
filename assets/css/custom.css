@@ -607,6 +607,11 @@ a {
     margin: 0 0 5px 0;
 }
 
+.store-menu-list .menu-box .menu .content .detail {
+    color: var(--color-dark-gray-text);
+    font-size: 0.9rem;
+}
+
 .menu-img-box {
     position: absolute;
     top: 0;
@@ -1016,4 +1021,35 @@ footer p .title {
 .review .rate-box label {
     width: 17px;
     font-size: 18px;
+}
+
+.review-list a:hover {
+    color: var(--color-black);
+}
+
+.review-info {
+    color: var(--color-black);
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.review-info .review-rate {
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.review-info-content {
+    position: absolute;
+    left: 30px;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.review-info-content .photo-review {
+    color: var(--color-green-text);
+}
+
+.review-info-content .custom-control .custom-control-input:checked ~ .custom-control-label:before {
+    background: var(--color-green-text) !important;
+    border-color: var(--color-green-text) !important;
 }
