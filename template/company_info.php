@@ -24,7 +24,7 @@
             <span>
                 <a href="../sale_privacy.php">판매정책</a> | <a href="../privacy.php">개인정보 처리방침</a>
             </span><br>
-            <span>2022 © 가화 all rights reserved</span>
+            <span>2023 © 가화 all rights reserved</span>
         </p>
     </div>
 </footer>

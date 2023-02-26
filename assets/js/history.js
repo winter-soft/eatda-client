@@ -54,17 +54,16 @@ function setOrderHistoryList() {
         menuList += `<hr>  <p class="font-weight-bold mt-2">
                     <span>합계</span>
                     <span class="float-right">${numberFormat(menuTotalPrice)}원</span>
-                </p></div></div></div>`;
+                </p></div>`;
 
         orderHistoryHtml += menuList;
 
-        // orderHistoryHtml += `  <div class="mt-2">
-        //             <button class="btn btn-outline-primary w-100">리뷰 작성하기</button>
-        //         </div>
-        //     </div>
-        // </div>
-        // `;
-
+        orderHistoryHtml += `  <div class="mt-2">
+                    <button class="btn btn-outline-primary w-100">리뷰 작성하기</button>
+                </div>
+            </div>
+        </div>
+        `;
 
     });
 
