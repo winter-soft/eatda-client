@@ -93,7 +93,7 @@ function setStore(store, isReview) {
     }
 
     let storeHtml = `
-        <div class="store-img-box">
+        <div class="${isReview ? "store-img-box store-review-img-box" : "store-img-box"}">
             <img src="${storeDetail.store.backgroundImageUrl}" alt="">
         </div>
         <div class="card bt-70">
